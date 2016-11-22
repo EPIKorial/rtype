@@ -1,0 +1,395 @@
+
+
+
+
+R-Type                                                           F. Huet
+Request for Comments: 7990                                       M. Agor
+Category: Informational				                          F. Labreze
+                                                               MegaMalin
+                                                           November 2016
+
+
+                  Instructions to R-Type protocole
+
+Status of this Memo
+
+   This memo provides information for the Internet community.  This memo
+   does not specify an Internet standard of any kind.  Distribution of
+   this memo is unlimited.
+
+Copyright Notice
+
+   Copyright (C) R-Type (2016).  All Rights Reserved.
+
+Table of Contents
+
+   1.    Introduction . . . . . . . . . . . . . . . . . . . . . . . . 2
+   2.    Connection and lobby . . . . . . . . . . . . . . . . . . . . 2
+   2.1.   TCP protocol  . . . . . . . . . . . . . . . . . . . . . . . 2
+   2.2.   Connection  . . . . . . . . . . . . . . . . . . . . . . . . 2
+   2.3.   Rooms list  . . . . . . . . . . . . . . . . . . . . . . . . 2
+   2.4.   Lobby . . . . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.4.1.  Room create  . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.4.2.  Room join  . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.5.   Room joined . . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.6.   Room players  . . . . . . . . . . . . . . . . . . . . . . . 3
+   2.7.   Room player list  . . . . . . . . . . . . . . . . . . . . . 3
+   2.8.   Player is ready . . . . . . . . . . . . . . . . . . . . . . 4
+   2.9.   Game start  . . . . . . . . . . . . . . . . . . . . . . . . 4
+   3.    R-Type Game Protocol . . . . . . . . . . . . . . . . . . . . 4
+   3.1.	  Message Header  . . . . . . . . . . . . . . . . . . . . . . 4
+   3.2.	  Messages  . . . . . . . . . . . . . . . . . . . . . . . . . 5
+   3.2.1.  Position Update  . . . . . . . . . . . . . . . . . . . . . 5
+   3.2.2.  Client Messages  . . . . . . . . . . . . . . . . . . . . . 5
+   3.2.2.1. Fire  . . . . . . . . . . . . . . . . . . . . . . . . . . 5
+   3.2.3.  Server Messages  . . . . . . . . . . . . . . . . . . . . . 6
+   3.2.3.1. Instantiation . . . . . . . . . . . . . . . . . . . . . . 6
+   3.2.3.2. Collision . . . . . . . . . . . . . . . . . . . . . . . . 7
+   3.2.3.3. Deletion  . . . . . . . . . . . . . . . . . . . . . . . . 7
+
+   
+   
+   
+   
+   
+   
+   
+Huet & Agor & Labreze       Informational                       [Page 1]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+1.	Introduction
+
+	This Request for Comments (RFC) provides information about the
+	R-Type protocole. The MegaMalin R-Type is a shoot them up video game
+	playable up to four on the internet. First of all, each player must
+	connect to the server before they can join a Room to find other
+	players and finally be able to launch the game. If you read this RFC
+	in front of us, you can ask F. Huet for have a chocolate. In this
+	RFC you will find the entire protocol between the client and the
+	server for the MegaMalin's R-Type game.
+   
+2.	Connection and lobby
+
+	At the game start, it try to connect to the server. Once the
+	connection is established, the server, offer you the possibility to
+	create or join a room. When you are in a room and the players inside
+	are ready, the actual game starts.
+
+	2.1. TCP protocol
+
+		The connection and the room system uses tcp protocol.
+		The requests MUST uses csv formating.
+
+	2.2. Connection
+	
+		To connect, the game MUST send a "connect" request.
+		
+		Request format :
+		CONNECT,<PlayerNickname>
+
+		The player nickname MUST use alphanumeric characters.
+
+	2.3. Rooms list
+
+		Once the client is connected, the server returns the list of all
+		the avalaibles rooms. A room become unavalaible when the game
+		starts.
+		
+		Response format:
+		ROOM_LIST,<RoomName>,<PlayerNumber>	
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+Huet & Agor & Labreze       Informational                       [Page 2]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+	2.4. Lobby
+
+		In the lobby you can create a room or join an existing room.
+		You can see all the avalaibles rooms and the number of players
+		inside each of them.
+
+		2.4.1. Room creation
+		
+			In the lobby, you can create a new room. You MUST specify a
+			room name.
+
+			Request format :
+			ROOM_CREATE,<RoomName>
+			
+			The RoomName MUST use alphanumeric characters.
+
+		2.4.2. Room join
+
+			You can also choose a room from the avalaible list, and join
+			it. The room's name MUST be specified.
+
+			Request format : 
+			ROOM_JOIN,<RoomName>
+
+	2.5. Room joined
+
+		When you try to create or join a room, the server sends back a
+		response, that contains the status of your attempt, the name of
+		the room, your personnal id (in the case it did not fail) and
+		the room's port.
+	
+		Response format :
+		ROOM_JOINED,<OK/KO>,<RoomName>,<YourID>,<Room'sPort>
+	
+	2.6. Room players
+
+		When you enter a room, the client requests the name and the
+		state of all the players inside.
+	
+		Request format:
+		ROOM_PLAYERS,<PlayerNickname>,<IsReady>
+
+	2.7. Room player list
+
+		The server responds by a list of players.
+
+		Response format:
+		ROOM_PLAYER_LIST,<PlayerNickname>...
+
+		
+		
+Huet & Agor & Labreze       Informational                       [Page 3]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+	2.8. Player is ready
+
+		Once everything is setup, the client MUST notify the server that
+		the client is ready.
+
+		Request format :
+		ROOM_READY,<PlayerNickname>
+
+	2.9. Game start
+
+		When all the players are ready, the server launch the game.
+	
+		Request format : 
+		ROOM_START
+
+3. R-Type Game Protocol:
+
+	This is the specification of the Game Protocol from the game R-Type.
+	It is used in order to send game data, such as, but not limited to :
+	 - movements
+	 - actions
+	 - events
+	 - object instanciations.
+
+	This protocol is known as a binary protocol. The underlying protocol
+	SHOULD be UDP, in regard to the performances expected.
+	This protocol MUST use little endian order.
+
+	3.1. Message Header
+
+		Every message sent through this protocol MUST be precessed of
+		the following header:
+
+		Magic Number :
+		 - It uses 1 byte.
+		 - It MUST be 79.
+
+		Size :
+		 - It uses 2 bytes.
+		 - It stores the size of the message (excluding this header).
+
+		Checksum :
+		 - It uses 1 byte.
+		 - It MUST equal the sum of every bytes in the message.
+		(exluding this header)
+
+		Message Type :
+		 - It uses 1 byte.
+		 - It is used to encode the type of the message.
+
+		 
+Huet & Agor & Labreze       Informational                       [Page 4]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+	3.2. Messages
+
+		This is a list of the possible messages.
+
+		3.2.1. Position Update
+
+			This message describes a movement of a game object. Client
+			side, this message MUST be sent when the player moves. If
+			you're still reading at this point, you can ask for another
+			chocolate. Server side, this message MUST be sent when any
+			game object moves, and in order to validate a player's
+			movement.
+
+			It is encoded this way :
+
+			ID :
+			 - It uses 4 bytes.
+			 - It is the ID of the game object moving.
+			 - It MUST be a valid game object ID.
+
+			Position X :
+			 - It uses 4 bytes.
+			 - It MUST be a floating point number in the IEEE 754
+			   notation.
+
+			Position Y :
+			 - It uses 4 bytes.
+			 - It MUST be a floating point number in the IEEE 754
+			   notation.
+
+		3.2.2. Client Messages :
+
+			Here are client-to-server only messages
+
+			3.2.2.1. Fire :
+
+				This message describes a "fire" action.
+				It is encoded this way :
+
+				ID :
+				 - It uses 4 bytes.
+				 - It is the player ID.
+				 - It MUST be a valid player ID.
+
+				Position X :
+				 - It uses 4 bytes.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				   
+				   
+				   
+				   
+Huet & Agor & Labreze       Informational                       [Page 5]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+				Position Y :
+				 - It uses 4 bytes.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				Bullet Type :
+				 - It uses 2 bytes.
+				 - It describes the type of bullet fired.
+				 - A server receiving this packet with an unknown bullet
+				   type SHOULD ignore it.
+
+		3.2.3. Server Messages :
+
+			Here are server-to-client only messages.
+
+			3.2.3.1. Instantiation :
+
+				This message describes the instanciation of a new game
+				object.
+				It is encoded this way :
+
+				ID :
+				 - It uses 4 bytes.
+				 - It is the game object ID.
+				 - It MUST NOT be an ID already used by an active game
+				   object.
+
+				Position X :
+				 - It uses 4 bytes.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				Position Y :
+				 - It uses 4 bytes.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				Scale X :
+				 - It uses 4 bytes.
+				 - It describes the scale of the sprite to use on the X
+				   axis.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				   
+				   
+				   
+				   
+				   
+				   
+				   
+Huet & Agor & Labreze       Informational                       [Page 6]
+
+RFC 7990            Instructions to R-Type protocole       November 2016
+
+
+				Scale Y :
+				 - It uses 4 bytes.
+				 - It describes the scale of the sprite to use on the Y
+				   axis.
+				 - It MUST be a floating point number in the IEEE 754
+				   notation.
+
+				Game Object Type :
+				 - It uses 2 bytes.
+				 - It describes the type of game objects t instantiate.
+				 - A client receiving this packet with an unknown game
+				   object type SHOULD use a default sprite.
+
+
+			3.2.3.2. Collision :
+
+				This message describes a collision between two game
+				objects.
+
+				ID1 :
+				 - It uses 4 bytes.
+				 - It is one of the game object ID to collide.
+				 - It MUST be the ID of an active game object.
+
+				ID2 :
+				 - It uses 4 bytes.
+				 - It is the second game object ID to collide.
+				 - It MUST be the ID of an active game object.
+				 - It MUST be different from ID1.
+
+			3.2.3.3. Deletion :
+
+				This message describes the deletion of a game object.
+
+				ID :
+				 - It uses 4 bytes.
+				 - It is the game object ID to delete.
+				 - It MUST be the ID of an active game object.
+
+
+
+				 
+				 
+				 
+				 
+				 
+				 
+				 
+
+				 
+Huet & Agor & Labreze       Informational                       [Page 7]
+
