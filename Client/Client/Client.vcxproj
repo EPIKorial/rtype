@@ -115,8 +115,19 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainWindows.cpp" />
+    <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="sfWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.hpp" />
+    <ClInclude Include="IState.hpp" />
+    <ClInclude Include="IWindow.hpp" />
+    <ClInclude Include="MenuState.hpp" />
+    <ClInclude Include="sfWindow.hpp" />
+    <ClInclude Include="Sprite.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
