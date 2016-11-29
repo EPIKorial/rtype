@@ -27,7 +27,10 @@
 *.exe
 *.out
 *.app
+rtype_server
 
 # build
+build
+Build
 RtypeSRC/build
 RtypeSRC/Build
