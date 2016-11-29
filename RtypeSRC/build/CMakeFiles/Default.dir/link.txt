@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC -std=c++11 -O3   -shared -Wl,-soname,libDefault.so -o ../script/binaries/libDefault.so CMakeFiles/Default.dir/script/source/Default/Default.cpp.o  -L/home/gandoulf/epitech/rtype/RtypeSRC/script/binaries 

@@ -1,0 +1,2 @@
+/home/gandoulf/epitech/rtype/RtypeSRC/build/CMakeFiles/Default.dir
+/home/gandoulf/epitech/rtype/RtypeSRC/build/CMakeFiles/rtype_server.dir

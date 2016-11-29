@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/Server/server.hpp
+
+/home/gandoulf/epitech/rtype/RtypeSRC/source/Server/server.cpp
+Server/server.hpp
+/home/gandoulf/epitech/rtype/RtypeSRC/source/Server/Server/server.hpp
+
