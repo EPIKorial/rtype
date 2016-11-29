@@ -2,8 +2,8 @@ cmake_minimum_required (VERSION 2.8)
 
 project (Rtype)
 
-if(NOT ${SCRIPT_DIR}/lib)
-  file(MAKE_DIRECTORY ${SCRIPT_DIR}/lib)
+if(NOT ${CMAKE_SOURCE_DIR}/lib)
+  file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
 endif()
 
 set(RTYPE_DIR "${CMAKE_SOURCE_DIR}/..")
@@ -18,6 +18,10 @@ set(CMAKE_SYSTEM_FLAGS "")
 include_directories(
   "${RTYPE_INCLUDE_DIR}"
   "${SCRIPT_DIR}/include"
+  )
+
+link_directories(
+  "${RTYPE_LIB_DIR}"
   )
 
 if (UNIX AND NOT ANDROID)
