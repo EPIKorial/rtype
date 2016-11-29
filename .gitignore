@@ -29,4 +29,5 @@
 *.app
 
 # build
-Rtype/build
+RtypeSRC/build
+RtypeSRC/Build

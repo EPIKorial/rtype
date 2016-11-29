@@ -1,1 +1,0 @@
-/usr/bin/c++   -std=c++11 -O3    CMakeFiles/rtype_server.dir/source/Server/server.cpp.o  -o /home/gandoulf/epitech/rtype/rtype_server  -L/home/gandoulf/epitech/rtype/RtypeSRC/script/binaries -rdynamic 

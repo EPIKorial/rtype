@@ -4,7 +4,7 @@ project (Default-Script)
 
 ###################### TO MODIFY ##############################################
 Set(SCRIPT-NAME "Default")
-Set(SCRIPT-FLAGS "-DSCRIPT_DEFAULT")
+Set(SCRIPT-FLAGS "-DSCRIPT_DEFAULT ${CMAKE_SYSTEM_FLAGS}")
 ############################################################################### 
 
 set(SCRIPT-DIR "${SCRIPT_SOURCE_DIR}/${SCRIPT-NAME}")

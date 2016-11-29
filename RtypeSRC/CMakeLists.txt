@@ -2,11 +2,18 @@ cmake_minimum_required (VERSION 2.8)
 
 project (Rtype)
 
+if(NOT ${SCRIPT_DIR}/lib)
+  file(MAKE_DIRECTORY ${SCRIPT_DIR}/lib)
+endif()
+
 set(RTYPE_DIR "${CMAKE_SOURCE_DIR}/..")
 set(SCRIPT_DIR "${CMAKE_SOURCE_DIR}/script")
 set(CMAKE_CONF_DIR "${CMAKE_SOURCE_DIR}/cmake")
+set(RTYPE_LIB_DIR "${CMAKE_SOURCE_DIR}/lib")
 set(RTYPE_SOURCE_DIR "${CMAKE_SOURCE_DIR}/source")
 set(RTYPE_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/include")
+
+set(CMAKE_SYSTEM_FLAGS "")
 
 include_directories(
   "${RTYPE_INCLUDE_DIR}"
