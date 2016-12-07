@@ -2,16 +2,19 @@ cmake_minimum_required (VERSION 2.8)
 
 set(MODULE_NAME "rtype_server")
 set(MODULE_SRC "${CMAKE_CURRENT_LIST_DIR}/Server.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/RoomManager.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/Room.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/Main.cpp"
   )
 set(MODULE_INCLUDE ""
   )
 set(MODULE_LIB "-lNetwork"
   )
-set(MODULE_FLAGS "${CMAKE_SYSTEM_FLAGS}"
+set(MODULE_FLAGS "${CMAKE_SYSTEM_FLAGS} -g"
   )
 
 #include .cmake extend configuration files
+include("${RTYPE_SOURCE_DIR}/Protocol/Protocol.cmake")
 
 include_directories(${MODULE_INCLUDE})
 
