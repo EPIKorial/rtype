@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Tue Dec  6 10:32:40 2016 Gandoulf
+// Last update Tue Dec 13 14:08:09 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -107,7 +107,7 @@ namespace rtype
 
   void Server::start()
   {
-    _server.start(_port, _maxClient);
+    _server.start(_port, _maxClient, _protocol.c_str());
   }
 
   void Server::stop()
@@ -120,76 +120,4 @@ namespace rtype
     client_ptr client(new TcpClient(fd, _server, _room));
     _clients.insert(std::make_pair(fd, std::move(client)));
   }
-
-
-  /* OLD
-  Server::Server(unsigned int const &maxClient)
-    : _maxClient(maxClient)
-  {
-    _server.OnConnect([this](Socket::Server & server, int fd)
-		      {
-			std::cout << "connection" << std::endl;
-			accept(fd);
-		      });
-    _server.OnDisconnect([this](Socket::Server & server, int fd)
-			 {
-			   std::cout << "disconnection" << std::endl;
-			   auto disconnectedClient = _clients.find(fd);
-			   if (disconnectedClient != _clients.end())
-			     {
-			       disconnectedClient->second->leaveRoom();
-			       _clients.erase(disconnectedClient);
-			     }
-			 });
-    _server.OnReadPossible([this](Socket::Server & server, int fd, size_t length)
-			   {
-			   });
-    _server.OnWritePossible([this](Socket::Server & server, int fd)
-			    {
-			    });
-    _server.OnStart([this](Socket::Server & server, int port)
-		    {
-		      std::cout << "starting TCP server" << std::endl;
-		    });
-  }
-
-  Server::~Server()
-  {
-
-  }
-
-  void Server::run(unsigned short const &port, std::vector<std::string> const & script)
-  {
-    _port = port;
-    _script = script;
-    start();
-
-    char line[100];
-    while (std::cin.getline(line, 100)) {
-      if (!std::strncmp(line, "quit", 4))
-	{
-	  stop();
-	  break;
-	}
-    }
-  }
-
-  //private
-
-  void Server::start()
-  {
-    _server.start(_port, _maxClient);
-  }
-
-  void Server::stop()
-  {
-    _server.stop();
-  }
-
-  void Server::accept(int fd)
-  {
-    client_ptr client(new TcpClient(fd, _server, _room));
-    _clients.insert(std::make_pair(fd, std::move(client)));
-  }
-*/
 }

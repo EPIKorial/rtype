@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Mon May  2 15:20:47 2016 Maxime Agor
-// Last update Sun Jun  5 18:54:18 2016 Maxime Agor
+// Last update Tue Dec 13 14:05:53 2016 Gandoulf
 //
 
 #ifndef SERVER_HPP_
@@ -28,7 +28,7 @@ namespace Socket
 
     /* SERVER CONFIGURATION API */
 
-    void start(int port, size_t maxClients = 1);
+    void start(int port, size_t maxClients = 1, char const *prototype = "tcp");
     void stop();
 
     // set the timeout in ms

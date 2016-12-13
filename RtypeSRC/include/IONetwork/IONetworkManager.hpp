@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 14:09:53 2016 Gandoulf
-// Last update Wed Dec  7 15:05:47 2016 Gandoulf
+// Last update Wed Dec  7 18:30:20 2016 Gandoulf
 //
 
 #ifndef IONETWORKMANAGER_HPP_
@@ -48,17 +48,20 @@ namespace rtype
     void	update(Socket::Server & server, int const &fd, size_t const &length)
     {
       Packet *packet;
-      packet = _packetReader->read(server, fd, length); //to modifie with unserilise
+      packet = _serializer->deserialize(_packetReader->read(server, fd, length));
       if (packet != NULL)
 	_received.push(packet);
       if (_toSend.size() > 0) {
 	char *msg;
 	int size;
 	packet = _toSend.front();
+	_toSend.pop();
 	msg = _serializer.serialize(packet, &size);
 	delete (packet);
-	server.write(fd, msg, size);
-	delete (msg);
+	if (msg != NULL) {
+	  server.write(fd, msg, size);
+	  delete (msg);
+	}
       }
     }
 

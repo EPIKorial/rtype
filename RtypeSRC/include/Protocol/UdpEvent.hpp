@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Wed Dec  7 16:35:28 2016 Gandoulf
+// Last update Tue Dec 13 13:24:44 2016 Gandoulf
 //
 
 #ifndef UDPEVENT_HPP_
@@ -18,11 +18,16 @@ namespace rtype
   class UdpEvent : public IEvent
   {
   public:
-    UdpEvent();
+    UdpEvent(EventType const & type);
     ~UdpEvent();
 
     virtual unsigned int        getSize() const = 0;
     virtual void                *getData() const = 0;
+    virtual EventType const     getType() const;
+    virtual Header              getHeader() const;
+
+  private:
+    EventType	_type;
   };
 
   namespace udpEvent
@@ -31,6 +36,7 @@ namespace rtype
     {
     public:
       EFire();
+      EFire(char const *data);
       ~EFire();
 
       virtual unsigned int	getSize() const;
@@ -44,6 +50,7 @@ namespace rtype
     {
     public:
       EDeletion();
+      EDeletion(char const *data);
       ~EDeletion();
 
       virtual unsigned int	getSize() const;
@@ -57,6 +64,7 @@ namespace rtype
     {
     public:
       EPosUpdate();
+      EPosUpdate(char const *data);
       ~EPosUpdate();
 
       virtual unsigned int	getSize() const;
@@ -70,6 +78,7 @@ namespace rtype
     {
     public:
       EInstantiate();
+      EInstantiate(char const *data);
       ~EInstantiate();
 
       virtual unsigned int	getSize() const;
@@ -83,6 +92,7 @@ namespace rtype
     {
     public:
       ECollision();
+      ECollision(char const *data);
       ~ECollision();
 
       virtual unsigned int	getSize() const;

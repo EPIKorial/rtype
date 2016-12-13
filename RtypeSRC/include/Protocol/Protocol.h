@@ -5,14 +5,27 @@
 ** Login   <gandoulf@epitech.net>
 **
 ** Started on  Wed Dec  7 15:17:18 2016 Gandoulf
-** Last update Wed Dec  7 16:25:56 2016 Gandoulf
+** Last update Wed Dec  7 19:59:18 2016 Gandoulf
 */
 
 #ifndef PROTOCOL_H_
 # define PROTOCOL_H_
 
+# define MAGIC_NUMBER 79
+# define MAX_PAQUET_SIZE 1000
+
 extern "C"
 {
+  typedef enum		EventType
+    {
+      MESSAGE,
+      POSUPDATE,
+      FIRE,
+      INSTANTIATE,
+      COLLISION,
+      DELETION
+    }			EventType;
+
   typedef struct	Header
   {
     unsigned char	magicNumber;

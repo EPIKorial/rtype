@@ -52,7 +52,7 @@ namespace Socket
 		{
 		}
 
-	void  Server::start(int port, size_t maxClients)
+        void  Server::start(int port, size_t maxClients, char const *prototype)
 	{
 		SOCKADDR_IN	addr;
 		PROTOENT	*proto;
@@ -64,7 +64,7 @@ namespace Socket
 		_maxClients = maxClients;
 
 		// create socket
-		proto = getprotobyname("tcp");
+		proto = getprotobyname(prototype);
 
 		if ((_fd = socket(AF_INET, SOCK_STREAM, proto ? proto->p_proto : 0)) == -1)
 		  throw SocketCreateError(std::string("server : ") +

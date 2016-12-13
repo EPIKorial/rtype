@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Wed Dec  7 16:09:58 2016 Gandoulf
+// Last update Tue Dec 13 13:45:17 2016 Gandoulf
 //
 
 #ifndef TCPEVENT_HPP_
@@ -19,11 +19,16 @@ namespace rtype
   class TcpEvent : public IEvent
   {
   public:
-    TcpEvent();
+    TcpEvent(EventType const & type);
     ~TcpEvent();
 
     virtual unsigned int        getSize() const = 0;
     virtual void                *getData() const = 0;
+    virtual EventType const 	getType() const;
+    virtual Header		getHeader() const;
+
+  private:
+    EventType	_type;
   };
 
   namespace tcpEvent
@@ -32,6 +37,7 @@ namespace rtype
     {
     public:
       Message(std::string const &msg);
+      Message(char const *data);
       ~Message();
 
       virtual unsigned int	getSize() const;

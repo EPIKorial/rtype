@@ -5,14 +5,16 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:48:45 2016 Gandoulf
-// Last update Wed Dec  7 16:36:13 2016 Gandoulf
+// Last update Tue Dec 13 13:25:23 2016 Gandoulf
 //
 
 #include "Protocol/UdpEvent.hpp"
+#include <cstring>
 
 namespace rtype
 {
-  UdpEvent::UdpEvent()
+  UdpEvent::UdpEvent(EventType const & type)
+    : _type(type)
   {
 
   }
@@ -22,13 +24,35 @@ namespace rtype
 
   }
 
+  EventType const UdpEvent::getType() const
+  {
+    return (_type);
+  }
+
+  Header              UdpEvent::getHeader() const
+  {
+    Header header;
+
+    header.magicNumber = MAGIC_NUMBER;
+    header.size = getSize();
+    header.checksum = 1; //TODO
+    header.messageType = _type;
+  }
+
   namespace udpEvent
   {
     /*---------------------------------------fire-------------------------------------*/
 
     EFire::EFire()
+      : UdpEvent(FIRE)
     {
 
+    }
+
+    EFire::EFire(char const *data)
+      : UdpEvent(FIRE)
+    {
+      std::memcpy((void *)(&fire), data, sizeof(Fire));
     }
 
     EFire::~EFire()
@@ -49,9 +73,17 @@ namespace rtype
     /*---------------------------------------Deletion-------------------------------------*/
 
     EDeletion::EDeletion()
+      : UdpEvent(DELETION)
     {
 
     }
+
+    EDeletion::EDeletion(char const *data)
+      : UdpEvent(DELETION)
+    {
+      std::memcpy((void *)(&deletion), data, sizeof(Deletion));
+    }
+
 
     EDeletion::~EDeletion()
     {
@@ -71,8 +103,15 @@ namespace rtype
     /*---------------------------------------PosUpdate-------------------------------------*/
 
     EPosUpdate::EPosUpdate()
+      : UdpEvent(POSUPDATE)
     {
 
+    }
+
+    EPosUpdate::EPosUpdate(char const *data)
+      : UdpEvent(POSUPDATE)
+    {
+      std::memcpy((void *)(&posUpdate), data, sizeof(PosUpdate));
     }
 
     EPosUpdate::~EPosUpdate()
@@ -93,8 +132,15 @@ namespace rtype
     /*---------------------------------------Instantiate-------------------------------------*/
 
     EInstantiate::EInstantiate()
+      : UdpEvent(INSTANTIATE)
     {
 
+    }
+
+    EInstantiate::EInstantiate(char const *data)
+      : UdpEvent(INSTANTIATE)
+    {
+      std::memcpy((void *)(&instantiate), data, sizeof(Instantiate));
     }
 
     EInstantiate::~EInstantiate()
@@ -115,8 +161,15 @@ namespace rtype
     /*---------------------------------------Collision-------------------------------------*/
 
     ECollision::ECollision()
+      : UdpEvent(COLLISION)
     {
 
+    }
+
+    ECollision::ECollision(char const *data)
+      : UdpEvent(COLLISION)
+    {
+      std::memcpy((void *)(&collision), data, sizeof(Collision));
     }
 
     ECollision::~ECollision()

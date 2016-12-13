@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec  5 15:31:10 2016 Gandoulf
-// Last update Tue Dec  6 09:35:03 2016 Gandoulf
+// Last update Tue Dec 13 14:07:20 2016 Gandoulf
 //
 
 #include <iostream>
@@ -81,7 +81,7 @@ void ARawServer::onStart(Socket::Server & server, int fd)
 
 void ARawServer::start()
 {
-  _server.start(_port, RAW_MAW_CLIENT);
+  _server.start(_port, RAW_MAW_CLIENT, _protocol.c_str());
 }
 
 void ARawServer::stop()

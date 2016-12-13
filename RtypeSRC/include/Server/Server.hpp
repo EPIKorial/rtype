@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 17:01:47 2016 Gandoulf
-// Last update Tue Dec  6 16:29:20 2016 Gandoulf
+// Last update Mon Dec 12 14:32:06 2016 Gandoulf
 //
 
 #ifndef RTYPE_SERVER_HPP_
@@ -21,6 +21,7 @@
 # include "IONetwork/IONetworkManager.hpp"
 # include "IONetwork/RtypeSerializer.hpp"
 # include "IONetwork/RtypePacketReader.hpp"
+# include "Protocol/TcpEvent.hpp"
 
 # define MAX_CLIENT 10000
 
@@ -42,13 +43,13 @@ namespace rtype
 
   private:
     //Network
-    int								_fd;
-    Socket::Server						&_server;
-    IONetworkManager<int, RtypeSerializer, RtypePacketReader>	_networkManager;
+    int									_fd;
+    Socket::Server							&_server;
+    IONetworkManager<IEvent, RtypeSerializer, RtypePacketReader>	_networkManager;
 
     //client
-    std::string							_name;
-    RoomManager							&_room;
+    std::string								_name;
+    RoomManager								&_room;
   };
 
   class Server : public ARawServer
