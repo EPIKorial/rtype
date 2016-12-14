@@ -19,6 +19,7 @@ public:
 	* called often to draw
 	*/
 	virtual void draw(float elapsed) = 0;
+
 };
 
 #endif /* !ISTATE_HPP_ */
