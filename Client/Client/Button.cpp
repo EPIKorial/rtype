@@ -14,8 +14,8 @@ bool Button::isQuiet() const
 
 bool Button::isIn(float x, float y) const
 {
-	return (x >= posX && x <= posX + sizeX)
-		&& (y >= posY && y <= posY + sizeY);
+	return (Dim.getRealWidth(x) >= Dim.getRealWidth(posX) && Dim.getRealWidth(x) <= Dim.getRealWidth(posX) + Dim.getRealWidth(sizeX))
+		&& (Dim.getRealHeight(y) >= Dim.getRealHeight(posY) && Dim.getRealHeight(y) <= Dim.getRealHeight(posY) + Dim.getRealHeight(sizeY));
 }
 
 void Button::trigger()

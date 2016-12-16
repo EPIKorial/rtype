@@ -14,11 +14,11 @@ public:
 	ScreenHelper(sf::RenderWindow &);
 	~ScreenHelper();
 
-	float getWidthRatio(int);
-	float getHeightRatio(int);
+	float getWidthRatio(int) const;
+	float getHeightRatio(int) const;
 
-	int getRealWidth(float);
-	int getRealHeight(float);
+	int getRealWidth(float) const;
+	int getRealHeight(float) const;
 };
 
 #endif /* !SCREENHELPER_HPP_ */

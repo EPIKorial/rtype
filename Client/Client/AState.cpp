@@ -1,4 +1,5 @@
 #include "AState.hpp"
+#include <iostream>
 
 void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 {
@@ -47,7 +48,10 @@ void AState::mouseEventUI(const sf::Event &e, float elapsed)
 			if ((*it)->isIn(xRatio, yRatio))
 			{
 				if (e.type == sf::Event::MouseButtonPressed)
+				{
 					(*it)->trigger();
+					std::cout << xRatio << ":" << yRatio << std::endl;
+				}
 				else
 					(*it)->hover(elapsed);
 			}
@@ -64,10 +68,10 @@ AState::AState(App &a) : app(a), Dim(a.win)
 
 AState::~AState()
 {
-	/*for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
+	for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
 	{
 		delete (*it);
-	}*/
+	}
 }
 
 void AState::drawUI(float elapsed)
@@ -101,6 +105,10 @@ void AState::updateUI(const sf::Event &ev, float elapsed)
 
 	case sf::Event::Closed:
 		app.quit();
+		break;
+
+	case sf::Event::Resized:
+		app.win.setView(sf::View(sf::FloatRect(0, 0, ev.size.width, ev.size.height)));
 		break;
 	}
 }

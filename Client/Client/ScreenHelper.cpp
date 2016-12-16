@@ -8,26 +8,26 @@ ScreenHelper::~ScreenHelper()
 {
 }
 
-float ScreenHelper::getWidthRatio(int reqX)
+float ScreenHelper::getWidthRatio(int reqX) const
 {
-	if (win.getSize().x == 0)
+	if (win.getSize().x == 0.f)
 		return 0;
-	return (reqX * 100) / win.getSize().x;
+	return ((float)reqX * 100.f) / (float)win.getSize().x;
 }
 
-float ScreenHelper::getHeightRatio(int reqY)
+float ScreenHelper::getHeightRatio(int reqY) const
 {
-	if (win.getSize().y == 0)
+	if (win.getSize().y == 0.f)
 		return 0;
-	return (reqY * 100) / win.getSize().y;
+	return ((float)reqY * 100.f) / (float)win.getSize().y;
 }
 
-int ScreenHelper::getRealWidth(float rX)
+int ScreenHelper::getRealWidth(float rX) const
 {
 	return (rX * win.getSize().x) / 100;
 }
 
-int ScreenHelper::getRealHeight(float rY)
+int ScreenHelper::getRealHeight(float rY) const
 {
 	return (rY * win.getSize().y) / 100;
 }
