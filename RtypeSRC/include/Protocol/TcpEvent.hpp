@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Fri Dec 16 16:22:25 2016 Gandoulf
+// Last update Fri Dec 16 16:46:09 2016 Gandoulf
 //
 
 #ifndef TCPEVENT_HPP_
@@ -43,7 +43,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       std::string		message;
     };
   }

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Thu Dec 15 15:32:42 2016 Gandoulf
+// Last update Fri Dec 16 16:46:02 2016 Gandoulf
 //
 
 #ifndef UDPEVENT_HPP_
@@ -43,7 +43,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       Fire			fire;
     };
 
@@ -58,7 +58,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       Deletion			deletion;
     };
 
@@ -73,7 +73,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       PosUpdate			posUpdate;
     };
 
@@ -88,7 +88,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       Instantiate		instantiate;
     };
 
@@ -103,7 +103,7 @@ namespace rtype
       virtual unsigned int	getSize() const;
       virtual void		*getData() const;
 
-    private:
+    public:
       Collision			collision;
     };
   }

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec 13 14:24:29 2016 Gandoulf
-// Last update Fri Dec 16 16:10:02 2016 Gandoulf
+// Last update Fri Dec 16 16:53:09 2016 Gandoulf
 //
 
 # include "Client/ClientTcp.hpp"
@@ -35,8 +35,10 @@ namespace rtype
 	  break;
 	}
       else if (!std::strncmp(line, "M", 1)) {
-	rtype::tcpEvent::Message *msg = new rtype::tcpEvent::Message("coucou", 6);
-	_networkManager.push(msg);
+	if (strlen(line) > 2) {
+	  rtype::tcpEvent::Message *msg = new rtype::tcpEvent::Message(line + 1, strlen(line + 1));
+	  _networkManager.push(msg);
+	}
       }
       else if (!std::strncmp(line, "P", 1)) {
 	PosUpdate data;

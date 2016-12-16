@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Fri Dec 16 16:35:48 2016 Gandoulf
+// Last update Fri Dec 16 16:49:52 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -43,6 +43,8 @@ namespace rtype
 
     _networkManager.updateR(server, fd, length);
     paquet = _networkManager.pop();
+    if (paquet != NULL && paquet->getType() == MESSAGE)
+      std:: cout << static_cast<tcpEvent::Message *>(paquet)->message << std::endl;
   }
 
   //private
