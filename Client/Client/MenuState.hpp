@@ -3,20 +3,21 @@
 #ifndef MENUSTATE_HPP_
 # define MENUSTATE_HPP_
 
-# include "IState.hpp"
-# include "App.hpp"
+# include "AState.hpp"
 
-class MenuState : public IState
+class MenuState : public AState
 {
-	App &app;
-
 public:
 	MenuState(App &);
 	virtual ~MenuState();
 
-	// Inherited via IState
+
+
+	// Inherited via AState
 	virtual void update(float elapsed) override;
+
 	virtual void draw(float elapsed) override;
+
 };
 
 #endif /* !MENUSTATE_HPP_ */

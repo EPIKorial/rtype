@@ -11,6 +11,7 @@
 
 class AState : public IState
 {
+protected:
 	std::vector<IUIComponent *> uiComponents;
 	App &app;
 	ScreenHelper Dim;
@@ -20,7 +21,7 @@ class AState : public IState
 
 public:
 	AState(App &);
-	virtual ~AState() {}
+	virtual ~AState();
 
 	// Inherited via IState
 	virtual void update(float elapsed) override = 0;

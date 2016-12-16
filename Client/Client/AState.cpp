@@ -51,6 +51,8 @@ void AState::mouseEventUI(const sf::Event &e, float elapsed)
 				else
 					(*it)->hover(elapsed);
 			}
+			else if (e.type == sf::Event::MouseButtonPressed)
+				(*it)->unTrigger();
 			(*it)->update(elapsed);
 		}
 	}
@@ -60,13 +62,21 @@ AState::AState(App &a) : app(a), Dim(a.win)
 {
 }
 
+AState::~AState()
+{
+	/*for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
+	{
+		delete (*it);
+	}*/
+}
+
 void AState::drawUI(float elapsed)
 {
 	for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
 	{
 		if (!(*it)->isQuiet())
 		{
-			(*it)->draw(app.win, elapsed);
+			(*it)->draw(elapsed);
 		}
 	}
 }
@@ -87,6 +97,10 @@ void AState::updateUI(const sf::Event &ev, float elapsed)
 		break;
 	case sf::Event::MouseMoved:
 		mouseEventUI(ev, elapsed);
+		break;
+
+	case sf::Event::Closed:
+		app.quit();
 		break;
 	}
 }

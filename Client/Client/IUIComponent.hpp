@@ -21,7 +21,7 @@ public:
 	virtual void setActive(bool) = 0;
 	virtual void triggerKey(const sf::Event &, float elapsed) = 0;
 	virtual void update(float elapsed) = 0;
-	virtual void draw(sf::RenderWindow &, float elapsed) = 0;
+	virtual void draw(float elapsed) = 0;
 };
 
 #endif /* !IUICOMPONENT_HPP_ */
