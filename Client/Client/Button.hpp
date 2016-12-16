@@ -8,10 +8,14 @@
 
 class Button : public IUIComponent
 {
-
+	std::string text;
+	float sizeX;
+	float sizeY;
+	float posX;
+	float posY;
 
 public:
-	Button(const std::string &text, float sizeX, float sizeY, float x = 0, float y = 0);
+	Button(const std::string &text, float sizeX, float sizeY, float posX = 0, float posY = 0);
 	virtual ~Button() {}
 
 	// Inherited via IUIComponent
@@ -24,6 +28,7 @@ public:
 	virtual void setActive(bool) override;
 	virtual void triggerKey(const sf::Event &, float elapsed) override;
 	virtual void update(float elapsed) override;
+	virtual void draw(sf::RenderWindow &, float elapsed);
 };
 
 #endif /* !BUTTON_HPP_ */
