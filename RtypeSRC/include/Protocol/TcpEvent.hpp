@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Tue Dec 13 13:45:17 2016 Gandoulf
+// Last update Fri Dec 16 16:22:25 2016 Gandoulf
 //
 
 #ifndef TCPEVENT_HPP_
@@ -36,8 +36,8 @@ namespace rtype
     class Message : public TcpEvent
     {
     public:
-      Message(std::string const &msg);
-      Message(char const *data);
+      Message(std::string const &msg, size_t const & length);
+      Message(char const *data, size_t const & length);
       ~Message();
 
       virtual unsigned int	getSize() const;

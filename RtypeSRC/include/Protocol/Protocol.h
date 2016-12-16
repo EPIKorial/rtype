@@ -5,7 +5,7 @@
 ** Login   <gandoulf@epitech.net>
 **
 ** Started on  Wed Dec  7 15:17:18 2016 Gandoulf
-** Last update Wed Dec  7 19:59:18 2016 Gandoulf
+** Last update Fri Dec 16 10:20:19 2016 Gandoulf
 */
 
 #ifndef PROTOCOL_H_
@@ -13,6 +13,12 @@
 
 # define MAGIC_NUMBER 79
 # define MAX_PAQUET_SIZE 1000
+
+#ifdef _WIN32
+#define PACK( __Declaration__ ) __pragma( pack(push, 1) ) __Declaration__ __pragma( pack(pop) )
+#else
+#define PACK( __Declaration__ ) __Declaration__ __attribute__((__packed__))
+#endif
 
 extern "C"
 {
@@ -26,29 +32,33 @@ extern "C"
       DELETION
     }			EventType;
 
+  PACK (
   typedef struct	Header
   {
     unsigned char	magicNumber;
     unsigned short	size;
     unsigned char	checksum;
     unsigned char	messageType;
-  }			Header;
+  })			Header;
 
+  PACK (
   typedef struct	PosUpdate
   {
     unsigned int	ID;
     float		x;
     float		y;
-  }			PosUpdate;
+  })			PosUpdate;
 
+  PACK (
   typedef struct	Fire
   {
     unsigned int	ID;
     float		x;
     float		y;
     unsigned short	bulletID;
-  }			Fire;
+  })			Fire;
 
+  PACK (
   typedef struct	Instantiate
   {
     unsigned int	ID;
@@ -57,18 +67,20 @@ extern "C"
     float		scale_x;
     float		scale_y;
     unsigned short	goID;
-  }			Instantiate;
+  })			Instantiate;
 
+  PACK (
   typedef struct	Collision
   {
     unsigned int	ID1;
     unsigned int	ID2;
-  }			Collision;
+  })			Collision;
 
+  PACK (
   typedef struct	Deletion
   {
     unsigned int	ID;
-  }			Deletion;
+  })			Deletion;
 }
 
 #endif /* PROTOCOL_H_ */

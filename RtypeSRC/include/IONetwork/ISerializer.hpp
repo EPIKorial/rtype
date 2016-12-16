@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 13:25:24 2016 Gandoulf
-// Last update Wed Dec  7 18:27:22 2016 Gandoulf
+// Last update Fri Dec 16 15:17:58 2016 Gandoulf
 //
 
 #ifndef ISERIALIZER_HPP_

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:48:45 2016 Gandoulf
-// Last update Tue Dec 13 13:25:23 2016 Gandoulf
+// Last update Fri Dec 16 15:56:54 2016 Gandoulf
 //
 
 #include "Protocol/UdpEvent.hpp"
@@ -37,6 +37,7 @@ namespace rtype
     header.size = getSize();
     header.checksum = 1; //TODO
     header.messageType = _type;
+    return (header);
   }
 
   namespace udpEvent
@@ -47,6 +48,12 @@ namespace rtype
       : UdpEvent(FIRE)
     {
 
+    }
+
+    EFire::EFire(Fire const & _fire)
+      : UdpEvent(FIRE)
+    {
+      std::memcpy((void *)(&fire), (void *)(&_fire), sizeof(Fire));
     }
 
     EFire::EFire(char const *data)
@@ -76,6 +83,12 @@ namespace rtype
       : UdpEvent(DELETION)
     {
 
+    }
+
+    EDeletion::EDeletion(Deletion const & _deletion)
+      : UdpEvent(DELETION)
+    {
+      std::memcpy((void *)(&deletion), (void *)(&_deletion), sizeof(Deletion));
     }
 
     EDeletion::EDeletion(char const *data)
@@ -108,6 +121,12 @@ namespace rtype
 
     }
 
+    EPosUpdate::EPosUpdate(PosUpdate const & _posUpdate)
+      : UdpEvent(POSUPDATE)
+    {
+      std::memcpy((void *)(&posUpdate), (void *)(&_posUpdate), sizeof(PosUpdate));
+    }
+
     EPosUpdate::EPosUpdate(char const *data)
       : UdpEvent(POSUPDATE)
     {
@@ -137,6 +156,12 @@ namespace rtype
 
     }
 
+    EInstantiate::EInstantiate(Instantiate const & _instantiate)
+      : UdpEvent(INSTANTIATE)
+    {
+      std::memcpy((void *)(&instantiate), (void *)(&_instantiate), sizeof(Instantiate));
+    }
+
     EInstantiate::EInstantiate(char const *data)
       : UdpEvent(INSTANTIATE)
     {
@@ -164,6 +189,12 @@ namespace rtype
       : UdpEvent(COLLISION)
     {
 
+    }
+
+    ECollision::ECollision(Collision const & _collision)
+      : UdpEvent(COLLISION)
+    {
+      std::memcpy((void *)(&collision), (void *)(&_collision), sizeof(Collision));
     }
 
     ECollision::ECollision(char const *data)

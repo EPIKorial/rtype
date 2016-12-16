@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 17:01:47 2016 Gandoulf
-// Last update Mon Dec 12 14:32:06 2016 Gandoulf
+// Last update Thu Dec 15 17:53:49 2016 Gandoulf
 //
 
 #ifndef RTYPE_SERVER_HPP_
@@ -29,6 +29,7 @@ namespace rtype
 {
   class TcpClient;
   typedef std::unique_ptr<TcpClient> client_ptr;
+  typedef IONetworkManager<IEvent, Socket::Server, RtypeSerializer, RtypePacketReader> IOServer;
 
   class TcpClient
   {
@@ -37,6 +38,7 @@ namespace rtype
     ~TcpClient();
 
     void leaveRoom();
+    void read(Socket::Server & server, int fd, size_t length);
 
   private:
     void disconnect();
@@ -45,7 +47,7 @@ namespace rtype
     //Network
     int									_fd;
     Socket::Server							&_server;
-    IONetworkManager<IEvent, RtypeSerializer, RtypePacketReader>	_networkManager;
+    IOServer								_networkManager;
 
     //client
     std::string								_name;
@@ -83,36 +85,6 @@ namespace rtype
     //script
     std::vector<std::string>		_script;
   };
-
-
-  /*
-  class Server
-  {
-  public:
-    Server(unsigned int const &maxClient = MAX_CLIENT);
-    ~Server();
-
-    void run(unsigned short const &port, std::vector<std::string> const & script);
-
-  private:
-    void start();
-    void stop();
-    void accept(int fd);
-
-  private:
-    //Network
-    Socket::Server			_server;
-    unsigned int			_maxClient;
-    unsigned short			_port;
-
-    //clients
-    std::map<int, client_ptr>		_clients;
-    RoomManager				_room;
-
-    //script
-    std::vector<std::string>		_script;
-  };
-  */
 }
 
 #endif /* RTYPE_SERVER_HPP_ */

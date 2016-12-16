@@ -5,20 +5,22 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 15:15:29 2016 Gandoulf
-// Last update Wed Dec  7 15:04:02 2016 Gandoulf
+// Last update Thu Dec 15 16:09:31 2016 Gandoulf
 //
 
 #ifndef IPACKETREADER_HPP_
 # define IPACKETREADER_HPP_
 
 # include "Network/sockets/Server.hpp"
+# include "Network/sockets/Client.hpp"
 
 namespace rtype
 {
+  template <class socket>
   class IPacketReader
   {
   public:
-    virtual char *read(Socket::Server & server, int const &fd, size_t const &length) = 0;
+    virtual char *read(socket & server, int const &fd, size_t const &length) = 0;
   };
 }
 

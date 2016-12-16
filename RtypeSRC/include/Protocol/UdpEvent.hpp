@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Dec  7 15:29:16 2016 Gandoulf
-// Last update Tue Dec 13 13:24:44 2016 Gandoulf
+// Last update Thu Dec 15 15:32:42 2016 Gandoulf
 //
 
 #ifndef UDPEVENT_HPP_
@@ -36,6 +36,7 @@ namespace rtype
     {
     public:
       EFire();
+      EFire(Fire const & _fire);
       EFire(char const *data);
       ~EFire();
 
@@ -50,6 +51,7 @@ namespace rtype
     {
     public:
       EDeletion();
+      EDeletion(Deletion const & _deletion);
       EDeletion(char const *data);
       ~EDeletion();
 
@@ -64,6 +66,7 @@ namespace rtype
     {
     public:
       EPosUpdate();
+      EPosUpdate(PosUpdate const & _posUpdate);
       EPosUpdate(char const *data);
       ~EPosUpdate();
 
@@ -78,6 +81,7 @@ namespace rtype
     {
     public:
       EInstantiate();
+      EInstantiate(Instantiate const & _instantiate);
       EInstantiate(char const *data);
       ~EInstantiate();
 
@@ -92,6 +96,7 @@ namespace rtype
     {
     public:
       ECollision();
+      ECollision(Collision const & _collision);
       ECollision(char const *data);
       ~ECollision();
 

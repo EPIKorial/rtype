@@ -28,6 +28,7 @@
 *.out
 *.app
 rtype_server
+rtype_client
 
 # build
 build

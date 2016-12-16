@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Tue Dec 13 14:08:09 2016 Gandoulf
+// Last update Fri Dec 16 16:35:48 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -35,6 +35,14 @@ namespace rtype
   void TcpClient::leaveRoom()
   {
 
+  }
+
+  void TcpClient::read(Socket::Server & server, int fd, size_t length)
+  {
+    IEvent *paquet;
+
+    _networkManager.updateR(server, fd, length);
+    paquet = _networkManager.pop();
   }
 
   //private
@@ -92,7 +100,9 @@ namespace rtype
 
   void Server::onRead(Socket::Server & server, int fd, size_t length)
   {
-
+    auto readingClient = _clients.find(fd);
+    if (readingClient != _clients.end())
+      readingClient->second->read(server, fd, length);
   }
 
   void Server::onWrite(Socket::Server & server, int fd)
