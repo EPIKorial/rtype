@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 14:09:53 2016 Gandoulf
-// Last update Fri Dec 16 15:59:17 2016 Gandoulf
+// Last update Fri Dec 16 16:59:08 2016 Gandoulf
 //
 
 #ifndef IONETWORKMANAGER_HPP_
@@ -28,6 +28,7 @@ namespace rtype
   public:
     IONetworkManager();
     ~IONetworkManager();
+    void        push(Packet *event);
     Packet      *pop();
     void        updateR(Connection & connection, int const &fd, size_t const &length);
     void        updateW(Connection & connection, int const &fd);
