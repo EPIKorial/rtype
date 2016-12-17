@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Fri Dec 16 16:49:52 2016 Gandoulf
+// Last update Sat Dec 17 11:12:35 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -43,8 +43,21 @@ namespace rtype
 
     _networkManager.updateR(server, fd, length);
     paquet = _networkManager.pop();
-    if (paquet != NULL && paquet->getType() == MESSAGE)
+    if (paquet != NULL && paquet->getType() == MESSAGE) //TODO delete
       std:: cout << static_cast<tcpEvent::Message *>(paquet)->message << std::endl;
+    delete paquet;
+  }
+
+  void TcpClient::write(Socket::Server & server, int fd)
+  {
+    _networkManager.updateW(server, fd);
+    if (_name.size() > 0) {
+      std::string msg = _room.getMessage(_name);
+      if (msg.size() > 0) {
+	tcpEvent::Message *tcpMsg = new tcpEvent::Message(msg, msg.size());
+	_networkManager.push(tcpMsg);
+      }
+    }
   }
 
   //private
@@ -109,7 +122,9 @@ namespace rtype
 
   void Server::onWrite(Socket::Server & server, int fd)
   {
-
+    auto writingClient = _clients.find(fd);
+    if (writingClient != _clients.end())
+      writingClient->second->write(server, fd);
   }
 
   void Server::onStart(Socket::Server & server, int fd)
@@ -119,12 +134,20 @@ namespace rtype
 
   void Server::start()
   {
-    _server.start(_port, _maxClient, _protocol.c_str());
+    try {
+      _server.start(_port, _maxClient, _protocol.c_str());
+    } catch (const std::exception e) {
+      std::cout << "can't launch server" << std::endl;
+    }
   }
 
   void Server::stop()
   {
-    _server.stop();
+    try {
+      _server.stop();
+    } catch (const std::exception error) {
+      std::cout << "server already close" << std::endl;
+    }
   }
 
   void Server::accept(int fd)

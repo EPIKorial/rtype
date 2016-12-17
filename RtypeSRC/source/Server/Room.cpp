@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 11:04:49 2016 Gandoulf
-// Last update Tue Dec  6 10:32:12 2016 Gandoulf
+// Last update Fri Dec 16 22:52:29 2016 Gandoulf
 //
 
 #include "Server/Room.hpp"
@@ -13,37 +13,11 @@
 
 namespace rtype
 {
-  Room::Client::Client(std::string const &name)
-    :_name(name)
-  {
-  }
-
-  Room::Client::~Client()
-  {
-  }
-
-  std::string const &Room::Client::getName() const
-  {
-    return (_name);
-  }
-
-  bool              Room::Client::getReady() const
-  {
-    return (_ready);
-  }
-
-  void              Room::Client::setReady(bool const &ready)
-  {
-    _ready = ready;
-  }
-
-  /*----------------------------------Room------------------------------------*/
-
   Room::Room(std::string const & name, unsigned short const & port,
 	     unsigned int const & maxPlayers)
     : _name(name), _port(port), _maxPlayers(maxPlayers)
   {
-
+    _gameServer = std::unique_ptr<GameServer>(new GameServer(port, "udp", _maxPlayers));
   }
 
   Room::~Room()
@@ -90,6 +64,12 @@ namespace rtype
 	player->second.setReady(isReady);
 	message = "player Ready";
       }
+    bool launch = true;
+    for (auto player = _players.begin(); player != _players.end(); ++player)
+      if (!player->second.getReady())
+	launch = false;
+    if (launch)
+      _gameServer->run();
   }
 
   //private

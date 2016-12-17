@@ -4,6 +4,8 @@ set(MODULE_NAME "rtype_server")
 set(MODULE_SRC "${CMAKE_CURRENT_LIST_DIR}/Server.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/RoomManager.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/Room.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/RoomClient.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/GameServer.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/Main.cpp"
   )
 set(MODULE_INCLUDE ""
@@ -15,6 +17,7 @@ set(MODULE_FLAGS "${CMAKE_SYSTEM_FLAGS} -g"
 
 #include .cmake extend configuration files
 include("${RTYPE_SOURCE_DIR}/Protocol/Protocol.cmake")
+include("${RTYPE_SOURCE_DIR}/Rtype/Rtype.cmake")
 
 include_directories(${MODULE_INCLUDE})
 

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 15:34:12 2016 Gandoulf
-// Last update Fri Dec 16 16:31:03 2016 Gandoulf
+// Last update Fri Dec 16 21:58:25 2016 Gandoulf
 //
 
 #ifndef RTYPESERIALIZER_HPP_
@@ -50,39 +50,59 @@ namespace rtype
 	return (new tcpEvent::Message(msg + sizeof(Header), header.size));
 	break;
       case POSUPDATE:	// return position update packet
-	if (header.size != sizeof(PosUpdate)) {
+	{
+	  if (header.size != sizeof(PosUpdate)) {
+	    delete[] msg;
+	    return (NULL);
+	  }
+	  udpEvent::EPosUpdate *Ptmp = new udpEvent::EPosUpdate(msg + sizeof(Header));
 	  delete[] msg;
-	  return (NULL);
+	  return (Ptmp);
 	}
-	return (new udpEvent::EPosUpdate(msg + sizeof(Header)));
 	break;
       case FIRE:	// return Fire packe
-	if (header.size != sizeof(Fire)) {
+	{
+	  if (header.size != sizeof(Fire)) {
+	    delete[] msg;
+	    return (NULL);
+	  }
+	  udpEvent::EFire *Ftmp = new udpEvent::EFire(msg + sizeof(Header));
 	  delete[] msg;
-	  return (NULL);
+	  return (Ftmp);
 	}
-	return (new udpEvent::EFire(msg + sizeof(Header)));
 	break;
       case INSTANTIATE:	// return Instantiate packet
-	if (header.size != sizeof(Instantiate)) {
+	{
+	  if (header.size != sizeof(Instantiate)) {
+	    delete[] msg;
+	    return (NULL);
+	  }
+	  udpEvent::EInstantiate *Itmp = new udpEvent::EInstantiate(msg + sizeof(Header));
 	  delete[] msg;
-	  return (NULL);
+	  return (Itmp);
 	}
-	return (new udpEvent::EInstantiate(msg + sizeof(Header)));
 	break;
       case COLLISION:	// return Collision packet
-	if (header.size != sizeof(Collision)) {
+	{
+	  if (header.size != sizeof(Collision)) {
+	    delete[] msg;
+	    return (NULL);
+	  }
+	  udpEvent::ECollision *Ctmp = new udpEvent::ECollision(msg + sizeof(Header));
 	  delete[] msg;
-	  return (NULL);
+	  return (Ctmp);
 	}
-	return (new udpEvent::ECollision(msg + sizeof(Header)));
 	break;
       case DELETION:	// return Deletion packet
-	if (header.size != sizeof(Deletion)) {
+	{
+	  if (header.size != sizeof(Deletion)) {
+	    delete[] msg;
+	    return (NULL);
+	  }
+	  udpEvent::EDeletion *Dtmp = new udpEvent::EDeletion(msg + sizeof(Header));
 	  delete[] msg;
-	  return (NULL);
+	  return (Dtmp);
 	}
-	return (new udpEvent::EDeletion(msg + sizeof(Header)));
 	break;
       default:
 	delete[] msg;

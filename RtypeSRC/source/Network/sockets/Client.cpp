@@ -51,7 +51,7 @@ namespace Socket
   {
   }
 
-  void  Client::start(std::string address, int port)
+  void  Client::start(std::string address, int port, char const *protocol)
   {
     SOCKADDR_IN	addr;
     PROTOENT	*proto;
@@ -63,7 +63,7 @@ namespace Socket
     _port = port;
 
     // create socket
-    proto = getprotobyname("tcp");
+    proto = getprotobyname(protocol);
 
     if ((_fd = socket(AF_INET, SOCK_STREAM, proto ? proto->p_proto : 0)) == -1)
       throw SocketCreateError(std::string("client : ") +

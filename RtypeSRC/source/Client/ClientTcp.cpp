@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec 13 14:24:29 2016 Gandoulf
-// Last update Fri Dec 16 16:53:09 2016 Gandoulf
+// Last update Fri Dec 16 21:41:18 2016 Gandoulf
 //
 
 # include "Client/ClientTcp.hpp"
@@ -107,7 +107,7 @@ namespace rtype
   void ClientTcp::start()
   {
     try {
-      _client.start(_adresse, _port);
+      _client.start(_adresse, _port, _protocol.c_str());
     } catch (const std::exception e) {
       std::cout << "server not connected" << std::endl;
     }

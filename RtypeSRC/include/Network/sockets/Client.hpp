@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Mon May  2 15:20:47 2016 Maxime Agor
-// Last update Sun Jun  5 18:54:05 2016 Maxime Agor
+// Last update Fri Dec 16 21:39:14 2016 Gandoulf
 //
 
 #ifndef CLIENT_HPP_
@@ -28,7 +28,7 @@ namespace Socket
 
     /* CLIENT CONFIGURATION API */
 
-    void start(std::string address, int port);
+    void start(std::string address, int port, char const *protocol = "tcp");
     void stop();
 
     // set the timeout in ms

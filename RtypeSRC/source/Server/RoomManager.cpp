@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:35:00 2016 Gandoulf
-// Last update Tue Dec  6 10:32:36 2016 Gandoulf
+// Last update Fri Dec 16 22:12:46 2016 Gandoulf
 //
 
 #include "Server/RoomManager.hpp"
@@ -87,8 +87,9 @@ namespace rtype
       sendPlayerMsg(nickName, joinError(nickName));
       return ;
     }
-    room_ptr room(new Room(name, _nextPort++));
+    room_ptr room(new Room(name, _nextPort));
     _rooms.insert(std::make_pair(name, std::move(room)));
+    _nextPort += 2; // game server have 2 port to start
     joinRoom(name, nickName);
   }
 

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 17:01:47 2016 Gandoulf
-// Last update Thu Dec 15 17:53:49 2016 Gandoulf
+// Last update Sat Dec 17 11:02:11 2016 Gandoulf
 //
 
 #ifndef RTYPE_SERVER_HPP_
@@ -29,16 +29,17 @@ namespace rtype
 {
   class TcpClient;
   typedef std::unique_ptr<TcpClient> client_ptr;
-  typedef IONetworkManager<IEvent, Socket::Server, RtypeSerializer, RtypePacketReader> IOServer;
 
   class TcpClient
   {
+    typedef IONetworkManager<IEvent, Socket::Server, RtypeSerializer, RtypePacketReader> IOServer;
   public:
     TcpClient(int const & fd, Socket::Server &server, RoomManager &_room);
     ~TcpClient();
 
     void leaveRoom();
     void read(Socket::Server & server, int fd, size_t length);
+    void write(Socket::Server & server, int fd);
 
   private:
     void disconnect();

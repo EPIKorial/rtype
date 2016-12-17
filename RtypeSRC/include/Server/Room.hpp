@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:11:31 2016 Gandoulf
-// Last update Tue Dec  6 15:28:26 2016 Gandoulf
+// Last update Fri Dec 16 22:49:47 2016 Gandoulf
 //
 
 #ifndef ROOM_HPP_
@@ -15,25 +15,13 @@
 # include <vector>
 # include <map>
 # include <string>
+# include "Server/GameServer.hpp"
+# include "Server/RoomClient.hpp"
 
 namespace rtype
 {
   class Room
   {
-    class Client
-    {
-    public:
-      Client(std::string const &name);
-      ~Client();
-
-      std::string const &getName() const;
-      bool		getReady() const;
-      void		setReady(bool const &);
-    private:
-      std::string	_name;
-      bool		_ready;
-    };
-
   public:
     Room(std::string const & name, unsigned short const & port,
 	 unsigned int const & maxPlayers = 4);
@@ -51,6 +39,8 @@ namespace rtype
     std::string joinOk() const;
 
   private:
+    std::unique_ptr<GameServer>	_gameServer;
+
     std::string			_name;
     unsigned int		_maxPlayers;
     //std::vector<std::string>	_players;
