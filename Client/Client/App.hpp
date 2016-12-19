@@ -11,9 +11,11 @@ class App
 {
 protected:
 	IState *currentState;
+	IState *oldState;
 	sf::Clock gameClock;
 	sf::Clock drawClock;
 	bool active;
+	bool toDelete;
 
 	void loop();
 public:

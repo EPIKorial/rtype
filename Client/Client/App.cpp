@@ -3,6 +3,11 @@
 
 void App::loop()
 {
+	if (toDelete)
+	{
+		delete oldState;
+		toDelete = false;
+	}
 	if (currentState)
 		currentState->update(gameClock.getElapsedTime().asMilliseconds() / 100);
 	gameClock.restart();
@@ -16,7 +21,7 @@ void App::loop()
 	}
 }
 
-App::App() : win(sf::VideoMode(800, 600), "R-Type +6"), currentState(nullptr), active(false)
+App::App() : win(sf::VideoMode(800, 600), "R-Type +6"), currentState(nullptr), active(false), toDelete(false), oldState(nullptr)
 {
 	gameClock.restart();
 	drawClock.restart();
@@ -33,7 +38,8 @@ void App::run(void)
 
 void App::setState(IState *ns)
 {
-	
+	toDelete = true;
+	oldState = currentState;
 	currentState = ns;
 }
 
