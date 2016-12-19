@@ -3,6 +3,7 @@
 
 void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 {
+	bool haveActive = false;
 	for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
 	{
 		if ((*it)->isActive() && ev.key.code == sf::Keyboard::Tab)
@@ -10,7 +11,7 @@ void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 			if ((it + 1) != uiComponents.end())
 			{
 				(*it)->unTrigger();
-				(*(it + 1))->trigger();
+				(*(it + 1))->setActive(true);
 			}
 			else
 			{
@@ -20,9 +21,13 @@ void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 		}
 		if ((*it)->isActive())
 		{
+			haveActive = true;
 			(*it)->triggerKey(ev, elapsed);
 		}
 	}
+	if (!haveActive && uiComponents.size() > 0)
+		(*uiComponents.begin())->setActive(true);
+		
 }
 
 void AState::mouseEventUI(const sf::Event &e, float elapsed)
@@ -50,7 +55,6 @@ void AState::mouseEventUI(const sf::Event &e, float elapsed)
 				if (e.type == sf::Event::MouseButtonPressed)
 				{
 					(*it)->trigger();
-					std::cout << xRatio << ":" << yRatio << std::endl;
 				}
 				else
 					(*it)->hover(elapsed);

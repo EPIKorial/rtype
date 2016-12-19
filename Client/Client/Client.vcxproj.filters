@@ -45,6 +45,12 @@
     <ClCompile Include="EmptyState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FontLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Palette.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWindow.hpp">
@@ -78,6 +84,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EmptyState.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FontLib.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Palette.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

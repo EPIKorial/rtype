@@ -12,6 +12,7 @@ public:
 	virtual ~IUIComponent() {}
 
 	virtual bool isQuiet() const = 0;
+	virtual void setQuiet(bool) = 0;
 	virtual bool isIn(float x, float y) const = 0;
 
 	virtual void trigger() = 0;

@@ -18,10 +18,13 @@ class Button : public IUIComponent
 	sf::RectangleShape shape;
 	sf::RenderWindow &win;
 	ScreenHelper Dim;
+	bool active;
+	bool quiet;
+	sf::Text txt;
 
 public:
 	Button(sf::RenderWindow &, const std::string &text,
-		float sizeX, float sizeY, float posX = 0, float posY = 0);
+		float sizeX, float sizeY, float posX = 0, float posY = 0, bool show = true);
 	virtual ~Button() {}
 
 	// Inherited via IUIComponent
@@ -35,6 +38,7 @@ public:
 	virtual void triggerKey(const sf::Event &, float elapsed) override;
 	virtual void update(float elapsed) override;
 	virtual void draw(float elapsed);
+	virtual void setQuiet(bool) override;
 };
 
 #endif /* !BUTTON_HPP_ */

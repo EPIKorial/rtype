@@ -1,4 +1,5 @@
 #include "App.hpp"
+#include "FontLib.hpp"
 
 void App::loop()
 {
@@ -19,6 +20,7 @@ App::App() : win(sf::VideoMode(800, 600), "R-Type +6"), currentState(nullptr), a
 {
 	gameClock.restart();
 	drawClock.restart();
+	FontLib::add("Nova", "Assets/Fonts/NovaSquare.ttf");
 }
 
 void App::run(void)
