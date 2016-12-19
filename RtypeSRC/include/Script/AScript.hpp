@@ -5,13 +5,14 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 15:49:39 2016 Gandoulf
-// Last update Mon Nov 28 19:20:39 2016 Gandoulf
+// Last update Mon Dec 19 13:13:16 2016 Gandoulf
 //
 
 #ifndef ASCRIPT_HPP_
 # define ASCRIPT_HPP_
 
 # include <cstdarg>
+# include <string>
 # include "Rtype/GameObject.hpp"
 
 namespace rtype

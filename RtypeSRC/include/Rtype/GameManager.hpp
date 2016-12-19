@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:27:14 2016 Gandoulf
-// Last update Sat Dec 17 12:03:46 2016 Gandoulf
+// Last update Mon Dec 19 13:11:24 2016 Gandoulf
 //
 
 #ifndef GAMEMANAGER_HPP_
@@ -15,6 +15,7 @@
 # include <map>
 # include "Protocol/TcpEvent.hpp"
 # include "Protocol/UdpEvent.hpp"
+# include "Rtype/GameObjectManager.hpp"
 
 namespace rtype
 {
@@ -24,9 +25,12 @@ namespace rtype
     GameManager(std::map<int, std::queue<IEvent *>> & event, std::queue<IEvent *> &clientInputs);
     ~GameManager();
 
+    GameObjectManager     &getGameObjects();
+
   private:
     std::map<int, std::queue<IEvent *>>         &_event;
     std::queue<IEvent *>                        &_clientInputs;
+    GameObjectManager				_gameObjects;
   };
 }
 
