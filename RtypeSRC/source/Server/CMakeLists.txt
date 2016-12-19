@@ -1,0 +1,36 @@
+cmake_minimum_required (VERSION 2.8)
+
+set(MODULE_NAME "rtype_server")
+set(MODULE_SRC "${CMAKE_CURRENT_LIST_DIR}/Server.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/RoomManager.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/Room.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/RoomClient.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/GameServer.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/Main.cpp"
+  )
+set(MODULE_INCLUDE ""
+  )
+set(MODULE_LIB "-lNetwork"
+  )
+set(MODULE_FLAGS "${CMAKE_SYSTEM_FLAGS} -g"
+  )
+
+#include .cmake extend configuration files
+include("${RTYPE_SOURCE_DIR}/Protocol/Protocol.cmake")
+include("${RTYPE_SOURCE_DIR}/Rtype/Rtype.cmake")
+
+include_directories(${MODULE_INCLUDE})
+
+add_executable(${MODULE_NAME} ${MODULE_SRC})
+
+add_dependencies(${MODULE_NAME}
+  Network
+)
+
+set_target_properties(${MODULE_NAME} PROPERTIES
+  COMPILE_FLAGS ${MODULE_FLAGS}
+  )
+
+target_link_libraries(${MODULE_NAME}
+  ${MODULE_LIB}
+  )
