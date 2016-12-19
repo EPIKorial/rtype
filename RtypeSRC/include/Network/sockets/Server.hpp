@@ -56,6 +56,8 @@ namespace Socket
     // called on server startup
     // param1 : Int : Port of the connexion
     void  OnStart(std::function < void (Server &, int) > const &callback);
+    // called on server tick (timeout or any event)
+    void  OnTick(std::function < void (Server &) > const &callback);
 
 
     /* I/O API */
@@ -77,6 +79,7 @@ namespace Socket
     std::function < void (Server &, int, size_t) >  _OnReadPossible;
     std::function < void (Server &, int) >          _OnWritePossible;
     std::function < void (Server &, int) >               _OnStart;
+    std::function < void (Server &) >               _OnTick;
 
   private:
     void  stateChecker();

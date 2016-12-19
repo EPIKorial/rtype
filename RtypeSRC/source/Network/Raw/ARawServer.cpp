@@ -34,6 +34,10 @@ ARawServer::ARawServer(unsigned short const &port, std::string proto)
 		  {
 		    onStart(server, port);
 		  });
+  _server.OnTick([this](Socket::Server & server)
+      {
+        onTick(server);
+      });
 }
 
 ARawServer::~ARawServer()
@@ -77,6 +81,11 @@ void ARawServer::onWrite(Socket::Server & server, int fd)
 void ARawServer::onStart(Socket::Server & server, int fd)
 {
   std::cout << "raw server : start" << std::endl;
+}
+
+void ARawServer::onTick(Socket::Server & server)
+{
+  
 }
 
 void ARawServer::start()
