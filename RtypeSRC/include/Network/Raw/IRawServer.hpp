@@ -25,6 +25,7 @@ protected:
   virtual void onRead(Socket::Server & server, int fd, size_t length) = 0;
   virtual void onWrite(Socket::Server & server, int fd) = 0;
   virtual void onStart(Socket::Server & server, int fd) = 0;
+  virtual void onTick(Socket::Server & server) = 0;
 
   virtual void start() = 0;
   virtual void stop() = 0;

@@ -43,6 +43,7 @@ namespace Socket
 			_OnReadPossible = NULL;
 			_OnWritePossible = NULL;
 			_OnStart = NULL;
+			_OnTick = NULL;
 			_isRunning = false;
 			_timeout.tv_sec = 10;
 			_timeout.tv_usec = 0;
@@ -143,6 +144,11 @@ namespace Socket
 	void  Server::OnStart(std::function < void (Socket::Server &, int) > const &callback)
 	{
 		_OnStart = callback;
+	}
+
+	void Server::OnTick(std::function < void (Socket::Server &)> const &callback)
+	{
+		_OnTick = callback;
 	}
 
 
@@ -278,6 +284,8 @@ namespace Socket
 						*/
 				}
 			}
+			if (_OnTick)
+				_OnTick(*this);
 		}
 	}
 };
