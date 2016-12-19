@@ -4,9 +4,11 @@
 # define BUTTON_HPP_
 
 # include <string>
+# include <functional>
 # include <SFML/Graphics.hpp>
 # include "IUIComponent.hpp"
 # include "ScreenHelper.hpp"
+
 
 class Button : public IUIComponent
 {
@@ -21,9 +23,10 @@ class Button : public IUIComponent
 	bool active;
 	bool quiet;
 	sf::Text txt;
+	std::function<void()> callback;
 
 public:
-	Button(sf::RenderWindow &, const std::string &text,
+	Button(sf::RenderWindow &, const std::string &text, const std::function<void()>,
 		float sizeX, float sizeY, float posX = 0, float posY = 0, bool show = true);
 	virtual ~Button() {}
 

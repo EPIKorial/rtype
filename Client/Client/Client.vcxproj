@@ -120,6 +120,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="FontLib.cpp" />
+    <ClCompile Include="LobbyState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainWindows.cpp" />
     <ClCompile Include="MenuState.cpp" />
@@ -136,6 +137,7 @@
     <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUIComponent.hpp" />
     <ClInclude Include="IWindow.hpp" />
+    <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Palette.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />

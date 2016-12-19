@@ -33,7 +33,7 @@ void App::run(void)
 
 void App::setState(IState *ns)
 {
-	delete currentState;
+	
 	currentState = ns;
 }
 

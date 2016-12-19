@@ -3,8 +3,8 @@
 #include "Button.hpp"
 #include "Palette.hpp"
 
-Button::Button(sf::RenderWindow &wi, const std::string & txte, float sX, float sY, float pX, float pY, bool show) :
-	win(wi), text(txte), sizeX(sX), sizeY(sY), posX(pX), posY(pY), Dim(wi), active(false), quiet(!show)
+Button::Button(sf::RenderWindow &wi, const std::string & txte, const std::function<void()> fc, float sX, float sY, float pX, float pY, bool show) :
+	win(wi), text(txte), sizeX(sX), sizeY(sY), posX(pX), posY(pY), Dim(wi), active(false), quiet(!show), callback(fc)
 {
 	shape.setFillColor(sf::Color::Transparent);
 	shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
@@ -31,6 +31,7 @@ bool Button::isIn(float x, float y) const
 void Button::trigger()
 {
 	std::cout << "Clicked !" << std::endl;
+	callback();
 	shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
 }
 
@@ -76,7 +77,7 @@ void Button::draw(float elapsed)
 	shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), Dim.getRealHeight(sizeY)));
 	txt.setFillColor(shape.getOutlineColor());
 	txt.setCharacterSize(30);
-	txt.setPosition(Dim.getRealWidth(posX) + 15, Dim.getRealHeight(posY) + 15);
+	txt.setPosition(Dim.getRealWidth(posX) + 15, Dim.getRealHeight(posY) + 10);
 	win.draw(shape);
 	win.draw(txt);
 }

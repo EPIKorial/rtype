@@ -1,10 +1,14 @@
 #include <iostream>
+#include "LobbyState.hpp"
 #include "MenuState.hpp"
 #include "Button.hpp"
 
 MenuState::MenuState(App &ap) : AState(ap)
 {
-	uiComponents.push_back(new Button(app.win, "Hello there", 50, 50, 25, 25));
+	uiComponents.push_back(new Button(app.win, "Play", [&]() { 
+		ap.setState(new LobbyState(ap));
+		std::cout << "LEAVE MENU" << std::endl;
+	}, 20, 10, 5, 85));
 }
 
 MenuState::~MenuState()
