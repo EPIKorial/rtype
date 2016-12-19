@@ -24,6 +24,7 @@ class Button : public IUIComponent
 	bool quiet;
 	sf::Text txt;
 	std::function<void()> callback;
+	bool hovered;
 
 public:
 	Button(sf::RenderWindow &, const std::string &text, const std::function<void()>,

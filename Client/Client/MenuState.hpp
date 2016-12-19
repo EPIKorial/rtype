@@ -3,10 +3,15 @@
 #ifndef MENUSTATE_HPP_
 # define MENUSTATE_HPP_
 
+# include <SFML/Graphics.hpp>
 # include "AState.hpp"
 
 class MenuState : public AState
 {
+	sf::Texture texture;
+	sf::Sprite sprite;
+	bool loaded;
+
 public:
 	MenuState(App &);
 	virtual ~MenuState();

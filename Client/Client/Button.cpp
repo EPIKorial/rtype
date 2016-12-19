@@ -4,11 +4,12 @@
 #include "Palette.hpp"
 
 Button::Button(sf::RenderWindow &wi, const std::string & txte, const std::function<void()> fc, float sX, float sY, float pX, float pY, bool show) :
-	win(wi), text(txte), sizeX(sX), sizeY(sY), posX(pX), posY(pY), Dim(wi), active(false), quiet(!show), callback(fc)
+	win(wi), text(txte), sizeX(sX), sizeY(sY), posX(pX), posY(pY), Dim(wi), active(false), quiet(!show), callback(fc), hovered(false)
 {
 	shape.setFillColor(sf::Color::Transparent);
 	shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
 	shape.setOutlineThickness(-5);
+	shape.setFillColor(sf::Color::Black);
 	txt.setString(txte);
 	txt.setFillColor(sf::Color(Palette::DEEPSKYBLUE));
 	txt.setStyle(sf::Text::Bold);
@@ -43,6 +44,7 @@ void Button::unTrigger()
 
 void Button::hover(float elapsed)
 {
+	hovered = true;
 }
 
 bool Button::isActive() const
@@ -68,6 +70,13 @@ void Button::triggerKey(const sf::Event &e, float elapsed)
 
 void Button::update(float elapsed)
 {
+	if (hovered)
+	{
+		shape.setOutlineColor(sf::Color(Palette::LIGHTBLUE));
+		hovered = false;
+	}
+	else
+		shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
 }
 
 void Button::draw(float elapsed)

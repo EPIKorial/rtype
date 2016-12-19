@@ -1,4 +1,5 @@
 #include "App.hpp"
+#include <iostream>
 #include "FontLib.hpp"
 
 void App::loop()
@@ -9,13 +10,13 @@ void App::loop()
 		toDelete = false;
 	}
 	if (currentState)
-		currentState->update(gameClock.getElapsedTime().asMilliseconds() / 100);
+		currentState->update(gameClock.getElapsedTime().asMilliseconds() / 100.f);
 	gameClock.restart();
 	if (drawClock.getElapsedTime().asMilliseconds() > FPS)
 	{
 		win.clear();
 		if (currentState)
-			currentState->draw(drawClock.getElapsedTime().asMilliseconds() / 100);
+			currentState->draw(drawClock.getElapsedTime().asMilliseconds() / 100.f);
 		win.display();
 		drawClock.restart();
 	}
