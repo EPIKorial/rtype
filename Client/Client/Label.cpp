@@ -16,6 +16,17 @@ Label::~Label()
 {
 }
 
+void Label::setText(const std::string &n)
+{
+	text = n;
+	sftxt.setString(n);
+}
+
+const std::string & Label::getText(void) const
+{
+	return text;
+}
+
 bool Label::isQuiet() const
 {
 	return quiet;

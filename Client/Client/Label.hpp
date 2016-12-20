@@ -25,6 +25,9 @@ public:
 	Label(sf::RenderWindow &, const std::string &text, AlignType, const sf::Color &, const std::string &font, float posX = 0, float posY = 0, float size = 30, bool show = true);
 	virtual ~Label();
 
+	void setText(const std::string &);
+	const std::string &getText(void) const;
+
 	// Inherited via IUIComponent
 	virtual bool isQuiet() const override;
 
