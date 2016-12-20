@@ -15,6 +15,7 @@
 # include <vector>
 # include <memory>
 # include <map>
+# include <sstream>
 # include "Network/sockets/Server.hpp"
 # include "Server/RoomManager.hpp"
 # include "Network/Raw/ARawServer.hpp"
@@ -41,10 +42,29 @@ namespace rtype
     void read(Socket::Server & server, int fd, size_t length);
     void write(Socket::Server & server, int fd);
 
+    class TcpRequest
+    {
+    public:
+      TcpRequest(std::string const& str);
+      ~TcpRequest();
+
+      std::string nickName;
+      std::string cmd;
+      std::string roomName;
+
+      bool isValid() const;
+
+    private:
+      std::vector<std::string> _tokens;
+      bool _isValid;
+    };
+
   private:
     void disconnect();
 
   private:
+    int	handleRequest(const TcpRequest *req);
+
     //Network
     int									_fd;
     Socket::Server							&_server;

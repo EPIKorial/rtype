@@ -14,6 +14,53 @@
 
 namespace rtype
 {
+  //
+  // TcpRequest
+  //
+
+  TcpClient::TcpRequest::TcpRequest(std::string const& str)
+  {
+    std::stringstream stream(str);
+    std::string token;
+
+    while (std::getline(stream, token, ','))
+      _tokens.push_back(token);
+
+    _isValid = false;
+    if (_tokens.size() > 0)
+      {
+	_isValid = true;
+        cmd = _tokens[0];
+	if (_tokens.size() > 1 && ((cmd.compare("CONNECT") == 0) || (cmd.compare("ROOM_READY") == 0)))
+	  {
+	    nickName = _tokens[1];
+	  }
+	else if (_tokens.size() > 1 && ((cmd.compare("ROOM_CREATE") == 0) || (cmd.compare("ROOM_JOIN") == 0)))
+	  {
+	    roomName = _tokens[1];
+	  }
+	else if (cmd.compare("ROOM_PLAYERS") == 0)
+	  {
+
+	  }
+	else
+	  {
+	    _isValid = false;
+	  }
+      }
+  }
+
+  TcpClient::TcpRequest::~TcpRequest() {}
+
+  bool TcpClient::TcpRequest::isValid() const
+  {
+    return _isValid;
+  }
+
+  //
+  // TcpClient
+  //
+
   TcpClient::TcpClient(int const & fd, Socket::Server &server, RoomManager &room)
     : _fd(fd), _server(server), _room(room)
   {
@@ -28,8 +75,8 @@ namespace rtype
 
   TcpClient::~TcpClient()
   {
-    std::cout << "client on fd : " << _fd << " disconnected" << std::endl;
-    _room.disconnect("macouille");
+    // std::cout << "client on fd : " << _fd << " disconnected" << std::endl;
+    // _room.disconnect("macouille");
   }
 
   void TcpClient::leaveRoom()
@@ -40,12 +87,37 @@ namespace rtype
   void TcpClient::read(Socket::Server & server, int fd, size_t length)
   {
     IEvent *paquet;
+    tcpEvent::Message *event;
+    TcpRequest *req;
 
+    req = NULL;
+    event = NULL;
     _networkManager.updateR(server, fd, length);
     paquet = _networkManager.pop();
     if (paquet != NULL && paquet->getType() == MESSAGE) //TODO delete
-      std:: cout << static_cast<tcpEvent::Message *>(paquet)->message << std::endl;
-    delete paquet;
+      {
+        event = static_cast<tcpEvent::Message *>(paquet);
+	std::cout << "Message  = " << event->message << std::endl;
+	req = new TcpRequest(event->message);
+	if (!req->isValid())
+	  {
+	    delete req;
+	    std::cerr << "Invalid request" << std::endl;
+	  }
+	std::cout << "CMD = " << req->cmd << std::endl;
+	handleRequest(req);
+	delete paquet;
+      }
+  }
+
+  int TcpClient::handleRequest(const TcpRequest *req)
+  {
+    if (req->cmd.compare("CONNECT") == 0)
+      {
+	std::cout << "NINJA" << std::endl;
+	_room.connect(req->nickName);
+	_room.getRoomList(req->nickName);
+      }
   }
 
   void TcpClient::write(Socket::Server & server, int fd)
