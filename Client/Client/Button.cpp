@@ -13,9 +13,15 @@ Button::Button(sf::RenderWindow &wi, const std::string & txte, const std::functi
 	txt.setString(txte);
 	txt.setFillColor(sf::Color(Palette::DEEPSKYBLUE));
 	txt.setStyle(sf::Text::Bold);
+	txt.setCharacterSize(30);
 	if (FontLib::have("Nova"))
 		txt.setFont(*FontLib::get("Nova"));
+	txt.setFillColor(shape.getOutlineColor());
 
+}
+
+Button::~Button()
+{
 }
 
 bool Button::isQuiet() const
@@ -34,12 +40,14 @@ void Button::trigger()
 	std::cout << "Clicked !" << std::endl;
 	callback();
 	shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
+	txt.setFillColor(shape.getOutlineColor());
 }
 
 void Button::unTrigger()
 {
 	std::cout << "Untriggered !" << std::endl;
 	shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
+	txt.setFillColor(shape.getOutlineColor());
 }
 
 void Button::hover(float elapsed)
@@ -59,6 +67,7 @@ void Button::setActive(bool a)
 		shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
 	else
 		shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
+	txt.setFillColor(shape.getOutlineColor());
 
 }
 
@@ -77,15 +86,17 @@ void Button::update(float elapsed)
 	}
 	else
 		shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
+	txt.setFillColor(shape.getOutlineColor());
 }
 
 void Button::draw(float elapsed)
 {
 	
 	shape.setPosition(Dim.getRealWidth(posX), Dim.getRealHeight(posY));
-	shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), Dim.getRealHeight(sizeY)));
-	txt.setFillColor(shape.getOutlineColor());
-	txt.setCharacterSize(30);
+	if (Dim.getRealHeight(sizeY) <= RECOMMENDED_HEIGHT)
+		shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), Dim.getRealHeight(sizeY)));
+	else
+		shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), RECOMMENDED_HEIGHT));
 	txt.setPosition(Dim.getRealWidth(posX) + 15, Dim.getRealHeight(posY) + 10);
 	win.draw(shape);
 	win.draw(txt);
