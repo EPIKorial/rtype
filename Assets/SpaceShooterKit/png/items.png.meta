@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: a84c89597efc83e408700008b386bb3b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: items_0
+    21300002: items_1
+    21300004: items_2
+    21300006: items_3
+    21300008: items_4
+    21300010: items_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 1000
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: items_0
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 1278
+        width: 160
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: items_1
+      rect:
+        serializedVersion: 2
+        x: 2514
+        y: 1280
+        width: 170
+        height: 60
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: items_2
+      rect:
+        serializedVersion: 2
+        x: 2707
+        y: 1279
+        width: 196
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: items_3
+      rect:
+        serializedVersion: 2
+        x: 2933
+        y: 1276
+        width: 167
+        height: 64
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: items_4
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 1264
+        width: 167
+        height: 105
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: items_5
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 1258
+        width: 182
+        height: 111
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
