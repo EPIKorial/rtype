@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Thu Jun  2 15:32:14 2016 Maxime Agor
-// Last update Wed Dec 21 13:02:12 2016 Gandoulf
+// Last update Wed Dec 21 12:45:23 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECT_HPP_
@@ -32,12 +32,12 @@ namespace rtype
     std::string				_name;
     rtype::Vector2F			_position;
     rtype::Vector2F			_scale;
-    rtype::IGameManager			*_gameManager;
+    rtype::IGameManager			&*_gameManager;
 
     //TODO: need collider + gameManager
 
   public:
-    GameObject();
+    GameObject(GameManager *gameManager);
     virtual ~GameObject();
 
     virtual void			Start();
@@ -49,9 +49,7 @@ namespace rtype
     void				setTag(std::string const &tag);
     //bool				setName(std::string const &name);
     void				setScript(AScript *script);
-    void				setGameManager(IGameManager *gameManager);
 
-    IGameManager			*getGameManager();
     rtype::Vector2F const&		getPosition() const;
     rtype::Vector2F const&		getScale() const;
     std::string const &			getName() const;

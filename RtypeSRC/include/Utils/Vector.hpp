@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 18:32:39 2016 Gandoulf
-// Last update Mon Dec 19 13:16:42 2016 Gandoulf
+// Last update Wed Dec 21 09:38:04 2016 Gandoulf
 //
 
 #ifndef RTYPE_VECTOR_HPP_
@@ -28,6 +28,13 @@ namespace rtype
       x = copy.x;
       y = copy.y;
       return (*this);
+    }
+
+    bool operator==(Vector2F const &copy) const
+    {
+      if (x == copy.x && y == copy.y)
+	return (true);
+      return (false);
     }
 
     float x;

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:46:49 2016 Gandoulf
-// Last update Mon Dec 19 13:17:00 2016 Gandoulf
+// Last update Wed Dec 21 13:03:24 2016 Gandoulf
 //
 
 #include "Rtype/GameObject.hpp"
@@ -14,7 +14,6 @@ namespace rtype
 {
   GameObject::GameObject()
   {
-
   }
 
   GameObject::~GameObject()
@@ -74,6 +73,16 @@ namespace rtype
   void GameObject::setScript(AScript *script)
   {
     _script.push_back(script);
+  }
+
+  void GameObject::setGameManager(IGameManager *gameManager)
+  {
+    _gameManager = gameManager;
+  }
+
+  IGameManager *GameObject::getGameManager()
+  {
+    return (_gameManager);
   }
 
   rtype::Vector2F const& GameObject::getPosition() const

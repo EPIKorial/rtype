@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 11:04:49 2016 Gandoulf
-// Last update Fri Dec 16 22:52:29 2016 Gandoulf
+// Last update Wed Dec 21 13:16:05 2016 Gandoulf
 //
 
 #include "Server/Room.hpp"
@@ -18,6 +18,7 @@ namespace rtype
     : _name(name), _port(port), _maxPlayers(maxPlayers)
   {
     _gameServer = std::unique_ptr<GameServer>(new GameServer(port, "udp", _maxPlayers));
+    _gameServer->run();
   }
 
   Room::~Room()

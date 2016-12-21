@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:36:16 2016 Gandoulf
-// Last update Mon Dec 19 13:12:06 2016 Gandoulf
+// Last update Wed Dec 21 12:06:42 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECTMANAGER_HPP_
@@ -18,6 +18,9 @@
 
 namespace rtype
 {
+  class GameObject;
+  class GameManager;
+
   class GameObjectManager
   {
   public:
