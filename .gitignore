@@ -27,6 +27,12 @@
 *.exe
 *.out
 *.app
+
+
+# Visual Studio build files
+/Client/Debug
+/Client/Client/Debug
+
 rtype_server
 rtype_client
 
@@ -35,3 +41,4 @@ build
 Build
 RtypeSRC/build
 RtypeSRC/Build
+
