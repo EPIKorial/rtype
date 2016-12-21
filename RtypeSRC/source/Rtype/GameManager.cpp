@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Sat Dec 17 11:53:40 2016 Gandoulf
-// Last update Wed Dec 21 12:58:01 2016 Gandoulf
+// Last update Wed Dec 21 15:07:29 2016 Gandoulf
 //
 
 #include "Rtype/GameManager.hpp"
@@ -28,7 +28,6 @@ namespace rtype
   void GameManager::start()
   {
     _game = instantiate("game.prefab", Vector2F(0,0));
-    _game->setGameManager(static_cast<IGameManager *>(this));
   }
 
   void GameManager::stop()
@@ -46,6 +45,7 @@ namespace rtype
 	    _deleteList.pop_back();
 	  }
       }
+    _gameObjects.update();
   }
 
   GameObjectManager   &GameManager::getGameObjects()
@@ -58,7 +58,11 @@ namespace rtype
 				       Vector2F const &scale)
   {
     GameObject *go = _prefabCreator.instantiate(prefabFile, pos, scale);
-    go->setGameManager(static_cast<IGameManager *>(this));
+    if (go != NULL)
+      {
+	go->setGameManager(static_cast<IGameManager *>(this));
+	_gameObjects.addObject(go, go->_dynamic);
+      }
     return (go);
   }
 

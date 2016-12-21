@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Thu Jun  2 15:32:14 2016 Maxime Agor
-// Last update Wed Dec 21 13:02:12 2016 Gandoulf
+// Last update Wed Dec 21 15:00:54 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECT_HPP_
@@ -26,6 +26,9 @@ namespace rtype
 
   class GameObject
   {
+  public:
+    bool				_dynamic;
+
   protected:
     std::vector<rtype::AScript *>	_script;
     std::string				_tag;

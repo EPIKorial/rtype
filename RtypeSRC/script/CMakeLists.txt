@@ -12,3 +12,5 @@ link_directories(${SCRIPT_BUILD_DIR})
 
 #include CMakeFiles script
 include(${SCRIPT_SOURCE_DIR}/Default/CMakeLists.txt)
+
+include(${SCRIPT_SOURCE_DIR}/RtypeGame/CMakeLists.txt)

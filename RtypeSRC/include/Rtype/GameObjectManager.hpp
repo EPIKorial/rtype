@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:36:16 2016 Gandoulf
-// Last update Wed Dec 21 12:06:42 2016 Gandoulf
+// Last update Wed Dec 21 15:06:44 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECTMANAGER_HPP_
@@ -28,14 +28,16 @@ namespace rtype
       {
 	STATIC,
 	DYNAMIC
-      }ObjType;
+      }		ObjType;
 
   public:
     GameObjectManager();
     GameObjectManager(GameObjectManager &newMap);
     ~GameObjectManager();
 
-    GameObjectManager *addObject(GameObject *newObject, ObjType objType);
+    void update();
+
+    GameObjectManager *addObject(GameObject *newObject, bool dynamic);
     bool deleteObject(std::string const& nameObject);
     GameObject *getObject(std::string const& nameObject);
     std::map<std::string, GameObject *> &getStaticObjects();

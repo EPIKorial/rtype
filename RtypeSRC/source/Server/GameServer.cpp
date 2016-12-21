@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Sat Dec 17 12:02:34 2016 Gandoulf
+// Last update Wed Dec 21 14:53:45 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
@@ -115,18 +115,27 @@ namespace rtype
 
   void GameServer::onStart(Socket::Server & server, int fd)
   {
-    std::cout << "starting TCP server" << std::endl;
+    std::cout << "starting UDP server" << std::endl;
+    _gameManager.start();
+  }
+
+  void GameServer::onTick(Socket::Server & server)
+  {
+    std::cout << "tick" << std::endl;
+    _gameManager.managerUpdate();
   }
 
   void GameServer::start()
   {
     try {
-      _server.start(_port, _maxClient, "udp");
+      std::cout << _port << std::endl;
+      _server.start(_port, _maxClient, "tcp");
     } catch (const std::exception e) {
       try {
-	_server.start(_port + 1, _maxClient, "udp");
+	std::cout << _port + 1 << std::endl;
+	_server.start(_port + 1, _maxClient, "tcp");
       } catch (const std::exception e) {
-	std::cout << "port taken quand launch server" << std::endl;
+	std::cout << "port taken can't launch server" << std::endl;
       }
     }
   }

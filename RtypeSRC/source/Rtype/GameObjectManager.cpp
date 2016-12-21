@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:37:17 2016 Gandoulf
-// Last update Mon Dec 19 13:18:29 2016 Gandoulf
+// Last update Wed Dec 21 15:07:13 2016 Gandoulf
 //
 
 #include "Rtype/GameObjectManager.hpp"
@@ -22,12 +22,20 @@ namespace rtype
 
   GameObjectManager::~GameObjectManager() {}
 
-  GameObjectManager *GameObjectManager::addObject(GameObject *newObject,
-						 ObjType type)
+  void GameObjectManager::update()
   {
-    if (type == STATIC)
+    for(auto it = _dynamicObjects.begin(); it != _dynamicObjects.end(); ++it ) {
+      std::cout << it->second->getName() << std::endl;
+      it->second->Update();
+    }
+  }
+
+  GameObjectManager *GameObjectManager::addObject(GameObject *newObject,
+						 bool dynamic)
+  {
+    if (!dynamic)
       _staticObjects[newObject->getName()] = newObject;
-    else if (type == DYNAMIC)
+    else if (dynamic)
       {
 	_dynamicObjects[newObject->getName()] = newObject;
 	newObject->Start();

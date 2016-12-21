@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:02:19 2016 Gandoulf
-// Last update Sat Dec 17 12:03:41 2016 Gandoulf
+// Last update Wed Dec 21 13:52:15 2016 Gandoulf
 //
 
 #ifndef GAMESERVER_HPP_
@@ -69,6 +69,7 @@ namespace rtype
     virtual void onRead(Socket::Server & server, int fd, size_t length);
     virtual void onWrite(Socket::Server & server, int fd);
     virtual void onStart(Socket::Server & server, int fd);
+    virtual void onTick(Socket::Server & server);
 
     virtual void start();
     virtual void stop();

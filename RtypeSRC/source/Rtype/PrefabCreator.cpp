@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed May 25 14:52:49 2016 Gandoulf
-// Last update Wed Dec 21 09:32:34 2016 Gandoulf
+// Last update Wed Dec 21 15:08:01 2016 Gandoulf
 //
 
 #include "Rtype/PrefabCreator.hpp"
@@ -62,12 +62,14 @@ namespace rtype
 	    std::cout << "push Dynamic gameObject" << std::endl;
 	    for (int i = 0; i < it->second._properties.skillFunction.size(); ++i)
 	      gameObject->setScript(it->second._properties.skillFunction[i](gameObject));
+	    gameObject->_dynamic = true;
 	    //indie::GameManager::getGameObjects()
 	    //.addObject(gameObject, GameObjectManager::DYNAMIC);
 	  }
 	else
 	  {
 	    std::cout << "push Static gameObject" << std::endl;
+	    gameObject->_dynamic = false;
 	    //indie::GameManager::getGameObjects()
 	    //.addObject(gameObject, GameObjectManager::STATIC);
 	  }
