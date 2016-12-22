@@ -7,6 +7,7 @@ class Palette
 {
 	public:
 		static const int DEEPSKYBLUE;
+		static const int LIGHTBLUE;
 		static const int POWDERBLUE;
 		static const int DODGERBLUE;
 		static const int BLUE;

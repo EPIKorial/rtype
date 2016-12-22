@@ -112,6 +112,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +121,9 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="FontLib.cpp" />
+    <ClCompile Include="InputField.cpp" />
+    <ClCompile Include="IUIComponent.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="LobbyState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainWindows.cpp" />
@@ -134,15 +138,18 @@
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="EmptyState.hpp" />
     <ClInclude Include="FontLib.hpp" />
+    <ClInclude Include="InputField.hpp" />
     <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUIComponent.hpp" />
     <ClInclude Include="IWindow.hpp" />
+    <ClInclude Include="Label.hpp" />
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Palette.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />
     <ClInclude Include="sfWindow.hpp" />
     <ClInclude Include="Sprite.hpp" />
+    <ClInclude Include="UITools.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

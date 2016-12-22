@@ -1,48 +1,56 @@
 #pragma once
 
-#ifndef BUTTON_HPP_
-# define BUTTON_HPP_
+#ifndef LABEL_HPP_
+# define LABEL_HPP_
 
 # include <string>
-# include <functional>
 # include <SFML/Graphics.hpp>
 # include "IUIComponent.hpp"
 # include "ScreenHelper.hpp"
 
-
-class Button : public IUIComponent
+class Label : public IUIComponent
 {
 	std::string text;
-	float sizeX;
-	float sizeY;
 	float posX;
 	float posY;
-	sf::RectangleShape shape;
+	float size;
+	sf::Text sftxt;
 	sf::RenderWindow &win;
-	ScreenHelper Dim;
-	bool active;
 	bool quiet;
-	sf::Text txt;
-	std::function<void()> callback;
-	bool hovered;
+	AlignType align;
+	ScreenHelper Dim;
 
 public:
-	Button(sf::RenderWindow &, const std::string &text, const std::function<void()>,
-		float sizeX, float sizeY, float posX = 0, float posY = 0, bool show = true);
-	virtual ~Button();
+
+	Label(sf::RenderWindow &, const std::string &text, AlignType, const sf::Color &, const std::string &font, float posX = 0, float posY = 0, float size = RECOMMENDED_FONT_SIZE, bool show = true);
+	virtual ~Label();
+
+	void setText(const std::string &);
+	const std::string &getText(void) const;
 
 	// Inherited via IUIComponent
 	virtual bool isQuiet() const override;
-	virtual bool isIn(float, float) const override;
-	virtual void trigger() override;
-	virtual void unTrigger() override;
-	virtual void hover(float elapsed) override;
-	virtual bool isActive() const override;
-	virtual void setActive(bool) override;
-	virtual void triggerKey(const sf::Event &, float elapsed) override;
-	virtual void update(float elapsed) override;
-	virtual void draw(float elapsed);
+
 	virtual void setQuiet(bool) override;
+
+	virtual bool isIn(float x, float y) const override;
+
+	virtual void trigger() override;
+
+	virtual void unTrigger() override;
+
+	virtual void hover(float elapsed) override;
+
+	virtual bool isActive() const override;
+
+	virtual void setActive(bool) override;
+
+	virtual void triggerKey(const sf::Event &, float elapsed) override;
+
+	virtual void update(float elapsed) override;
+
+	virtual void draw(float elapsed) override;
+
 };
 
-#endif /* !BUTTON_HPP_ */
+#endif /* !LABEL_HPP_ */
