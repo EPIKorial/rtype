@@ -40,6 +40,9 @@ public:
 	virtual void draw(float elapsed) = 0;
 
 	static const int RECOMMENDED_HEIGHT;
+	static const int RECOMMENDED_PADDING_HORIZ;
+	static const int RECOMMENDED_PADDING_VERTI;
+	static const int RECOMMENDED_FONT_SIZE;
 };
 
 #endif /* !IUICOMPONENT_HPP_ */

@@ -1,9 +1,7 @@
 #include <iostream>
 #include "LobbyState.hpp"
 #include "MenuState.hpp"
-#include "Button.hpp"
-#include "Label.hpp"
-#include "Palette.hpp"
+#include "UITools.hpp"
 
 MenuState::MenuState(App &ap) : AState(ap), loaded(false)
 {
@@ -15,7 +13,7 @@ MenuState::MenuState(App &ap) : AState(ap), loaded(false)
 		ap.quit();
 		std::cout << "QUIT" << std::endl;
 	}, 20, 10, 5, 85));
-	uiComponents.push_back(new Label(app.win, "R-TYPE + 6", IUIComponent::CENTERED,
+	uiComponents.push_back(new Label(app.win, "R-TYPE", IUIComponent::CENTERED,
 		sf::Color(Palette::GOLD), "Nova", 50, 6, 50));
 	loaded = texture.loadFromFile("Assets/Images/Background-3.png");
 	sprite.setTexture(texture);

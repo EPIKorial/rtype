@@ -1,32 +1,36 @@
 #pragma once
 
-#ifndef LABEL_HPP_
-# define LABEL_HPP_
+#ifndef INPUTFIELD_HPP_
+# define INPUTFIELD_HPP_
 
 # include <string>
 # include <SFML/Graphics.hpp>
 # include "IUIComponent.hpp"
 # include "ScreenHelper.hpp"
 
-class Label : public IUIComponent
+class InputField : public IUIComponent
 {
-	std::string text;
+	std::string placeholder;
+	std::string filled;
 	float posX;
 	float posY;
-	float size;
-	sf::Text sftxt;
+	int charSize;
+	sf::Text in;
 	sf::RenderWindow &win;
 	bool quiet;
-	AlignType align;
+	bool active;
 	ScreenHelper Dim;
+	sf::RectangleShape shape;
+	bool hovered;
+	int sizeX;
 
 public:
+	InputField(sf::RenderWindow &, const std::string &placeholder, float pX = 0, float pY = 0, int max = 10, bool show = true);
+	virtual ~InputField();
 
-	Label(sf::RenderWindow &, const std::string &text, AlignType, const sf::Color &, const std::string &font, float posX = 0, float posY = 0, float size = RECOMMENDED_FONT_SIZE, bool show = true);
-	virtual ~Label();
-
-	void setText(const std::string &);
 	const std::string &getText(void) const;
+
+
 
 	// Inherited via IUIComponent
 	virtual bool isQuiet() const override;
@@ -53,4 +57,4 @@ public:
 
 };
 
-#endif /* !LABEL_HPP_ */
+#endif /* !INPUTFIELD_HPP_ */

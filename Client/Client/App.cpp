@@ -2,6 +2,8 @@
 #include <iostream>
 #include "FontLib.hpp"
 
+const int App::FPS = 16; // 1000 / 60
+
 void App::loop()
 {
 	if (toDelete)
@@ -37,9 +39,9 @@ void App::run(void)
 	return;
 }
 
-void App::setState(IState *ns)
+void App::setState(IState *ns, bool deleteIt)
 {
-	toDelete = true;
+	toDelete = deleteIt;
 	oldState = currentState;
 	currentState = ns;
 }

@@ -13,7 +13,7 @@ Button::Button(sf::RenderWindow &wi, const std::string & txte, const std::functi
 	txt.setString(txte);
 	txt.setFillColor(sf::Color(Palette::DEEPSKYBLUE));
 	txt.setStyle(sf::Text::Bold);
-	txt.setCharacterSize(30);
+	txt.setCharacterSize(RECOMMENDED_FONT_SIZE);
 	if (FontLib::have("Nova"))
 		txt.setFont(*FontLib::get("Nova"));
 	txt.setFillColor(shape.getOutlineColor());
@@ -31,8 +31,11 @@ bool Button::isQuiet() const
 
 bool Button::isIn(float x, float y) const
 {
+	float nsizeY = Dim.getRealHeight(sizeY);
+	if (nsizeY > RECOMMENDED_HEIGHT)
+		nsizeY = RECOMMENDED_HEIGHT;
 	return (Dim.getRealWidth(x) >= Dim.getRealWidth(posX) && Dim.getRealWidth(x) <= Dim.getRealWidth(posX) + Dim.getRealWidth(sizeX))
-		&& (Dim.getRealHeight(y) >= Dim.getRealHeight(posY) && Dim.getRealHeight(y) <= Dim.getRealHeight(posY) + Dim.getRealHeight(sizeY));
+		&& (Dim.getRealHeight(y) >= Dim.getRealHeight(posY) && Dim.getRealHeight(y) <= Dim.getRealHeight(posY) + nsizeY);
 }
 
 void Button::trigger()
@@ -97,7 +100,8 @@ void Button::draw(float elapsed)
 		shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), Dim.getRealHeight(sizeY)));
 	else
 		shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), RECOMMENDED_HEIGHT));
-	txt.setPosition(Dim.getRealWidth(posX) + 15, Dim.getRealHeight(posY) + 10);
+	txt.setPosition(Dim.getRealWidth(posX) + RECOMMENDED_PADDING_HORIZ, 
+		Dim.getRealHeight(posY) + RECOMMENDED_PADDING_VERTI);
 	win.draw(shape);
 	win.draw(txt);
 }
