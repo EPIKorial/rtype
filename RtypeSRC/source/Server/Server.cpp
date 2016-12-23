@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Fri Dec 23 10:34:22 2016 Gandoulf
+// Last update Fri Dec 23 12:21:31 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -215,6 +215,12 @@ namespace rtype
     return (tmp);
   }
 
+  void Server::closeGameServer(std::string const & name)
+  {
+    _gameServerEnded.getContener().push_back(name);
+    _gameServerEnded.giveBackContener();
+  }
+
   //protected
 
   void Server::onConnect(Socket::Server & server, int fd)
@@ -257,8 +263,13 @@ namespace rtype
   {
     std::vector<std::string> &games = _gameServerEnded.getContener();
     while (games.size() > 0) {
-      _room.closeGameServer(games.back());
+      std::cout << "gameServer name: " << games.back() << std::endl;
+      std::string name = games.back();
+      _gameServerEnded.giveBackContener();
+      _room.closeGameServer(name);
+      _gameServerEnded.getContener();
       games.pop_back();
+      std::cout << "deleted" << std::endl;
     }
     _gameServerEnded.giveBackContener();
   }

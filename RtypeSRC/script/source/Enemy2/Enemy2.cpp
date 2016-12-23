@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:53:57 2016 Gandoulf
-// Last update Fri Dec 23 09:07:56 2016 Gandoulf
+// Last update Fri Dec 23 11:41:26 2016 Gandoulf
 //
 
 #include "Enemy2/Enemy2.hpp"
@@ -24,7 +24,7 @@ Enemy2::~Enemy2()
 void Enemy2::Start()
 {
   std::cout << "Enemy2 start" << std::endl;
-  gameObject->getGameManager()->destroy(gameObject);
+  gameObject->getGameManager()->stop();
 }
 
 void Enemy2::Update()

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 17:01:47 2016 Gandoulf
-// Last update Fri Dec 23 10:15:28 2016 Gandoulf
+// Last update Fri Dec 23 11:43:14 2016 Gandoulf
 //
 
 #ifndef RTYPE_SERVER_HPP_
@@ -88,6 +88,7 @@ namespace rtype
 
     static ScriptContener &getScriptContenener();
     static int getPort();
+    static void closeGameServer(std::string const & name);
 
   protected:
     virtual void onConnect(Socket::Server & server, int fd);
@@ -106,9 +107,6 @@ namespace rtype
     void loadLibrary(Properties & _properties, Memory::LibraryLoader & _library,
 		     bool &_usable, int it);
 
-  public:
-    static MutexContener<std::vector<std::string> >	_gameServerEnded;
-
   private:
     //Network
     unsigned int					_maxClient;
@@ -120,6 +118,7 @@ namespace rtype
     //script
     static ScriptContener				_scriptContener;
     static MutexContener<int>				_gameServerPort;
+    static MutexContener<std::vector<std::string> >	_gameServerEnded;
     std::vector<std::string>				_script;
     std::string						_prefabName;
   };

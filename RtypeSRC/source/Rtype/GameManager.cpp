@@ -5,17 +5,18 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Sat Dec 17 11:53:40 2016 Gandoulf
-// Last update Fri Dec 23 09:42:52 2016 Gandoulf
+// Last update Fri Dec 23 12:06:49 2016 Gandoulf
 //
 
 #include "Rtype/GameManager.hpp"
+#include "Server/Server.hpp"
 #include "Utils/Vector.hpp"
 
 namespace rtype
 {
-  GameManager::GameManager(std::map<int, std::queue<IEvent *>> & event,
+  GameManager::GameManager(std::string const &name, std::map<int, std::queue<IEvent *>> & event,
 			   std::queue<IEvent *> &clientInputs)
-    : _event(event), _clientInputs(clientInputs)
+    : _name(name), _event(event), _clientInputs(clientInputs), _closing(false)
   {
 
   }
@@ -32,10 +33,14 @@ namespace rtype
 
   void GameManager::stop()
   {
+    Server::closeGameServer(_name);
+    _closing = true;
   }
 
   void GameManager::managerUpdate()
   {
+    if (_closing)
+      return ;
     if (!_deleteList.empty())
       {
 	while (_deleteList.size() > 0)

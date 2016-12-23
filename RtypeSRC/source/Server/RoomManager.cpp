@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:35:00 2016 Gandoulf
-// Last update Thu Dec 22 16:12:40 2016 Gandoulf
+// Last update Fri Dec 23 12:09:39 2016 Gandoulf
 //
 
 #include "Server/RoomManager.hpp"

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:37:17 2016 Gandoulf
-// Last update Fri Dec 23 10:03:34 2016 Gandoulf
+// Last update Fri Dec 23 11:40:35 2016 Gandoulf
 //
 
 #include "Rtype/GameObjectManager.hpp"
@@ -20,7 +20,13 @@ namespace rtype
     _dynamicObjects = newMap.getDynamicObjects();
   }
 
-  GameObjectManager::~GameObjectManager() {}
+  GameObjectManager::~GameObjectManager()
+  {
+    for (auto ite = _staticObjects.begin(); ite != _staticObjects.end(); ite++)
+      delete ite->second;
+    for (auto ite = _dynamicObjects.begin(); ite != _dynamicObjects.end(); ite++)
+      delete ite->second;
+  }
 
   void GameObjectManager::update()
   {
@@ -48,6 +54,17 @@ namespace rtype
       if (!_staticObjects.erase(nameObject))
 	return false;
     return true;
+    /*if (_dynamicObjects[nameObject]) {
+      delete _dynamicObjects[nameObject];
+      _dynamicObjects.erase(nameObject);
+    }
+    else if (_staticObjects[nameObject]) {
+      delete _staticObjects[nameObject];
+      _staticObjects.erase(nameObject);
+    }
+    else
+      return (false);
+      return (true);*/
   }
 
   GameObject *GameObjectManager::getObject(std::string const& nameObject)

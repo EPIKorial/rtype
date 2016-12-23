@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Thu Dec 22 16:45:15 2016 Gandoulf
+// Last update Fri Dec 23 11:21:31 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
@@ -54,9 +54,10 @@ namespace rtype
 
   /* ----------------------------GameServer------------------------ */
 
-  GameServer::GameServer(unsigned short &port, std::string proto,
+  GameServer::GameServer(unsigned short &port, std::string proto, std::string const & name,
 			 unsigned int const &maxClient)
-    : ARawServer(port, proto), _maxClient(maxClient), _gameManager(_event, _clientInputs),
+    : ARawServer(port, proto), _name(name), _maxClient(maxClient),
+      _gameManager(_name, _event, _clientInputs),
       _roomPort(port)
   {
 

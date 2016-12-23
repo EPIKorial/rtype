@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:02:19 2016 Gandoulf
-// Last update Thu Dec 22 16:36:48 2016 Gandoulf
+// Last update Fri Dec 23 11:24:27 2016 Gandoulf
 //
 
 #ifndef GAMESERVER_HPP_
@@ -53,7 +53,7 @@ namespace rtype
   class GameServer : public ARawServer
   {
   public:
-    GameServer(unsigned short &port, std::string proto = "tcp",
+    GameServer(unsigned short &port, std::string proto = "tcp", std::string const & name = "",
 	       unsigned int const &maxClient = 4);
     virtual ~GameServer();
 
@@ -78,6 +78,7 @@ namespace rtype
     void accept(int fd);
 
   private:
+    std::string					_name;
     unsigned short				&_roomPort;
     unsigned int				_maxClient;
     std::map<int, Client>			_players;

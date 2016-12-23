@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:27:14 2016 Gandoulf
-// Last update Wed Dec 21 12:24:46 2016 Gandoulf
+// Last update Fri Dec 23 12:04:34 2016 Gandoulf
 //
 
 #ifndef GAMEMANAGER_HPP_
@@ -31,7 +31,8 @@ namespace rtype
   class GameManager : public IGameManager
   {
   public:
-    GameManager(std::map<int, std::queue<IEvent *>> & event, std::queue<IEvent *> &clientInputs);
+    GameManager(std::string const &name, std::map<int, std::queue<IEvent *>> & event,
+		std::queue<IEvent *> &clientInputs);
     ~GameManager();
 
     virtual void start();
@@ -48,12 +49,15 @@ namespace rtype
     bool checkDeleteList(std::string const &name);
 
   private:
+    std::string					_name;
     std::map<int, std::queue<IEvent *>>         &_event;
     std::queue<IEvent *>                        &_clientInputs;
     GameObjectManager				_gameObjects;
     std::vector<GameObject *>			_deleteList;
     PrefabCreator			        _prefabCreator;
     GameObject					*_game;
+
+    bool					_closing;
   };
 }
 
