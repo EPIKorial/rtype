@@ -5,15 +5,17 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed May 25 14:52:49 2016 Gandoulf
-// Last update Wed Dec 21 15:08:01 2016 Gandoulf
+// Last update Fri Dec 23 09:59:10 2016 Gandoulf
 //
 
 #include "Rtype/PrefabCreator.hpp"
+#include "Server/Server.hpp"
 #include <time.h>
 
 namespace rtype
 {
   PrefabCreator::PrefabCreator()
+    : _scriptContener(Server::getScriptContenener())
   {
     srand (time(NULL));
   }
@@ -27,7 +29,7 @@ namespace rtype
 					 Vector2F const & position,
 					 Vector2F const & scale)
   {
-    std::map<std::string, Prefab>::iterator it;
+    std::map<std::string, Prefabs>::iterator it;
     std::string	_prefabFile;
 
 #if defined(__GNUC__)
@@ -41,9 +43,11 @@ namespace rtype
       std::cout << e.what() << std::endl;
       return (NULL);
     }
-    if ((it = _prefab.find(_prefabFile)) == _prefab.end())
+    std::map<std::string, Prefabs>       &prefabTmp = _scriptContener.getPrefab();
+    if ((it = prefabTmp.find(_prefabFile)) == prefabTmp.end())
       {
 	std::cout << "can't instantiate gameobject" << std::endl;
+	_scriptContener.giveBackPrefab();
 	return (NULL);
       }
     if (it->second._usable)
@@ -54,6 +58,7 @@ namespace rtype
 	instantiateRenderObject(it->second._properties, gameObject, position, scale);
 	if (gameObject == NULL)
 	  {
+	    _scriptContener.giveBackPrefab();
 	    return (gameObject);
 	  }
 	gameObject->setTag(it->second._properties.tag);
@@ -63,37 +68,40 @@ namespace rtype
 	    for (int i = 0; i < it->second._properties.skillFunction.size(); ++i)
 	      gameObject->setScript(it->second._properties.skillFunction[i](gameObject));
 	    gameObject->_dynamic = true;
-	    //indie::GameManager::getGameObjects()
-	    //.addObject(gameObject, GameObjectManager::DYNAMIC);
 	  }
 	else
 	  {
 	    std::cout << "push Static gameObject" << std::endl;
 	    gameObject->_dynamic = false;
-	    //indie::GameManager::getGameObjects()
-	    //.addObject(gameObject, GameObjectManager::STATIC);
 	  }
+	_scriptContener.giveBackPrefab();
 	return (gameObject);
       }
+    _scriptContener.giveBackPrefab();
+    return (NULL);
   }
 
   //private methode
 
   void PrefabCreator::loadFile(std::string const &prefabFile)
   {
-    std::map<std::string, Prefab>::iterator it;
+    std::map<std::string, Prefabs>::iterator it;
+    std::map<std::string, Prefabs>	&prefabTmp = _scriptContener.getPrefab();
 
-    if ((it = _prefab.find(prefabFile)) != _prefab.end())
+    if ((it = prefabTmp.find(prefabFile)) != prefabTmp.end()) {
+      _scriptContener.giveBackPrefab();
       return;
+    }
 
     if (!_parser.loadFile(prefabFile))
       {
 	std::cout << "File not Found." << std::endl;
+	_scriptContener.giveBackPrefab();
 	return ;
       }
     else{
-      _prefab[prefabFile] = Prefab();
-      it = _prefab.find(prefabFile);
+      prefabTmp[prefabFile] = Prefabs();
+      it = prefabTmp.find(prefabFile);
       getName(it->second._properties);
       getTag(it->second._properties);
       getScript(it->second._properties);
@@ -105,22 +113,27 @@ namespace rtype
       {
 	for (int i = 0; i < it->second._properties.script.size(); ++i)
 	  {
+	    std::map<std::string, Memory::LibraryLoader> &tmp = _scriptContener.getLib();
 	    std::map<std::string, Memory::LibraryLoader>::iterator itLib;
-	    if ((itLib = _lib.find(it->second._properties.script[i])) == _lib.end())
+	    if ((itLib = tmp.find(it->second._properties.script[i])) == tmp.end())
 	      {
-		_lib[it->second._properties.script[i]] = Memory::LibraryLoader();
-		itLib = _lib.find(it->second._properties.script[i]);
+		tmp[it->second._properties.script[i]] = Memory::LibraryLoader();
+		itLib = tmp.find(it->second._properties.script[i]);
 	      }
 	    try {
 	      loadLibrary(it->second._properties, itLib->second, it->second._usable, i);
 	    } catch (PrefabLibraryLoaderError e) {
 	      std::cout << e.what() << std::endl;
+	      _scriptContener.giveBackLib();
+	      _scriptContener.giveBackPrefab();
 	      throw PrefabLoadFileError();
 	    }
+	    _scriptContener.giveBackLib();
 	    std:: cout << "lib found " << it->second._properties.script[i]
 		       << ", loading script" << std::endl;
 	  }
       }
+    _scriptContener.giveBackPrefab();
   }
 
   void PrefabCreator::getName(Properties & _properties)
@@ -215,6 +228,7 @@ namespace rtype
 					      Vector2F const & position,
 					      Vector2F const & scale)
   {
+    gameObject->setName(randomiseName(_properties.name));
     instantiateMeshObject(_properties, gameObject, position, scale);
   }
 
@@ -236,4 +250,13 @@ namespace rtype
     return ;
   }
 
+  std::string PrefabCreator::randomiseName(std::string &name)
+  {
+    std::string newName(name);
+    newName += " (";
+    for (int i = 0; i < 10; ++i)
+      newName += (char)(rand() % 95 + 32);
+    newName += ")";
+    return (newName);
+  }
 };

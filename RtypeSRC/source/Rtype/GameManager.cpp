@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Sat Dec 17 11:53:40 2016 Gandoulf
-// Last update Wed Dec 21 15:07:29 2016 Gandoulf
+// Last update Fri Dec 23 09:42:52 2016 Gandoulf
 //
 
 #include "Rtype/GameManager.hpp"
@@ -40,6 +40,7 @@ namespace rtype
       {
 	while (_deleteList.size() > 0)
 	  {
+	    std::cout << "deleted obj " << _deleteList.back()->getName() << std::endl;
 	    _gameObjects.deleteObject(_deleteList.back()->getName());
 	    delete _deleteList.back();
 	    _deleteList.pop_back();

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 11:04:49 2016 Gandoulf
-// Last update Wed Dec 21 13:26:37 2016 Gandoulf
+// Last update Thu Dec 22 16:27:25 2016 Gandoulf
 //
 
 #include "Server/Room.hpp"
@@ -18,7 +18,7 @@ namespace rtype
     : _name(name), _port(port), _maxPlayers(maxPlayers)
   {
     std::cout << "port = " << port << std::endl;
-    _gameServer = std::unique_ptr<GameServer>(new GameServer(port, "udp", _maxPlayers));
+    _gameServer = std::unique_ptr<GameServer>(new GameServer(_port, "udp", _maxPlayers));
     _gameServer->run();
   }
 
@@ -70,8 +70,23 @@ namespace rtype
     for (auto player = _players.begin(); player != _players.end(); ++player)
       if (!player->second.getReady())
 	launch = false;
-    if (launch)
+    if (launch) {
+      //_gameServer = std::unique_ptr<GameServer>(new GameServer(port, "udp", _maxPlayers));
       _gameServer->run();
+      // TODO set client set mawClient
+    }
+  }
+
+  std::vector<std::string>    Room::getRoomPlayers()
+  {
+    std::vector<std::string> players;
+    return (players);
+  }
+
+  void Room::closeGameServer()
+  {
+    _gameServer->stopServer();
+    _gameServer.reset();
   }
 
   //private
@@ -84,11 +99,5 @@ namespace rtype
   std::string Room::joinOk() const
   {
     return std::string(_name + ",OK");
-  }
-
-  std::vector<std::string>    Room::getRoomPlayers()
-  {
-    std::vector<std::string> players;
-    return (players);
   }
 }

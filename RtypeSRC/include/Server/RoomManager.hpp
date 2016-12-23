@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:12:03 2016 Gandoulf
-// Last update Mon Dec  5 13:55:58 2016 Gandoulf
+// Last update Thu Dec 22 16:12:46 2016 Gandoulf
 //
 
 #ifndef ROOMANAGER_HPP_
@@ -15,8 +15,6 @@
 # include <string>
 # include <vector>
 # include "Server/Room.hpp"
-
-# define STARTING_PORT 7173
 
 namespace rtype
 {
@@ -35,6 +33,9 @@ namespace rtype
 
     std::string getMessage(std::string const & nickName);
 
+    void closeGameServer(std::string const & name);
+    void closeAllGameServer();
+
   private:
     bool	isConnected(std::string const & nickName);
     bool	isalnum(std::string const & str);
@@ -51,7 +52,6 @@ namespace rtype
     std::map<std::string, std::string>			_clientsRoom;
     std::map<std::string, std::vector<std::string> >	_clientsMessage;
     std::vector<std::string>				_clients;
-    unsigned short					_nextPort;
   };
 }
 

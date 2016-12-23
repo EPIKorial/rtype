@@ -5,10 +5,11 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:35:00 2016 Gandoulf
-// Last update Fri Dec 16 22:12:46 2016 Gandoulf
+// Last update Thu Dec 22 16:12:40 2016 Gandoulf
 //
 
 #include "Server/RoomManager.hpp"
+#include "Server/Server.hpp"
 #include <iostream>
 #include <cctype>
 #include <sstream>
@@ -17,7 +18,6 @@
 namespace rtype
 {
   RoomManager::RoomManager()
-    : _nextPort(STARTING_PORT)
   {
   }
 
@@ -87,9 +87,8 @@ namespace rtype
       sendPlayerMsg(nickName, joinError(nickName));
       return ;
     }
-    room_ptr room(new Room(name, _nextPort));
+    room_ptr room(new Room(name, Server::getPort()));
     _rooms.insert(std::make_pair(name, std::move(room)));
-    _nextPort += 2; // game server have 2 port to start
     joinRoom(name, nickName);
   }
 
@@ -110,6 +109,18 @@ namespace rtype
 	client->second.erase(client->second.begin());
       }
     return (message);
+  }
+
+  void RoomManager::closeGameServer(std::string const & name)
+  {
+    if (_rooms[name])
+      _rooms[name]->closeGameServer();
+  }
+
+  void RoomManager::closeAllGameServer()
+  {
+    for (auto ite = _rooms.begin(); ite != _rooms.end(); ite++)
+      ite->second->closeGameServer();
   }
 
   //private

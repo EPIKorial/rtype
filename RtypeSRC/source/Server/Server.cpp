@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Sat Dec 17 11:12:35 2016 Gandoulf
+// Last update Fri Dec 23 10:34:22 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -140,14 +140,20 @@ namespace rtype
   }
 
   /*----------------------------------------server------------------------------------------*/
+  ScriptContener				Server::_scriptContener;
+  MutexContener<std::vector<std::string> >	Server::_gameServerEnded;
+  MutexContener<int>				Server::_gameServerPort;
+
   Server::Server(unsigned short const &port, std::vector<std::string> const & script,
 		 std::string proto, unsigned int const &maxClient)
     : ARawServer(port, proto), _script(script), _maxClient(maxClient)
   {
+    _gameServerPort.setContener(7180);
   }
 
   Server::~Server()
   {
+    _room.closeAllGameServer();
     for (auto clients = _clients.begin(); clients != _clients.end(); clients = _clients.begin())
       _clients.erase(clients);
   }
@@ -158,12 +164,55 @@ namespace rtype
 
     char line[100];
     while (std::cin.getline(line, 100)) {
+      std::string stringLine(line);
       if (!std::strncmp(line, "quit", 4))
 	{
 	  stop();
 	  break;
 	}
+      else if (stringLine.find(".prefab") != std::string::npos)
+	{
+	  _prefabName = stringLine;
+	}
+      else
+	{
+	  IndieParser _parser;
+	  _parser._insertInMap(std::string(line));
+	  std::vector<std::string> rawScript = _parser.stoa(_parser.getValue("Script"), ';');
+	  std::vector<std::string> script;
+
+	  if (!rawScript.empty())
+	    for (int i = 0; i < rawScript.size(); ++i)
+	      {
+#if defined(__GNUC__)
+		script.push_back(std::string("RtypeSRC/script/binaries/lib" + rawScript[i]));
+#elif defined(_MSC_VER)
+		script.push_back(std::string(rawScript[i]));
+#endif
+	      }
+	  if (_prefabName.size() > 7)
+	    try{
+	      updatePrefab(std::string(_prefabName), script);
+	    } catch (std::exception e) {
+	      std::cout << "error while prefab script update " << e.what() <<std::endl;
+	    }
+	}
     }
+  }
+
+  ScriptContener &Server::getScriptContenener()
+  {
+    return (_scriptContener);
+  }
+
+  int Server::getPort()
+  {
+    int &tmp = _gameServerPort.getContener();
+    tmp = (tmp % 0xFFFF) + 1;
+    if (tmp < 7180)
+      tmp = 7180;
+    _gameServerPort.giveBackContener();
+    return (tmp);
   }
 
   //protected
@@ -204,6 +253,16 @@ namespace rtype
     std::cout << "starting TCP server" << std::endl;
   }
 
+  void Server::onTick(Socket::Server & server)
+  {
+    std::vector<std::string> &games = _gameServerEnded.getContener();
+    while (games.size() > 0) {
+      _room.closeGameServer(games.back());
+      games.pop_back();
+    }
+    _gameServerEnded.giveBackContener();
+  }
+
   void Server::start()
   {
     try {
@@ -226,5 +285,68 @@ namespace rtype
   {
     client_ptr client(new TcpClient(fd, _server, _room));
     _clients.insert(std::make_pair(fd, std::move(client)));
+  }
+
+  void Server::updatePrefab(std::string prefabName, std::vector<std::string> & libs)
+  {
+    std::map<std::string, Prefabs>::iterator it;
+    std::map<std::string, Prefabs>       &prefabTmp = _scriptContener.getPrefab();
+#if defined(__GNUC__)
+    prefabName = std::string("RtypeSRC/prefab/" + prefabName);
+#elif defined(_MSC_VER)
+    prefabName = std::string("../prefab/" + prefabName);
+#endif
+    if ((it = prefabTmp.find(prefabName)) == prefabTmp.end())
+      {
+	std::cout << "can't instantiate gameobject" << std::endl;
+	_scriptContener.giveBackPrefab();
+	return ;
+      }
+    it->second._properties.script.clear();
+    it->second._properties.skillFunction.clear();
+    it->second._properties.script = libs;
+    for (int i = 0; i < libs.size(); ++i)
+      {
+	std::map<std::string, Memory::LibraryLoader> &tmp = _scriptContener.getLib();
+	std::map<std::string, Memory::LibraryLoader>::iterator itLib;
+	if ((itLib = tmp.find(it->second._properties.script[i])) == tmp.end())
+	  {
+	    tmp[it->second._properties.script[i]] = Memory::LibraryLoader();
+	    itLib = tmp.find(it->second._properties.script[i]);
+	  }
+	try {
+	  loadLibrary(it->second._properties, itLib->second, it->second._usable, i);
+	} catch (PrefabLibraryLoaderError e) {
+	  std::cout << e.what() << std::endl;
+	  _scriptContener.giveBackPrefab();
+	  _scriptContener.giveBackLib();
+	  throw PrefabLoadFileError();
+	}
+	_scriptContener.giveBackLib();
+	std:: cout << "lib found " << it->second._properties.script[i]
+		   << ", loading script" << std::endl;
+      }
+    _scriptContener.giveBackPrefab();
+  }
+
+  void Server::loadLibrary(Properties & _properties, Memory::LibraryLoader & _library,
+		   bool &_usable, int it)
+  {
+    try {
+      _library.loadSharedLibrary(_properties.script[it]);
+      _usable = true;
+    } catch (Memory::LibraryLoadError e) {
+      std ::cout << e.what() << std::endl;
+      std::cout << std::string("load error message") + _library.logError() << std::endl;
+      _usable = false;
+      throw PrefabLibraryLoaderError();
+    }
+    try {
+      _properties.skillFunction.push_back((skillScript)_library.getFunction("getScriptInstance"));
+    } catch (Memory::LibraryFunctionLoadError e) {
+      std::cout << e.what() << std::endl;
+      _usable = false;
+      throw PrefabLibraryLoaderError();
+    }
   }
 }

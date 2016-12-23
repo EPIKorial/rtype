@@ -14,3 +14,5 @@ link_directories(${SCRIPT_BUILD_DIR})
 include(${SCRIPT_SOURCE_DIR}/Default/CMakeLists.txt)
 
 include(${SCRIPT_SOURCE_DIR}/RtypeGame/CMakeLists.txt)
+include(${SCRIPT_SOURCE_DIR}/Enemy/CMakeLists.txt)
+include(${SCRIPT_SOURCE_DIR}/Enemy2/CMakeLists.txt)

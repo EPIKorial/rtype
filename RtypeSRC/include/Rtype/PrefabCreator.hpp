@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed May 25 14:52:42 2016 Gandoulf
-// Last update Tue Dec 20 12:24:48 2016 Gandoulf
+// Last update Thu Dec 22 14:51:25 2016 Gandoulf
 //
 
 #ifndef PREFABCREATOR_HPP_
@@ -14,6 +14,7 @@
 # include "Rtype/Properties.hpp"
 # include "Rtype/IndieParser.hpp"
 # include "Rtype/LibraryLoader.hpp"
+# include "Rtype/ScriptContener.hpp"
 # include <map>
 
 typedef rtype::AScript *(*skillScript)(rtype::GameObject *);
@@ -92,8 +93,7 @@ namespace rtype
     std::string randomiseName(std::string &name);
 
   private:
-    std::map<std::string, Prefab>			_prefab;
-    std::map<std::string, Memory::LibraryLoader>	_lib;
+    ScriptContener					&_scriptContener;
     IndieParser						_parser;
   };
 };

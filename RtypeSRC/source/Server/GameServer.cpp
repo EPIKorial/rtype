@@ -5,11 +5,17 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Wed Dec 21 14:53:45 2016 Gandoulf
+// Last update Thu Dec 22 16:45:15 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
+#include "Server/Server.hpp"
 #include <iostream>
+#ifdef _WIN32
+# include <windows.h>
+#else
+# include <unistd.h>
+#endif
 
 namespace rtype
 {
@@ -48,9 +54,10 @@ namespace rtype
 
   /* ----------------------------GameServer------------------------ */
 
-  GameServer::GameServer(unsigned short const &port, std::string proto,
+  GameServer::GameServer(unsigned short &port, std::string proto,
 			 unsigned int const &maxClient)
-    : ARawServer(port, proto), _maxClient(maxClient), _gameManager(_event, _clientInputs)
+    : ARawServer(port, proto), _maxClient(maxClient), _gameManager(_event, _clientInputs),
+      _roomPort(port)
   {
 
   }
@@ -127,17 +134,21 @@ namespace rtype
 
   void GameServer::start()
   {
-    try {
-      std::cout << _port << std::endl;
-      _server.start(_port, _maxClient, "tcp");
-    } catch (const std::exception e) {
+    bool connected = false;
+    while (connected == false)
       try {
-	std::cout << _port + 1 << std::endl;
-	_server.start(_port + 1, _maxClient, "tcp");
+	std::cout << _roomPort << std::endl;
+	_server.start(_roomPort, _maxClient, "tcp");
+	connected = true;
       } catch (const std::exception e) {
 	std::cout << "port taken can't launch server" << std::endl;
+	_roomPort = Server::getPort();
+#ifdef _WIN32
+	Sleep(10);
+#else
+	usleep(10);
+#endif
       }
-    }
   }
 
   void GameServer::stop()

@@ -5,6 +5,7 @@ set(MODULE_SRC "${MODULE_SRC}"
   "${CMAKE_CURRENT_LIST_DIR}/PrefabCreator.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/LibraryLoader.cpp"
   "${CMAKE_CURRENT_LIST_DIR}/IndieParser.cpp"
+  "${CMAKE_CURRENT_LIST_DIR}/ScriptContener.cpp"
   )
 
 set(MODULE_LIB "${MODULE_LIB}"

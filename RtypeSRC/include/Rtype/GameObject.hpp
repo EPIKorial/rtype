@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Thu Jun  2 15:32:14 2016 Maxime Agor
-// Last update Wed Dec 21 15:00:54 2016 Gandoulf
+// Last update Fri Dec 23 09:57:18 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECT_HPP_
@@ -50,7 +50,7 @@ namespace rtype
     bool				setPositionF(rtype::Vector2F const&);
     void				setScale(rtype::Vector2F const&);
     void				setTag(std::string const &tag);
-    //bool				setName(std::string const &name);
+    bool				setName(std::string const &name);
     void				setScript(AScript *script);
     void				setGameManager(IGameManager *gameManager);
 

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:53:57 2016 Gandoulf
-// Last update Wed Dec 21 14:53:04 2016 Gandoulf
+// Last update Fri Dec 23 10:32:20 2016 Gandoulf
 //
 
 #include "RtypeGame/RtypeGame.hpp"
@@ -29,6 +29,7 @@ void RtypeGame::Start()
 void RtypeGame::Update()
 {
   std::cout << "coucou" << std::endl;
+  gameObject->getGameManager()->instantiate("Enemy.prefab");
 }
 
 void RtypeGame::OnCollisionEnter(rtype::GameObject *coll)

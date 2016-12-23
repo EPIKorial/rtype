@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 17:01:47 2016 Gandoulf
-// Last update Sat Dec 17 11:02:11 2016 Gandoulf
+// Last update Fri Dec 23 10:15:28 2016 Gandoulf
 //
 
 #ifndef RTYPE_SERVER_HPP_
@@ -23,6 +23,8 @@
 # include "IONetwork/RtypeSerializer.hpp"
 # include "IONetwork/RtypePacketReader.hpp"
 # include "Protocol/TcpEvent.hpp"
+# include "Rtype/ScriptContener.hpp"
+# include "Utils/MutexedContener.hpp"
 
 # define MAX_CLIENT 10000
 
@@ -84,27 +86,42 @@ namespace rtype
 
     virtual void run();
 
+    static ScriptContener &getScriptContenener();
+    static int getPort();
+
   protected:
     virtual void onConnect(Socket::Server & server, int fd);
     virtual void onDisconnect(Socket::Server & server, int fd);
     virtual void onRead(Socket::Server & server, int fd, size_t length);
     virtual void onWrite(Socket::Server & server, int fd);
     virtual void onStart(Socket::Server & server, int fd);
+    virtual void onTick(Socket::Server & server);
 
     virtual void start();
     virtual void stop();
     void accept(int fd);
 
   private:
+    void updatePrefab(std::string prefabName, std::vector<std::string> & libs);
+    void loadLibrary(Properties & _properties, Memory::LibraryLoader & _library,
+		     bool &_usable, int it);
+
+  public:
+    static MutexContener<std::vector<std::string> >	_gameServerEnded;
+
+  private:
     //Network
-    unsigned int			_maxClient;
+    unsigned int					_maxClient;
 
     //clients
-    std::map<int, client_ptr>		_clients;
-    RoomManager				_room;
+    std::map<int, client_ptr>				_clients;
+    RoomManager						_room;
 
     //script
-    std::vector<std::string>		_script;
+    static ScriptContener				_scriptContener;
+    static MutexContener<int>				_gameServerPort;
+    std::vector<std::string>				_script;
+    std::string						_prefabName;
   };
 }
 

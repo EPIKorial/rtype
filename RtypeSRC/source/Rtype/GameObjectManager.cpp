@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:37:17 2016 Gandoulf
-// Last update Wed Dec 21 15:07:13 2016 Gandoulf
+// Last update Fri Dec 23 10:03:34 2016 Gandoulf
 //
 
 #include "Rtype/GameObjectManager.hpp"
@@ -25,7 +25,6 @@ namespace rtype
   void GameObjectManager::update()
   {
     for(auto it = _dynamicObjects.begin(); it != _dynamicObjects.end(); ++it ) {
-      std::cout << it->second->getName() << std::endl;
       it->second->Update();
     }
   }

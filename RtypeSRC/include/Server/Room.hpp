@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Wed Nov 30 10:11:31 2016 Gandoulf
-// Last update Fri Dec 16 22:49:47 2016 Gandoulf
+// Last update Thu Dec 22 15:10:28 2016 Gandoulf
 //
 
 #ifndef ROOM_HPP_
@@ -33,6 +33,7 @@ namespace rtype
     void setReady(std::string &message, std::string const & nickName, bool const & isready);
 
     std::vector<std::string>	getRoomPlayers();
+    void closeGameServer();
 
   private:
     std::string joinError() const;

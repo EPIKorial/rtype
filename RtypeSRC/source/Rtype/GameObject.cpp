@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:46:49 2016 Gandoulf
-// Last update Wed Dec 21 13:03:24 2016 Gandoulf
+// Last update Fri Dec 23 09:57:49 2016 Gandoulf
 //
 
 #include "Rtype/GameObject.hpp"
@@ -65,10 +65,10 @@ namespace rtype
     _tag = tag;
   }
 
-  /*bool GameObject::setName(std::string const &name)
+  bool GameObject::setName(std::string const &name)
   {
-
-  }*/
+    _name = name;
+  }
 
   void GameObject::setScript(AScript *script)
   {

@@ -5,7 +5,7 @@
 // Login   <lafon_l@epitech.net>
 //
 // Started on  Tue May 24 12:58:35 2016 Leo Lafon
-// Last update Mon Dec 19 20:24:12 2016 Gandoulf
+// Last update Thu Dec 22 17:54:15 2016 Gandoulf
 //
 
 #ifndef INDIEPARSER_HPP_
@@ -31,7 +31,6 @@ namespace rtype
     std::string				_empty;
 
   private:
-    void				_insertInMap(std::string str);
     std::vector<std::string>		&_split(std::string const& s,
 					char delim,
 					std::vector<std::string> &elems);
@@ -41,6 +40,7 @@ namespace rtype
     ~IndieParser();
 
     bool				loadFile(std::string const& path);
+    void				_insertInMap(std::string str);
     std::string const&			getValue(std::string const& key) const;
     int					stoi(std::string const& str) const;
     float				stof(std::string const& str) const;
