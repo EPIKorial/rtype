@@ -13,9 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\States">
+      <UniqueIdentifier>{ca6fd7ec-2433-47af-a872-667e8fb02443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Helpers">
+      <UniqueIdentifier>{aed275e0-b4ca-4df7-9ce0-dd558765bd58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UIComponents">
+      <UniqueIdentifier>{95ae12e9-20e9-4852-8d6a-fc53c8ca331a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UIComponents">
+      <UniqueIdentifier>{47ec0cd7-48cb-4661-930e-f7df15baae13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\States">
+      <UniqueIdentifier>{a229fd78-8938-4f59-8c3b-25735eccca07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Helpers">
+      <UniqueIdentifier>{bb88cc5c-4e6d-44dc-8355-29144875dcb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -30,29 +49,38 @@
     <ClCompile Include="App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MenuState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\UIComponents</Filter>
     </ClCompile>
-    <ClCompile Include="AState.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="IUIComponent.cpp">
+      <Filter>Source Files\UIComponents</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenHelper.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MenuState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="EmptyState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="FontLib.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Palette.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States</Filter>
     </ClCompile>
     <ClCompile Include="LobbyState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="FontLib.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="Palette.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenHelper.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
+    <ClCompile Include="AState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="InputField.cpp">
+      <Filter>Source Files\UIComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,35 +96,44 @@
     <ClInclude Include="App.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IState.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Button.hpp">
+      <Filter>Header Files\UIComponents</Filter>
     </ClInclude>
-    <ClInclude Include="MenuState.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Label.hpp">
+      <Filter>Header Files\UIComponents</Filter>
     </ClInclude>
     <ClInclude Include="IUIComponent.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Button.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AState.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenHelper.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\UIComponents</Filter>
     </ClInclude>
     <ClInclude Include="EmptyState.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\States</Filter>
     </ClInclude>
-    <ClInclude Include="FontLib.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Palette.hpp">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AState.hpp">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
     <ClInclude Include="LobbyState.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="IState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="FontLib.hpp">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Palette.hpp">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenHelper.hpp">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="InputField.hpp">
+      <Filter>Header Files\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="UITools.hpp">
+      <Filter>Header Files\UIComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

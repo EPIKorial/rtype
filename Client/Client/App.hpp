@@ -5,8 +5,6 @@
 # include <SFML/Graphics.hpp>
 # include "IState.hpp"
 
-# define FPS (1000 / 60)
-
 class App
 {
 protected:
@@ -18,6 +16,8 @@ protected:
 	bool toDelete;
 
 	void loop();
+
+	static const int FPS;
 public:
 	sf::RenderWindow win;
 
@@ -31,7 +31,7 @@ public:
 	/**
 	* Change current state of the app
 	*/
-	void setState(IState *);
+	void setState(IState *, bool deleteIt = true);
 
 	/**
 	* Close the window and terminates the program

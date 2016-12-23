@@ -3,20 +3,23 @@
 
 void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 {
+	printf("%f\n", elapsed);
 	bool haveActive = false;
+	bool tabbed = false;
 	for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
 	{
-		if ((*it)->isActive() && ev.key.code == sf::Keyboard::Tab)
+		if ((*it)->isActive() && ev.key.code == sf::Keyboard::Tab && !tabbed)
 		{
+			tabbed = true;
+			(*it)->unTrigger();
+			(*it)->setActive(false);
 			if ((it + 1) != uiComponents.end())
 			{
-				(*it)->unTrigger();
 				(*(it + 1))->setActive(true);
 			}
 			else
 			{
-				(*it)->unTrigger();
-				(*uiComponents.begin())->trigger();
+				(*uiComponents.begin())->setActive(true);
 			}
 		}
 		if ((*it)->isActive())

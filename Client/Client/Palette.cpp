@@ -2,6 +2,7 @@
 
 // Blues
 const int Palette::DEEPSKYBLUE = 0x00BFFFFF;
+const int Palette::LIGHTBLUE = 0x76DDFFFF;
 const int Palette::POWDERBLUE = 0xB0E0E6FF;
 const int Palette::DODGERBLUE = 0x1E90FFFF;
 const int Palette::BLUE = 0x000080FF;

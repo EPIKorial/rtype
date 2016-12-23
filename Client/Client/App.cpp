@@ -1,5 +1,8 @@
 #include "App.hpp"
+#include <iostream>
 #include "FontLib.hpp"
+
+const int App::FPS = 16; // 1000 / 60
 
 void App::loop()
 {
@@ -9,13 +12,13 @@ void App::loop()
 		toDelete = false;
 	}
 	if (currentState)
-		currentState->update(gameClock.getElapsedTime().asMilliseconds() / 100);
+		currentState->update(gameClock.getElapsedTime().asMilliseconds() / 100.f);
 	gameClock.restart();
 	if (drawClock.getElapsedTime().asMilliseconds() > FPS)
 	{
 		win.clear();
 		if (currentState)
-			currentState->draw(drawClock.getElapsedTime().asMilliseconds() / 100);
+			currentState->draw(drawClock.getElapsedTime().asMilliseconds() / 100.f);
 		win.display();
 		drawClock.restart();
 	}
@@ -36,9 +39,9 @@ void App::run(void)
 	return;
 }
 
-void App::setState(IState *ns)
+void App::setState(IState *ns, bool deleteIt)
 {
-	toDelete = true;
+	toDelete = deleteIt;
 	oldState = currentState;
 	currentState = ns;
 }

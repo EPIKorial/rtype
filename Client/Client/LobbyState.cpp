@@ -1,10 +1,31 @@
-#include "LobbyState.hpp"
 #include <iostream>
-#include "Button.hpp"
+#include "LobbyState.hpp"
+#include "MenuState.hpp"
+#include "UITools.hpp"
+#include "InputField.hpp"
 
 LobbyState::LobbyState(App &ap) : AState(ap)
 {
-	uiComponents.push_back(new Button(app.win, "Lobby Btn", []() { std::cout << "coucou" << std::endl; }, 20, 10, 5, 85));
+	Label *label = new Label(app.win, "Lobby", IUIComponent::CENTERED, sf::Color(Palette::CRIMSON),
+		"Nova", 50, 6, 50);
+	Label &refLabel = *label;
+
+	InputField *field = new InputField(app.win, "IP Adress", 5, 50, 10);
+	InputField &rf = *field;
+
+	uiComponents.push_back(field);
+	uiComponents.push_back(new Button(app.win, "Connect", [&]() {
+		std::cout << "Connecting" << std::endl;
+		refLabel.setText(rf.getText());
+	}, 20, 10, 5, 70));
+	uiComponents.push_back(new Button(app.win, "Back", [&]() {
+		ap.setState(new MenuState(ap));
+		std::cout << "BACK TO THE MENUUU" << std::endl;
+	}, 20, 10, 5, 85));
+	
+
+
+	uiComponents.push_back(label);
 }
 
 LobbyState::~LobbyState()
