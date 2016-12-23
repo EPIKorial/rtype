@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:02:19 2016 Gandoulf
-// Last update Fri Dec 23 11:24:27 2016 Gandoulf
+// Last update Fri Dec 23 14:52:42 2016 Gandoulf
 //
 
 #ifndef GAMESERVER_HPP_
@@ -83,8 +83,8 @@ namespace rtype
     unsigned int				_maxClient;
     std::map<int, Client>			_players;
     std::map<int, GameClient_ptr>		_clients;
-    std::map<int, std::queue<IEvent *>>		_event;
-    std::queue<IEvent *>			_clientInputs;
+    std::map<int, std::queue<IEvent *> >	_event;
+    std::map<int, std::queue<IEvent *> >	_clientInputs;
     GameManager					_gameManager;
   };
 }

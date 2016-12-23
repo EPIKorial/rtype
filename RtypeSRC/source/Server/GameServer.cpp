@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Fri Dec 23 11:21:31 2016 Gandoulf
+// Last update Fri Dec 23 15:09:33 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
@@ -57,8 +57,7 @@ namespace rtype
   GameServer::GameServer(unsigned short &port, std::string proto, std::string const & name,
 			 unsigned int const &maxClient)
     : ARawServer(port, proto), _name(name), _maxClient(maxClient),
-      _gameManager(_name, _event, _clientInputs),
-      _roomPort(port)
+      _gameManager(_name, _event, _clientInputs), _roomPort(port)
   {
 
   }
@@ -168,7 +167,8 @@ namespace rtype
   void GameServer::accept(int fd)
   {
     _event.insert(std::make_pair(fd, std::queue<IEvent *>()));
-    GameClient_ptr client(new GameClient(fd, _server, _event[fd], _clientInputs));
+    _clientInputs.insert(std::make_pair(fd, std::queue<IEvent *>()));
+    GameClient_ptr client(new GameClient(fd, _server, _event[fd], _clientInputs[fd]));
     _clients.insert(std::make_pair(fd, std::move(client)));
   }
 }

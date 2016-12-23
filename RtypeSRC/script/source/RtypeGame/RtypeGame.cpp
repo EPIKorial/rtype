@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:53:57 2016 Gandoulf
-// Last update Fri Dec 23 10:41:12 2016 Gandoulf
+// Last update Fri Dec 23 16:02:28 2016 Gandoulf
 //
 
 #include "RtypeGame/RtypeGame.hpp"
@@ -28,7 +28,8 @@ void RtypeGame::Start()
 
 void RtypeGame::Update()
 {
-  gameObject->getGameManager()->instantiate("Enemy.prefab");
+  rtype::GameObject *go = gameObject->getGameManager()->instantiate("Enemy.prefab");
+  gameObject->getGameManager()->synchronise().instantiation(go, 2000);
 }
 
 void RtypeGame::OnCollisionEnter(rtype::GameObject *coll)

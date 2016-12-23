@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Sat Dec 17 11:53:40 2016 Gandoulf
-// Last update Fri Dec 23 12:06:49 2016 Gandoulf
+// Last update Fri Dec 23 15:16:32 2016 Gandoulf
 //
 
 #include "Rtype/GameManager.hpp"
@@ -15,8 +15,8 @@
 namespace rtype
 {
   GameManager::GameManager(std::string const &name, std::map<int, std::queue<IEvent *>> & event,
-			   std::queue<IEvent *> &clientInputs)
-    : _name(name), _event(event), _clientInputs(clientInputs), _closing(false)
+			   std::map<int, std::queue<IEvent *> > &clientInputs)
+    : _name(name), _synchroniser(event), _closing(false)
   {
 
   }
@@ -52,6 +52,11 @@ namespace rtype
 	  }
       }
     _gameObjects.update();
+  }
+
+  Synchroniser        &GameManager::synchronise()
+  {
+    return (_synchroniser);
   }
 
   GameObjectManager   &GameManager::getGameObjects()

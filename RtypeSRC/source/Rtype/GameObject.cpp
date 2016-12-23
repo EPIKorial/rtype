@@ -5,10 +5,11 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:46:49 2016 Gandoulf
-// Last update Fri Dec 23 09:57:49 2016 Gandoulf
+// Last update Fri Dec 23 15:34:09 2016 Gandoulf
 //
 
 #include "Rtype/GameObject.hpp"
+#include <cstring>
 
 namespace rtype
 {
@@ -68,6 +69,7 @@ namespace rtype
   bool GameObject::setName(std::string const &name)
   {
     _name = name;
+    std::strncpy((char *)(&_ID), _name.c_str() + (_name.size() - 6), 4);
   }
 
   void GameObject::setScript(AScript *script)
@@ -98,6 +100,11 @@ namespace rtype
   std::string const & GameObject::getName() const
   {
     return (_name);
+  }
+
+  unsigned int const & GameObject::getID() const
+  {
+    return (_ID);
   }
 
   std::string const & GameObject::getTag() const

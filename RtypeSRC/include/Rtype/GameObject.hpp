@@ -5,7 +5,7 @@
 // Login   <agor_m@epitech.net>
 //
 // Started on  Thu Jun  2 15:32:14 2016 Maxime Agor
-// Last update Fri Dec 23 09:57:18 2016 Gandoulf
+// Last update Fri Dec 23 15:30:37 2016 Gandoulf
 //
 
 #ifndef GAMEOBJECT_HPP_
@@ -33,6 +33,7 @@ namespace rtype
     std::vector<rtype::AScript *>	_script;
     std::string				_tag;
     std::string				_name;
+    unsigned int			_ID;
     rtype::Vector2F			_position;
     rtype::Vector2F			_scale;
     rtype::IGameManager			*_gameManager;
@@ -58,6 +59,7 @@ namespace rtype
     rtype::Vector2F const&		getPosition() const;
     rtype::Vector2F const&		getScale() const;
     std::string const &			getName() const;
+    unsigned int const &		getID() const;
     std::string const &			getTag() const;
 
     //TODO: need an exeption
