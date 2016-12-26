@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 23 12:50:30 2016 Gandoulf
-// Last update Fri Dec 23 16:00:10 2016 Gandoulf
+// Last update Fri Dec 23 17:25:07 2016 Gandoulf
 //
 
 #include "Rtype/Synchroniser.hpp"

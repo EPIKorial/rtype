@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec  6 14:09:53 2016 Gandoulf
-// Last update Fri Dec 16 16:59:08 2016 Gandoulf
+// Last update Fri Dec 23 17:13:25 2016 Gandoulf
 //
 
 #ifndef IONETWORKMANAGER_HPP_
@@ -87,7 +87,7 @@ namespace rtype
 	msg = _serializer->serialize(packet, &size);
 	if (msg != NULL) {
 	  connection.write(fd, msg, size);
-	  delete (msg);
+	  delete[] (msg);
 	}
 	_toSend.pop();
 	delete (packet);

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 23 12:50:42 2016 Gandoulf
-// Last update Fri Dec 23 15:37:36 2016 Gandoulf
+// Last update Fri Dec 23 17:25:01 2016 Gandoulf
 //
 
 #ifndef SYNCHRONISER_HPP_

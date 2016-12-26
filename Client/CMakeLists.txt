@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 2.8)
 project(client_rtype)
 
 set(SOURCE_FILES 
@@ -27,6 +27,6 @@ set(LIBS
 
 add_executable(client_rtype ${SOURCE_FILES})
 
-set_target_properties(client_rtype PROPERTIES COMPILE_FLAGS "-std=c++11")
+set_target_properties(client_rtype PROPERTIES COMPILE_FLAGS "-std=c++14")
 
 target_link_libraries(client_rtype ${LIBS})

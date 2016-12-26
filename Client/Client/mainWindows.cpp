@@ -1,8 +1,10 @@
 #include <SFML/Graphics.hpp>
 
-#ifndef WIN_INC
-# define WIN_INC
-# include <Windows.h>
+#ifdef __Win32__
+# ifndef WIN_INC
+#  define WIN_INC
+#  include <Windows.h>
+# endif
 #endif
 
 int custom_main();

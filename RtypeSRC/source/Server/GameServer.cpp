@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Fri Dec 23 15:09:33 2016 Gandoulf
+// Last update Fri Dec 23 17:37:06 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
@@ -57,7 +57,7 @@ namespace rtype
   GameServer::GameServer(unsigned short &port, std::string proto, std::string const & name,
 			 unsigned int const &maxClient)
     : ARawServer(port, proto), _name(name), _maxClient(maxClient),
-      _gameManager(_name, _event, _clientInputs), _roomPort(port)
+      _gameManager(_name, _event, _clientInputs, _clientGO), _roomPort(port)
   {
 
   }
@@ -104,6 +104,16 @@ namespace rtype
     auto eventClient = _event.find(fd);
     if (eventClient != _event.end())
       _event.erase(eventClient);
+    auto clientInputs = _clientInputs.find(fd);
+    if (clientInputs != _clientInputs.end())
+      _clientInputs.erase(clientInputs);
+    auto clientGO = _clientGO.find(fd);
+    if (clientGO != _clientGO.end())
+      {
+	_gameManager.destroy(clientGO->second);
+	_gameManager.synchronise().deletion(clientGO->second);
+	_clientGO.erase(clientGO);
+      }
   }
 
   void GameServer::onRead(Socket::Server & server, int fd, size_t length)
@@ -168,6 +178,8 @@ namespace rtype
   {
     _event.insert(std::make_pair(fd, std::queue<IEvent *>()));
     _clientInputs.insert(std::make_pair(fd, std::queue<IEvent *>()));
+    _clientGO.insert(std::make_pair(fd, _gameManager.instantiate("Player.prefab")));
+    _gameManager.synchronise().instantiation(_clientGO.find(fd)->second, _clients.size() );
     GameClient_ptr client(new GameClient(fd, _server, _event[fd], _clientInputs[fd]));
     _clients.insert(std::make_pair(fd, std::move(client)));
   }
