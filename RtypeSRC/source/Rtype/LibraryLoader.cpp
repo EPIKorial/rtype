@@ -29,7 +29,7 @@ namespace Memory
       return;
 #if defined(_MSC_VER) // Microsoft compiler
     pcDllname += ".dll";
-    if ((_library = (void*)LoadLibrary(pcDllname)) == 0)
+    if ((_library = (void*)LoadLibrary(pcDllname.c_str())) == 0)
       throw LibraryLoadError();
 #elif defined(__GNUC__) // GNU compiler
     pcDllname += ".so";

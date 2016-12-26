@@ -30,8 +30,12 @@
 
 
 # Visual Studio build files
+## Client
 /Client/Debug
 /Client/Client/Debug
+##Server
+/Debug
+
 
 rtype_server
 rtype_client
@@ -40,6 +44,7 @@ rtype_client
 build
 Build
 RtypeSRC/build
+RtypeSRC/buildWindows
 RtypeSRC/Build
 
 Client/sfml

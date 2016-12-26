@@ -117,7 +117,9 @@ namespace rtype
 	std::cout << "NINJA" << std::endl;
 	_room.connect(req->nickName);
 	_room.getRoomList(req->nickName);
+	return (1); // labrez_f : To compile on Windows
       }
+	return (0); // labrez_f : To compile on Windows
   }
 
   void TcpClient::write(Socket::Server & server, int fd)
