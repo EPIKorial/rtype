@@ -1,9 +1,7 @@
 #include "AState.hpp"
-#include <iostream>
 
 void AState::keyboardEventUI(const sf::Event &ev, float elapsed)
 {
-	printf("%f\n", elapsed);
 	bool haveActive = false;
 	bool tabbed = false;
 	for (std::vector<IUIComponent *>::iterator it = uiComponents.begin(); it != uiComponents.end(); it++)
