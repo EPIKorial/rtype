@@ -40,7 +40,6 @@ bool Button::isIn(float x, float y) const
 
 void Button::trigger()
 {
-	std::cout << "Clicked !" << std::endl;
 	callback();
 	shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
 	txt.setFillColor(shape.getOutlineColor());
@@ -48,7 +47,6 @@ void Button::trigger()
 
 void Button::unTrigger()
 {
-	std::cout << "Untriggered !" << std::endl;
 	shape.setOutlineColor(sf::Color(Palette::DEEPSKYBLUE));
 	txt.setFillColor(shape.getOutlineColor());
 }

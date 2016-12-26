@@ -10,7 +10,7 @@ LobbyState::LobbyState(App &ap) : AState(ap)
 		"Nova", 50, 6, 50);
 	Label &refLabel = *label;
 
-	InputField *field = new InputField(app.win, "IP Adress", 5, 50, 10);
+	InputField *field = new InputField(app.win, "IP Adress", 5, 50, 25);
 	InputField &rf = *field;
 
 	uiComponents.push_back(field);
