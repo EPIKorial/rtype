@@ -11,12 +11,13 @@ InputField::InputField(sf::RenderWindow &wi, const std::string & palceholder,
 	shape.setFillColor(sf::Color::Black);
 	shape.setOutlineColor(sf::Color(Palette::DARKMAGENTA));
 	shape.setOutlineThickness(-2.5);
+	shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), RECOMMENDED_HEIGHT));
 	in.setFillColor(sf::Color(Palette::DARKMAGENTA));
 	in.setCharacterSize(RECOMMENDED_FONT_SIZE);
 	in.setStyle(sf::Text::Bold);
-	in.setString(palceholder);
 	if (FontLib::have("Nova"))
 		in.setFont(*FontLib::get("Nova"));
+	fillField(palceholder);
 }
 
 InputField::~InputField()
@@ -25,7 +26,6 @@ InputField::~InputField()
 
 const std::string & InputField::getText(void) const
 {
-	std::cout << placeholder << std::endl;
 	return filled;
 }
 
@@ -71,20 +71,31 @@ void InputField::setActive(bool a)
 	if (a)
 	{
 		shape.setOutlineColor(sf::Color(Palette::BLUEVIOLET));
-		in.setString(filled);
+		fillField(filled);
 	}
 	else
 	{
 		if (filled.size() == 0)
-			in.setString(placeholder);
+			fillField(placeholder);
 		shape.setOutlineColor(sf::Color(Palette::DARKMAGENTA));
 	}
 	in.setFillColor(shape.getOutlineColor());
 }
 
-void InputField::fillField(void) 
+void InputField::fillField(const std::string &tofill) 
 {
-	in.setString(filled);
+	in.setString(tofill);
+	int offset = 0;
+
+	if (tofill.size() > 0)
+	{
+		while (in.getLocalBounds().width + (RECOMMENDED_PADDING_HORIZ * 1.5) > shape.getLocalBounds().width
+			&& offset < tofill.size())
+		{
+			in.setString(tofill.substr(offset, tofill.size() - offset));
+			offset++;
+		}
+	}
 }
 
 void InputField::triggerKey(const sf::Event &e, float elapsed)
@@ -96,7 +107,7 @@ void InputField::triggerKey(const sf::Event &e, float elapsed)
 			filled.pop_back();
 		else if (e.text.unicode > ' ' && e.text.unicode < 128)
 			filled += static_cast<char>(e.text.unicode);
-		fillField();
+		fillField(filled);
 	}
 }
 

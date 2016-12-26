@@ -24,7 +24,7 @@ class InputField : public IUIComponent
 	bool hovered;
 	int sizeX;
 
-	void fillField(void);
+	void fillField(const std::string &);
 
 public:
 	InputField(sf::RenderWindow &, const std::string &placeholder, float pX = 0, float pY = 0, int sizeX = 10, bool show = true);
