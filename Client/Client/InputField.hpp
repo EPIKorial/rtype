@@ -14,7 +14,7 @@ class InputField : public IUIComponent
 	std::string filled;
 	float posX;
 	float posY;
-	int charSize;
+	//int charSize;
 	sf::Text in;
 	sf::RenderWindow &win;
 	bool quiet;
@@ -24,8 +24,10 @@ class InputField : public IUIComponent
 	bool hovered;
 	int sizeX;
 
+	void fillField(void);
+
 public:
-	InputField(sf::RenderWindow &, const std::string &placeholder, float pX = 0, float pY = 0, int max = 10, bool show = true);
+	InputField(sf::RenderWindow &, const std::string &placeholder, float pX = 0, float pY = 0, int sizeX = 10, bool show = true);
 	virtual ~InputField();
 
 	const std::string &getText(void) const;

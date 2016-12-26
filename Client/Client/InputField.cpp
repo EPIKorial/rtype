@@ -3,9 +3,10 @@
 #include "FontLib.hpp"
 #include <iostream>
 
+
 InputField::InputField(sf::RenderWindow &wi, const std::string & palceholder,
-	float pX, float pY, int max, bool show) :
-	win(wi), placeholder(palceholder), posX(pX), posY(pY), charSize(max), quiet(!show), Dim(wi), active(false), hovered(false)
+	float pX, float pY, int sX, bool show) :
+	win(wi), placeholder(palceholder), posX(pX), posY(pY), sizeX(sX), quiet(!show), Dim(wi), active(false), hovered(false)
 {
 	shape.setFillColor(sf::Color::Black);
 	shape.setOutlineColor(sf::Color(Palette::DARKMAGENTA));
@@ -16,7 +17,6 @@ InputField::InputField(sf::RenderWindow &wi, const std::string & palceholder,
 	in.setString(palceholder);
 	if (FontLib::have("Nova"))
 		in.setFont(*FontLib::get("Nova"));
-	sizeX = charSize * RECOMMENDED_FONT_SIZE + RECOMMENDED_PADDING_HORIZ * 2;
 }
 
 InputField::~InputField()
@@ -41,7 +41,7 @@ void InputField::setQuiet(bool q)
 
 bool InputField::isIn(float x, float y) const
 {
-	return (Dim.getRealWidth(x) >= Dim.getRealWidth(posX) && Dim.getRealWidth(x) <= Dim.getRealWidth(posX) + sizeX)
+	return (Dim.getRealWidth(x) >= Dim.getRealWidth(posX) && Dim.getRealWidth(x) <= Dim.getRealWidth(posX) + Dim.getRealWidth(sizeX))
 		&& (Dim.getRealHeight(y) >= Dim.getRealHeight(posY) && Dim.getRealHeight(y) <= Dim.getRealHeight(posY) + RECOMMENDED_HEIGHT);
 }
 
@@ -82,8 +82,22 @@ void InputField::setActive(bool a)
 	in.setFillColor(shape.getOutlineColor());
 }
 
+void InputField::fillField(void) 
+{
+	in.setString(filled);
+}
+
 void InputField::triggerKey(const sf::Event &e, float elapsed)
 {
+	if (e.type == sf::Event::TextEntered)
+	{
+		std::cout << e.text.unicode << std::endl;
+		if (e.text.unicode == 8 && filled.size() > 0)
+			filled.pop_back();
+		else if (e.text.unicode > ' ' && e.text.unicode < 128)
+			filled += static_cast<char>(e.text.unicode);
+		fillField();
+	}
 }
 
 void InputField::update(float elapsed)
@@ -102,7 +116,7 @@ void InputField::update(float elapsed)
 void InputField::draw(float elapsed)
 {
 	shape.setPosition(Dim.getRealWidth(posX), Dim.getRealHeight(posY));
-	shape.setSize(sf::Vector2f(sizeX, RECOMMENDED_HEIGHT));
+	shape.setSize(sf::Vector2f(Dim.getRealWidth(sizeX), RECOMMENDED_HEIGHT));
 	in.setPosition(Dim.getRealWidth(posX) + RECOMMENDED_PADDING_VERTI,
 		Dim.getRealHeight(posY) + RECOMMENDED_PADDING_VERTI);
 	win.draw(shape);
