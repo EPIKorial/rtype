@@ -2,7 +2,6 @@
 #include "LobbyState.hpp"
 #include "MenuState.hpp"
 #include "UITools.hpp"
-#include "InputField.hpp"
 
 LobbyState::LobbyState(App &ap) : AState(ap)
 {

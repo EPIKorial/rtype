@@ -14,7 +14,6 @@ class InputField : public IUIComponent
 	std::string filled;
 	float posX;
 	float posY;
-	//int charSize;
 	sf::Text in;
 	sf::RenderWindow &win;
 	bool quiet;
