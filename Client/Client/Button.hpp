@@ -31,6 +31,9 @@ public:
 		float sizeX, float sizeY, float posX = 0, float posY = 0, bool show = true);
 	virtual ~Button();
 
+	void setText(const std::string &);
+	const std::string &getText(void) const;
+
 	// Inherited via IUIComponent
 	virtual bool isQuiet() const override;
 	virtual bool isIn(float, float) const override;

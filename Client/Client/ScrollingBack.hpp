@@ -10,6 +10,7 @@
 class ScrollingBack : public IDrawable
 {
 protected:
+	std::string background;
 	sf::RenderWindow &win;
 	sf::Sprite picture;
 	sf::Texture texture;
@@ -21,6 +22,7 @@ protected:
 	float imgHeight;
 	
 	void drawVertically(float xPos);
+	void start(void);
 
 public:
 	virtual ~ScrollingBack();
@@ -30,6 +32,7 @@ public:
 	* @param speed pixel/sec
 	*/
 	ScrollingBack(sf::RenderWindow &, const std::string &background, float speed = 10);
+	ScrollingBack(const ScrollingBack &);
 
 	// Inherited via IDrawable
 	virtual void draw(float elapsed) override;

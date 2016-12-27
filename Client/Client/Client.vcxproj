@@ -112,15 +112,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="AState.cpp" />
     <ClCompile Include="Button.cpp" />
+    <ClCompile Include="CreationState.cpp" />
     <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="FontLib.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputField.cpp" />
     <ClCompile Include="IUIComponent.cpp" />
     <ClCompile Include="Label.cpp" />
@@ -129,16 +130,20 @@
     <ClCompile Include="mainWindows.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Palette.cpp" />
+    <ClCompile Include="ReadyState.cpp" />
     <ClCompile Include="ScreenHelper.cpp" />
     <ClCompile Include="ScrollingBack.cpp" />
+    <ClCompile Include="SelectionState.cpp" />
     <ClCompile Include="sfWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.hpp" />
     <ClInclude Include="AState.hpp" />
     <ClInclude Include="Button.hpp" />
+    <ClInclude Include="CreationState.hpp" />
     <ClInclude Include="EmptyState.hpp" />
     <ClInclude Include="FontLib.hpp" />
+    <ClInclude Include="GameState.hpp" />
     <ClInclude Include="IDrawable.hpp" />
     <ClInclude Include="InputField.hpp" />
     <ClInclude Include="IState.hpp" />
@@ -148,8 +153,10 @@
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Palette.hpp" />
+    <ClInclude Include="ReadyState.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />
     <ClInclude Include="ScrollingBack.hpp" />
+    <ClInclude Include="SelectionState.hpp" />
     <ClInclude Include="sfWindow.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="UITools.hpp" />
