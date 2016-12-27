@@ -9,13 +9,18 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 {
 	backTimer = 0;
 	Label *label = new Label(app.win, "", IUIComponent::CENTERED,
-		sf::Color(Palette::ORANGERED), "Nova", 50, 50);
+		sf::Color(Palette::ORANGERED), "Nova", 50, 25);
 	Label &refLabel = *label;
 
-	InputField *field = new InputField(app.win, "IP Adress", 5, 70, 50);
-	InputField &rf = *field;
-
+	InputField *field = new InputField(app.win, "Nickname", 5, 55, 50);
+	InputField &nick = *field;
 	uiComponents.push_back(field);
+
+	field = new InputField(app.win, "IP Adress", 5, 70, 50);
+	InputField &rf = *field;
+	uiComponents.push_back(field);
+
+
 	uiComponents.push_back(new Button(app.win, "Connect", [&]() {
 		std::cout << "CONNECT BUTTON" << std::endl;
 		
@@ -39,7 +44,7 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 		sf::Color(Palette::GOLD), "Nova", 50, 6, 50));
 	uiComponents.push_back(label);
 	uiComponents.push_back(new Label(app.win, "Connect to a server", IUIComponent::LEFT,
-		sf::Color(Palette::DEEPSKYBLUE), "Nova", 6.5, 65, IUIComponent::RECOMMENDED_FONT_SIZE * 0.6));
+		sf::Color(Palette::DEEPSKYBLUE), "Nova", 6.5, 50, IUIComponent::RECOMMENDED_FONT_SIZE * 0.6));
 }
 
 LobbyState::~LobbyState()

@@ -90,8 +90,17 @@
     <ClCompile Include="ScrollingBack.cpp">
       <Filter>Source Files\DrawComponents</Filter>
     </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
     <ClCompile Include="SelectionState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CreationState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadyState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +162,15 @@
       <Filter>Header Files\DrawComponents</Filter>
     </ClInclude>
     <ClInclude Include="SelectionState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CreationState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadyState.hpp">
       <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,6 @@
 #include <iostream>
 #include "SelectionState.hpp"
+#include "CreationState.hpp"
 #include "LobbyState.hpp"
 #include "UITools.hpp"
 
@@ -33,8 +34,8 @@ SelectionState::SelectionState(App & a, const ScrollingBack &bk, const Scrolling
 	}, 7.75, 10, 82.5, 65));
 
 	uiComponents.push_back(new Button(app.win, "Create", [&]() {
-		app.setState(new SelectionState(app, back, upper));
-		std::cout << "Reload Selection state" << std::endl;
+		app.setState(new CreationState(app, back, upper));
+		std::cout << "create room" << std::endl;
 	}, 20, 10, 50, 85));
 
 	uiComponents.push_back(new Button(app.win, "Reload", [&]() {

@@ -102,7 +102,7 @@ void InputField::triggerKey(const sf::Event &e, float elapsed)
 	{
 		if (e.text.unicode == 8 && filled.size() > 0)
 			filled.pop_back();
-		else if (e.text.unicode > ' ' && e.text.unicode < 128)
+		else if (e.text.unicode >= ' ' && e.text.unicode < 128)
 			filled += static_cast<char>(e.text.unicode);
 		fillField(filled);
 	}
