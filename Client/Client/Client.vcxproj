@@ -130,6 +130,7 @@
     <ClCompile Include="Palette.cpp" />
     <ClCompile Include="ScreenHelper.cpp" />
     <ClCompile Include="ScrollingBack.cpp" />
+    <ClCompile Include="SelectionState.cpp" />
     <ClCompile Include="sfWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="Palette.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />
     <ClInclude Include="ScrollingBack.hpp" />
+    <ClInclude Include="SelectionState.hpp" />
     <ClInclude Include="sfWindow.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="UITools.hpp" />

@@ -24,6 +24,17 @@ Button::~Button()
 {
 }
 
+void Button::setText(const std::string &t)
+{
+	text = t;
+	txt.setString(text);
+}
+
+const std::string & Button::getText(void) const
+{
+	return text;
+}
+
 bool Button::isQuiet() const
 {
 	return quiet;

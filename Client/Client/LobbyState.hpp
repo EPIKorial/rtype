@@ -16,6 +16,8 @@ public:
 	LobbyState(App &, const ScrollingBack &, const ScrollingBack &);
 	virtual ~LobbyState();
 
+	void add(IUIComponent *);
+
 	virtual void update(float elapsed) override;
 
 	virtual void draw(float elapsed) override;

@@ -90,6 +90,9 @@
     <ClCompile Include="ScrollingBack.cpp">
       <Filter>Source Files\DrawComponents</Filter>
     </ClCompile>
+    <ClCompile Include="SelectionState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWindow.hpp">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="ScrollingBack.hpp">
       <Filter>Header Files\DrawComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionState.hpp">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
