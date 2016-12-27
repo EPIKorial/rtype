@@ -3,7 +3,7 @@
 #include "MenuState.hpp"
 #include "UITools.hpp"
 
-LobbyState::LobbyState(App &ap) : AState(ap), background(ap.win, "Assets/Images/stars.jpg", 3)
+LobbyState::LobbyState(App &ap, const ScrollingBack &back) : AState(ap), background(back)
 {
 	backTimer = 0;
 	Label *label = new Label(app.win, "Lobby", IUIComponent::CENTERED, sf::Color(Palette::CRIMSON),
@@ -18,7 +18,7 @@ LobbyState::LobbyState(App &ap) : AState(ap), background(ap.win, "Assets/Images/
 		std::cout << "Connecting" << std::endl;
 	}, 20, 10, 5, 70));
 	uiComponents.push_back(new Button(app.win, "Back", [&]() {
-		ap.setState(new MenuState(ap));
+		ap.setState(new MenuState(ap, background));
 		std::cout << "BACK TO THE MENUUU" << std::endl;
 	}, 20, 10, 5, 85));
 	
@@ -46,7 +46,9 @@ void LobbyState::draw(float elapsed)
 		backTimer += elapsed;
 	if (backTimer > 3.f && backTimer < 14.f)
 	{
-		background.setSpeed(background.getSpeed() + backTimer / 9.f);
+		background.setSpeed(background.getSpeed() + backTimer / 12.f);
+		if (background.getSpeed() > 50.f)
+			background.setSpeed(50.f);
 	}
 	background.draw(elapsed);
 	drawUI(elapsed);

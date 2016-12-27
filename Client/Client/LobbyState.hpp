@@ -12,7 +12,7 @@ class LobbyState : public AState
 	float backTimer;
 
 public:
-	LobbyState(App &);
+	LobbyState(App &, const ScrollingBack &);
 	virtual ~LobbyState();
 
 	virtual void update(float elapsed) override;

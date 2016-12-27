@@ -14,8 +14,12 @@ class MenuState : public AState
 	bool loaded;
 	ScrollingBack background;
 
+	void start();
+
 public:
 	MenuState(App &);
+	MenuState(App &, const ScrollingBack &);
+
 	virtual ~MenuState();
 
 

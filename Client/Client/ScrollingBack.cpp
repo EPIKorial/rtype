@@ -5,8 +5,7 @@ ScrollingBack::~ScrollingBack()
 {
 }
 
-ScrollingBack::ScrollingBack(sf::RenderWindow &wi, const std::string &background, float _speed) :
-	win(wi), speed(_speed), lastPosX(0), active(true)
+void ScrollingBack::start(void)
 {
 	if (texture.loadFromFile(background))
 	{
@@ -19,6 +18,18 @@ ScrollingBack::ScrollingBack(sf::RenderWindow &wi, const std::string &background
 		std::cerr << "Could not load :" << background << std::endl;
 		active = false;
 	}
+}
+
+ScrollingBack::ScrollingBack(sf::RenderWindow &wi, const std::string &_background, float _speed) :
+	win(wi), speed(_speed), lastPosX(0), active(true), background(_background)
+{
+	start();
+}
+
+ScrollingBack::ScrollingBack(const ScrollingBack &o) :
+	win(o.win), speed(o.speed), lastPosX(o.lastPosX), active(o.active), background(o.background)
+{
+	start();
 }
 
 void ScrollingBack::draw(float elapsed)
@@ -50,6 +61,7 @@ void ScrollingBack::drawVertically(float xPos)
 	}
 }
 
+
 void ScrollingBack::update(float elapsed)
 {
 }
@@ -57,7 +69,10 @@ void ScrollingBack::update(float elapsed)
 void ScrollingBack::setSpeed(float ns)
 {
 	speed = ns;
-	
+	if (speed < 0.f)
+		speed = 0;
+	else if (speed > 100.f)
+		speed = 100.f;
 }
 
 float ScrollingBack::getSpeed(void) const
