@@ -130,6 +130,7 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Palette.cpp" />
     <ClCompile Include="ScreenHelper.cpp" />
+    <ClCompile Include="ScrollingBack.cpp" />
     <ClCompile Include="sfWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +139,7 @@
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="EmptyState.hpp" />
     <ClInclude Include="FontLib.hpp" />
+    <ClInclude Include="IDrawable.hpp" />
     <ClInclude Include="InputField.hpp" />
     <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUIComponent.hpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Palette.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />
+    <ClInclude Include="ScrollingBack.hpp" />
     <ClInclude Include="sfWindow.hpp" />
     <ClInclude Include="Sprite.hpp" />
     <ClInclude Include="UITools.hpp" />
