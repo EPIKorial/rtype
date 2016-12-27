@@ -9,10 +9,11 @@
 class LobbyState : public AState
 {
 	ScrollingBack background;
+	ScrollingBack upper;
 	float backTimer;
 
 public:
-	LobbyState(App &, const ScrollingBack &);
+	LobbyState(App &, const ScrollingBack &, const ScrollingBack &);
 	virtual ~LobbyState();
 
 	virtual void update(float elapsed) override;

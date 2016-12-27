@@ -26,6 +26,7 @@ void App::loop()
 
 App::App() : win(sf::VideoMode(800, 600), "R-Type +6"), currentState(nullptr), active(false), toDelete(false), oldState(nullptr)
 {
+	win.setVerticalSyncEnabled(true);
 	gameClock.restart();
 	drawClock.restart();
 	FontLib::add("Nova", "Assets/Fonts/NovaSquare.ttf");
