@@ -4,9 +4,13 @@
 # define LOBBYSTATE_HPP_
 
 # include "AState.hpp"
+# include "ScrollingBack.hpp"
 
 class LobbyState : public AState
 {
+	ScrollingBack background;
+	float backTimer;
+
 public:
 	LobbyState(App &);
 	virtual ~LobbyState();

@@ -48,3 +48,4 @@ RtypeSRC/buildWindows
 RtypeSRC/Build
 
 Client/sfml
+.DS_Store

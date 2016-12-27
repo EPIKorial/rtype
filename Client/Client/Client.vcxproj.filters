@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Helpers">
       <UniqueIdentifier>{bb88cc5c-4e6d-44dc-8355-29144875dcb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DrawComponents">
+      <UniqueIdentifier>{134abcca-f40f-404f-acf3-599e6cdb5e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DrawComponents">
+      <UniqueIdentifier>{16412086-71f1-4525-97c5-89c0042c7d3d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -81,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="InputField.cpp">
       <Filter>Source Files\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollingBack.cpp">
+      <Filter>Source Files\DrawComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +143,12 @@
     </ClInclude>
     <ClInclude Include="UITools.hpp">
       <Filter>Header Files\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.hpp">
+      <Filter>Header Files\DrawComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollingBack.hpp">
+      <Filter>Header Files\DrawComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
