@@ -1,5 +1,6 @@
 #include "InputField.hpp"
 #include "Palette.hpp"
+#include "Jukebox.hpp"
 #include "FontLib.hpp"
 
 InputField::InputField(sf::RenderWindow &wi, const std::string & palceholder,
@@ -45,6 +46,8 @@ bool InputField::isIn(float x, float y) const
 
 void InputField::trigger()
 {
+	if (Jukebox::have("button"))
+		Jukebox::get("button").play();
 	setActive(true);
 }
 
@@ -100,6 +103,8 @@ void InputField::triggerKey(const sf::Event &e, float elapsed)
 {
 	if (e.type == sf::Event::TextEntered)
 	{
+		if (Jukebox::have("keypress"))
+			Jukebox::get("keypress").play();
 		if (e.text.unicode == 8 && filled.size() > 0)
 			filled.pop_back();
 		else if (e.text.unicode >= ' ' && e.text.unicode < 128)

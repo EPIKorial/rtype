@@ -125,6 +125,7 @@
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputField.cpp" />
     <ClCompile Include="IUIComponent.cpp" />
+    <ClCompile Include="Jukebox.cpp" />
     <ClCompile Include="Label.cpp" />
     <ClCompile Include="LobbyState.cpp" />
     <ClCompile Include="main.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="IState.hpp" />
     <ClInclude Include="IUIComponent.hpp" />
     <ClInclude Include="IWindow.hpp" />
+    <ClInclude Include="Jukebox.hpp" />
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
