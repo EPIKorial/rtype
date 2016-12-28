@@ -9,18 +9,26 @@
 # include "AState.hpp"
 # include "Entity.hpp"
 # include "PlayerController.hpp"
+# include "Button.hpp"
 
 class GameState : public AState
 {
+	// UI
 	ScrollingBack back;
 	ScrollingBack upper;
+	float backTimer;
+	void drawBack(float elapsed);
+	bool haveEsc;
+	Button *quitBtn;
+	Button *leaveBtn;
+	void handleEsc(bool);
+
+	// Game
 	std::map<int, Entity *> entities;
 
 	PlayerController player;
 	int myId;
 
-	float backTimer;
-	void drawBack(float elapsed);
 public:
 	GameState(App &, const ScrollingBack &, const ScrollingBack &);
 	virtual ~GameState();

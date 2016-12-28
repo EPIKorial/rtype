@@ -17,7 +17,6 @@ class PlayerController
 
 	static const float ANGLE_MOVEMENT;
 
-	void toFalse();
 public:
 	PlayerController(float speed = 10, Entity *e = nullptr);
 	~PlayerController();
@@ -27,6 +26,7 @@ public:
 	void passEvent(sf::Event &e);
 	void compute(float elapsed);
 
+	void freeze();
 	void setSpeed(float s);
 	float getSpeed() const;
 };

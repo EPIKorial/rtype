@@ -3,7 +3,7 @@
 
 const float PlayerController::ANGLE_MOVEMENT = 0.707;
 
-void PlayerController::toFalse()
+void PlayerController::freeze()
 {
 	up = false;
 	down = false;
