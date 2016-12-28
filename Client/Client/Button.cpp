@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Jukebox.hpp"
 #include "FontLib.hpp"
 #include "Button.hpp"
 #include "Palette.hpp"
@@ -51,6 +52,8 @@ bool Button::isIn(float x, float y) const
 
 void Button::trigger()
 {
+	if (Jukebox::have("button"))
+		Jukebox::get("button").play();
 	callback();
 	shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
 	txt.setFillColor(shape.getOutlineColor());

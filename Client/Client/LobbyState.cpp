@@ -1,5 +1,6 @@
 #include <iostream>
 #include "LobbyState.hpp"
+#include "Jukebox.hpp"
 #include "MenuState.hpp"
 #include "SelectionState.hpp"
 #include "UITools.hpp"
@@ -25,12 +26,21 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 		std::cout << "CONNECT BUTTON" << std::endl;
 		
 		refLabel.setText("");
+		if (nick.getText().size() < 1)
+		{
+			if (Jukebox::have("error"))
+				Jukebox::get("error").play();
+			refLabel.setText("Nickname has to be at least one letter");
+			return;
+		}
 		if (rf.getText().compare("ninja") == 0)
 		{
 			app.setState(new SelectionState(app, background, upper));
 		}
 		else
 		{
+			if (Jukebox::have("error"))
+				Jukebox::get("error").play();
 			refLabel.setText("Could not connect");
 		}
 	}, 20, 10, 75, 85));
