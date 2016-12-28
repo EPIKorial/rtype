@@ -42,6 +42,13 @@ void CreationState::update(float elapsed)
 
 void CreationState::draw(float elapsed)
 {
+	if (back.getSpeed() > 3.f)
+	{
+		back.setSpeed(back.getSpeed() - 0.25);
+		if (back.getSpeed() < 3.f)
+			back.setSpeed(3.f);
+		upper.setSpeed(back.getSpeed() * 1.50);
+	}
 	back.draw(elapsed);
 	upper.draw(elapsed);
 	drawUI(elapsed);

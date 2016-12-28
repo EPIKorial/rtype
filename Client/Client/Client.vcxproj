@@ -120,6 +120,7 @@
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="CreationState.cpp" />
     <ClCompile Include="EmptyState.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FontLib.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="InputField.cpp" />
@@ -130,6 +131,7 @@
     <ClCompile Include="mainWindows.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="Palette.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="ReadyState.cpp" />
     <ClCompile Include="ScreenHelper.cpp" />
     <ClCompile Include="ScrollingBack.cpp" />
@@ -142,6 +144,7 @@
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="CreationState.hpp" />
     <ClInclude Include="EmptyState.hpp" />
+    <ClInclude Include="Entity.hpp" />
     <ClInclude Include="FontLib.hpp" />
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="IDrawable.hpp" />
@@ -153,6 +156,7 @@
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
     <ClInclude Include="Palette.hpp" />
+    <ClInclude Include="PlayerController.hpp" />
     <ClInclude Include="ReadyState.hpp" />
     <ClInclude Include="ScreenHelper.hpp" />
     <ClInclude Include="ScrollingBack.hpp" />

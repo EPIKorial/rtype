@@ -4,15 +4,23 @@
 # define GAMESTATE_HPP_
 
 # include <vector>
+# include <map>
 # include "ScrollingBack.hpp"
 # include "AState.hpp"
-# include "IDrawable.hpp"
+# include "Entity.hpp"
+# include "PlayerController.hpp"
 
 class GameState : public AState
 {
-	// Prob better as a map
-	std::vector<IDrawable *> env;
+	ScrollingBack back;
+	ScrollingBack upper;
+	std::map<int, Entity *> entities;
 
+	PlayerController player;
+	int myId;
+
+	float backTimer;
+	void drawBack(float elapsed);
 public:
 	GameState(App &, const ScrollingBack &, const ScrollingBack &);
 	virtual ~GameState();
