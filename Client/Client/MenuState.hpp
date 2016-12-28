@@ -13,9 +13,14 @@ class MenuState : public AState
 	sf::Sprite sprite;
 	bool loaded;
 	ScrollingBack background;
+	ScrollingBack upper;
+
+	void start();
 
 public:
 	MenuState(App &);
+	MenuState(App &, const ScrollingBack &, const ScrollingBack &);
+
 	virtual ~MenuState();
 
 

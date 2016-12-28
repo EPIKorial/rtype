@@ -27,6 +27,11 @@ const std::string & Label::getText(void) const
 	return text;
 }
 
+void Label::setColor(const sf::Color &c)
+{
+	sftxt.setFillColor(c);
+}
+
 bool Label::isQuiet() const
 {
 	return quiet;
