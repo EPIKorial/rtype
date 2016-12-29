@@ -3,8 +3,16 @@
 #include "MenuState.hpp"
 
 GameState::GameState(App &a, const ScrollingBack &bk, const ScrollingBack &up) :
-	AState(a), back(bk), upper(up), backTimer(0), player(4), haveEsc(false)
+	AState(a), back(bk), upper(up), backTimer(0), player(4), haveEsc(false), Moblib("Assets/Images/Enemy/drone.png")
 {
+	// Adding sprites to moblist
+	Moblib.add(1, "Assets/Images/Enemy/warrior.png");
+	Moblib.add(2, "Assets/Images/Enemy/knight.png");
+
+	// Implying my player's Id is 0
+	myId = 0;
+
+	// UI
 	quitBtn = new Button(app.win, "Back to menu", [&]() {
 		app.setState(new MenuState(app, back, upper));
 		std::cout << "Back to menu" << std::endl;
@@ -16,11 +24,17 @@ GameState::GameState(App &a, const ScrollingBack &bk, const ScrollingBack &up) :
 	uiComponents.push_back(quitBtn);
 	uiComponents.push_back(leaveBtn);
 
+	// Player
 	app.win.setKeyRepeatEnabled(false);
 	entities[0] = new Entity(a.win, "Assets/Images/player.png", 50, 50, 10, 10);
-	player.setPlayer(entities[0]);
-	// Implying my player's Id is 0
-	myId = 0;
+	player.setPlayer(entities[myId]);
+
+	// Adding sample enemies
+	entities[1] = new Entity(a.win, Moblib[0], 75, 20, 5, 5);
+	entities[2] = new Entity(a.win, Moblib[0], 75, 80, 5, 5);
+	entities[3] = new Entity(a.win, Moblib[1], 60, 50, 10, 10);
+	entities[4] = new Entity(a.win, Moblib[2], 85, 50, 30, 20);
+	entities[5] = new Entity(a.win, Moblib[77], 10, 10, 5, 5);
 }
 
 GameState::~GameState()

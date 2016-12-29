@@ -131,6 +131,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mainWindows.cpp" />
     <ClCompile Include="MenuState.cpp" />
+    <ClCompile Include="MobLib.cpp" />
     <ClCompile Include="Palette.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="ReadyState.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Label.hpp" />
     <ClInclude Include="LobbyState.hpp" />
     <ClInclude Include="MenuState.hpp" />
+    <ClInclude Include="MobLib.hpp" />
     <ClInclude Include="Palette.hpp" />
     <ClInclude Include="PlayerController.hpp" />
     <ClInclude Include="ReadyState.hpp" />
