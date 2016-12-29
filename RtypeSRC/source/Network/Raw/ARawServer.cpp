@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec  5 15:31:10 2016 Gandoulf
-// Last update Tue Dec 13 14:07:20 2016 Gandoulf
+// Last update Thu Dec 29 11:26:15 2016 Gandoulf
 //
 
 #include <iostream>
@@ -14,6 +14,7 @@
 ARawServer::ARawServer(unsigned short const &port, std::string proto)
   : _port(port), _protocol(proto)
 {
+  _server.setTimeout(50);
   _server.OnConnect([this](Socket::Server & server, int fd)
 		    {
 		      onConnect(server, fd);
@@ -85,7 +86,7 @@ void ARawServer::onStart(Socket::Server & server, int fd)
 
 void ARawServer::onTick(Socket::Server & server)
 {
-  
+
 }
 
 void ARawServer::start()

@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Wed Dec 28 01:19:37 2016 Gandoulf
+// Last update Thu Dec 29 11:23:58 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -149,6 +149,7 @@ namespace rtype
     : ARawServer(port, proto), _script(script), _maxClient(maxClient)
   {
     _gameServerPort.setContener(7180);
+    _server.setTimeout(100);
   }
 
   Server::~Server()
