@@ -10,6 +10,8 @@ class MobLib
 {
 	std::map<short, std::string> assets;
 
+  static const std::string NO_PATH;
+  
 public:
 	MobLib(const std::string &first);
 	MobLib(const MobLib &);

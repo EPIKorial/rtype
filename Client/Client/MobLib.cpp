@@ -1,5 +1,7 @@
 #include "MobLib.hpp"
 
+const std::string MobLib::NO_PATH = "";
+
 MobLib::MobLib(const std::string & first)
 {
 	assets[0] = first;
@@ -46,7 +48,7 @@ const std::string & MobLib::get(short id)
 	else if (have(0))
 		return assets[0];
 	else
-		return "";
+		return NO_PATH;
 }
 
 const std::string & MobLib::operator[](short id)

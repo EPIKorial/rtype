@@ -9,7 +9,7 @@
 *.pch
 
 # Compiled Dynamic libraries
-*.so
+
 *.dylib
 *.dll
 
@@ -45,5 +45,4 @@ Android
 RtypeSRC/build
 RtypeSRC/Build
 
-Client/sfml
 .DS_Store
