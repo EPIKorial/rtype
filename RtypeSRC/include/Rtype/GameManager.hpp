@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:27:14 2016 Gandoulf
-// Last update Mon Dec 26 11:37:47 2016 Gandoulf
+// Last update Mon Dec 26 14:57:31 2016 Gandoulf
 //
 
 #ifndef GAMEMANAGER_HPP_
@@ -23,7 +23,7 @@ class GameManager;
 # include "Rtype/GameObject.hpp"
 # include "Rtype/PrefabCreator.hpp"
 # include "Rtype/Synchroniser.hpp"
-
+# include "Utils/Chrono.hpp"
 
 
 namespace rtype
@@ -72,6 +72,7 @@ namespace rtype
     GameObject					*_game;
     std::map<int, std::queue<IEvent *> >	&_clientInputs;
     std::map<int, GameObject *>			&_clientGO;
+    Chrono					_chrono;
 
     bool					_closing;
   };

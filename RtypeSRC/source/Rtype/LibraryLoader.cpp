@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 11:49:59 2016 Gandoulf
-// Last update Wed Dec 21 09:38:52 2016 Gandoulf
+// Last update Wed Dec 28 00:20:16 2016 Gandoulf
 //
 
 #include "Rtype/LibraryLoader.hpp"
@@ -73,7 +73,7 @@ namespace Memory
 #if defined(_MSC_VER)
     return ("not implemented");
 #elif defined(__GNUC__)
-    return (dlerror());
+    return ((char *)(dlerror()));
 #endif
   }
 }

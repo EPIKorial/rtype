@@ -5,6 +5,7 @@ project (RtypeGame-Script)
 ###################### TO MODIFY ##############################################
 Set(SCRIPT-NAME "RtypeGame")
 Set(SCRIPT-FLAGS "-DSCRIPT_RTYPEGAME ${CMAKE_SYSTEM_FLAGS}")
+Set(SCRIPT-LIB "${SCRIPT-LIB} -lrtype_server")
 ############################################################################### 
 
 set(SCRIPT-DIR "${SCRIPT_SOURCE_DIR}/${SCRIPT-NAME}")
@@ -21,5 +22,10 @@ set_target_properties(${SCRIPT-NAME} PROPERTIES
   ${SCRIPT-FLAGS}
   )
 
+add_dependencies(${SCRIPT-NAME}
+  rtype_server
+  )
+
 target_link_libraries(${SCRIPT-NAME}
+  ${SCRIPT-LIB}
   )

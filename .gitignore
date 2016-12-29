@@ -38,7 +38,9 @@ rtype_client
 
 # build
 build
+build-android
 Build
+Android
 RtypeSRC/build
 RtypeSRC/Build
 
