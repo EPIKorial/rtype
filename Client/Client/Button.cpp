@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Jukebox.hpp"
 #include "FontLib.hpp"
 #include "Button.hpp"
 #include "Palette.hpp"
@@ -24,6 +25,17 @@ Button::~Button()
 {
 }
 
+void Button::setText(const std::string &t)
+{
+	text = t;
+	txt.setString(text);
+}
+
+const std::string & Button::getText(void) const
+{
+	return text;
+}
+
 bool Button::isQuiet() const
 {
 	return quiet;
@@ -40,6 +52,8 @@ bool Button::isIn(float x, float y) const
 
 void Button::trigger()
 {
+	if (Jukebox::have("button"))
+		Jukebox::get("button").play();
 	callback();
 	shape.setOutlineColor(sf::Color(Palette::DODGERBLUE));
 	txt.setFillColor(shape.getOutlineColor());

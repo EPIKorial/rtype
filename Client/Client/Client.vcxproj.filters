@@ -31,10 +31,21 @@
     <Filter Include="Source Files\Helpers">
       <UniqueIdentifier>{bb88cc5c-4e6d-44dc-8355-29144875dcb0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\DrawComponents">
+      <UniqueIdentifier>{134abcca-f40f-404f-acf3-599e6cdb5e4e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DrawComponents">
+      <UniqueIdentifier>{16412086-71f1-4525-97c5-89c0042c7d3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{a9352647-3551-4c35-b772-dccf4af1bcc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game">
+      <UniqueIdentifier>{5ad3c763-d7f2-4ff2-80e4-573b900b53d7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -81,6 +92,30 @@
     </ClCompile>
     <ClCompile Include="InputField.cpp">
       <Filter>Source Files\UIComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="ScrollingBack.cpp">
+      <Filter>Source Files\DrawComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="CreationState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="ReadyState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\DrawComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Source Files\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Jukebox.cpp">
+      <Filter>Source Files\Helpers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +169,33 @@
     </ClInclude>
     <ClInclude Include="UITools.hpp">
       <Filter>Header Files\UIComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.hpp">
+      <Filter>Header Files\DrawComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="ScrollingBack.hpp">
+      <Filter>Header Files\DrawComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="CreationState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="ReadyState.hpp">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.hpp">
+      <Filter>Header Files\DrawComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.hpp">
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Jukebox.hpp">
+      <Filter>Header Files\Helpers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

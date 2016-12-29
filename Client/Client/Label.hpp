@@ -28,6 +28,8 @@ public:
 	void setText(const std::string &);
 	const std::string &getText(void) const;
 
+	void setColor(const sf::Color &);
+
 	// Inherited via IUIComponent
 	virtual bool isQuiet() const override;
 

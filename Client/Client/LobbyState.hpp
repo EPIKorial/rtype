@@ -4,12 +4,19 @@
 # define LOBBYSTATE_HPP_
 
 # include "AState.hpp"
+# include "ScrollingBack.hpp"
 
 class LobbyState : public AState
 {
+	ScrollingBack background;
+	ScrollingBack upper;
+	float backTimer;
+
 public:
-	LobbyState(App &);
+	LobbyState(App &, const ScrollingBack &, const ScrollingBack &);
 	virtual ~LobbyState();
+
+	void add(IUIComponent *);
 
 	virtual void update(float elapsed) override;
 
