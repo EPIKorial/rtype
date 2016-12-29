@@ -16,7 +16,11 @@ include("${RTYPE_SOURCE_DIR}/Protocol/Protocol.cmake")
 
 include_directories(${MODULE_INCLUDE})
 
-add_executable(${MODULE_NAME} ${MODULE_SRC})
+if (NOT ANDROID)
+  add_executable(${MODULE_NAME} ${MODULE_SRC})
+else ()
+  add_library(${MODULE_NAME} SHARED ${MODULE_SRC})
+endif(NOT ANDROID)
 
 add_dependencies(${MODULE_NAME}
   Network

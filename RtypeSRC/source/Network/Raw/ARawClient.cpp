@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec 13 14:24:29 2016 Gandoulf
-// Last update Tue Dec 13 16:16:19 2016 Gandoulf
+// Last update Thu Dec 29 11:25:35 2016 Gandoulf
 //
 
 # include "Network/Raw/ARawClient.hpp"
@@ -14,6 +14,7 @@
 ARawClient::ARawClient(unsigned short const &port, std::string const & adresse, std::string proto)
   : _port(port), _adresse(adresse), _protocol(proto)
 {
+  _client.setTimeout(50);
   _client.OnReadPossible([this](Socket::Client &client, size_t length)
 			 {
 			   onRead(client, length);

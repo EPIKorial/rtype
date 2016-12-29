@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:27:14 2016 Gandoulf
-// Last update Mon Dec 26 11:37:47 2016 Gandoulf
+// Last update Thu Dec 29 11:15:21 2016 Gandoulf
 //
 
 #ifndef GAMEMANAGER_HPP_
@@ -23,7 +23,7 @@ class GameManager;
 # include "Rtype/GameObject.hpp"
 # include "Rtype/PrefabCreator.hpp"
 # include "Rtype/Synchroniser.hpp"
-
+# include "Utils/Chrono.hpp"
 
 
 namespace rtype
@@ -59,6 +59,7 @@ namespace rtype
 						     Vector2F const &pos = (0,0),
 						     Vector2F const &scale = (0,0));
     virtual void			destroy(GameObject *gameObject);
+    virtual long double			deltaTime();
 
   private:
     bool checkDeleteList(std::string const &name);
@@ -72,6 +73,7 @@ namespace rtype
     GameObject					*_game;
     std::map<int, std::queue<IEvent *> >	&_clientInputs;
     std::map<int, GameObject *>			&_clientGO;
+    Chrono					_chrono;
 
     bool					_closing;
   };

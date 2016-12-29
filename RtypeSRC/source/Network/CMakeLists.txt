@@ -8,8 +8,16 @@ set(MODULE_SRC "${CMAKE_CURRENT_LIST_DIR}/sockets/Server.cpp"
   )
 set(MODULE_INCLUDE ""
   )
-set(MODULE_LIB "-lpthread"
+
+if(NOT ANDROID)
+set(MODULE_LIB
+  "-lpthread"
   )
+else()
+set(MODULE_LIB
+  )
+endif(NOT ANDRROID)
+
 set(MODULE_FLAGS "${CMAKE_SYSTEM_FLAGS}"
   )
 

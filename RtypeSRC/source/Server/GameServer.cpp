@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Fri Dec 16 22:03:12 2016 Gandoulf
-// Last update Fri Dec 23 17:37:06 2016 Gandoulf
+// Last update Wed Dec 28 10:07:19 2016 Gandoulf
 //
 
 #include "Server/GameServer.hpp"
@@ -59,7 +59,7 @@ namespace rtype
     : ARawServer(port, proto), _name(name), _maxClient(maxClient),
       _gameManager(_name, _event, _clientInputs, _clientGO), _roomPort(port)
   {
-
+    _server.setTimeout(20);
   }
 
   GameServer::~GameServer()
@@ -138,7 +138,7 @@ namespace rtype
 
   void GameServer::onTick(Socket::Server & server)
   {
-    std::cout << "tick" << std::endl;
+    //std::cout << "tick" << std::endl; //TODO delete
     _gameManager.managerUpdate();
   }
 

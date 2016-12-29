@@ -5,12 +5,13 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Dec 13 14:56:00 2016 Gandoulf
-// Last update Tue Dec 13 16:12:03 2016 Gandoulf
+// Last update Wed Dec 28 00:28:17 2016 Gandoulf
 //
 
 #include "Client/ClientTcp.hpp"
 #include <iostream>
 
+#ifndef ARM_ANDROID
 int main(int ac, char **av)
 {
   if (ac != 3) {
@@ -21,3 +22,4 @@ int main(int ac, char **av)
   client.run();
   return (0);
 }
+#endif
