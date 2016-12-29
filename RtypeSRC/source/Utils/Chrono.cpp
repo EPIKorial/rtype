@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 26 12:51:41 2016 Gandoulf
-// Last update Mon Dec 26 15:43:41 2016 Gandoulf
+// Last update Thu Dec 29 11:03:24 2016 Gandoulf
 //
 
 #include "Utils/Chrono.hpp"
@@ -15,8 +15,7 @@ namespace rtype
 {
   Chrono::Chrono()
   {
-    _initial = time(0) * 1000;
-    _start = 0;
+    start = std::chrono::system_clock::now();
   }
 
   Chrono::~Chrono()
@@ -26,14 +25,13 @@ namespace rtype
 
   void Chrono::update()
   {
-    _end = (_initial - time(0) * 1000);
-    _diff = _end - _start;
-    std::cout << "Elasped time is " << _diff << " seconds." << std::endl;
-    _start = (_initial - time(0) * 1000);
+    end = std::chrono::system_clock::now();
+    diff = std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    start = std::chrono::system_clock::now();
   }
 
   long double Chrono::getDeltaTime()
   {
-    return (_diff);
+    return (diff);
   }
 }

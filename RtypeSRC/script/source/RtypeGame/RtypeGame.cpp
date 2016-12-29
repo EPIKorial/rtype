@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:53:57 2016 Gandoulf
-// Last update Mon Dec 26 12:33:14 2016 Gandoulf
+// Last update Thu Dec 29 11:19:10 2016 Gandoulf
 //
 
 #include "RtypeGame/RtypeGame.hpp"
@@ -13,7 +13,7 @@
 RtypeGame::RtypeGame(rtype::GameObject *&_gameObject)
   : AScript(_gameObject)
 {
-
+  //duration = 0; //TODO delete
 }
 
 RtypeGame::~RtypeGame()
@@ -30,6 +30,8 @@ void RtypeGame::Start()
 
 void RtypeGame::Update()
 {
+  /*duration += gameObject->getGameManager()->deltaTime();
+    std::cout << "server start since " << duration << std::endl;*/
 }
 
 void RtypeGame::OnCollisionEnter(rtype::GameObject *coll)

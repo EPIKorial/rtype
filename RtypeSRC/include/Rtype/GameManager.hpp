@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:27:14 2016 Gandoulf
-// Last update Mon Dec 26 14:57:31 2016 Gandoulf
+// Last update Thu Dec 29 11:15:21 2016 Gandoulf
 //
 
 #ifndef GAMEMANAGER_HPP_
@@ -59,6 +59,7 @@ namespace rtype
 						     Vector2F const &pos = (0,0),
 						     Vector2F const &scale = (0,0));
     virtual void			destroy(GameObject *gameObject);
+    virtual long double			deltaTime();
 
   private:
     bool checkDeleteList(std::string const &name);

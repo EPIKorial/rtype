@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:54:52 2016 Gandoulf
-// Last update Mon Nov 28 19:20:53 2016 Gandoulf
+// Last update Thu Dec 29 11:11:50 2016 Gandoulf
 //
 
 #ifndef RTYPEGAME_HPP_
@@ -15,13 +15,16 @@
 
 class RtypeGame : public rtype::AScript
 {
-  public:
+public:
   RtypeGame(rtype::GameObject *&_gameObject);
   virtual ~RtypeGame();
 
   virtual void Start();
   virtual void Update();
   virtual void OnCollisionEnter(rtype::GameObject *);
+
+private:
+  long double	duration;
 };
 
 # ifdef SCRIPT_RTYPEGAME
