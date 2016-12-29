@@ -117,6 +117,9 @@
     <ClCompile Include="Jukebox.cpp">
       <Filter>Source Files\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="MobLib.cpp">
+      <Filter>Source Files\Helpers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWindow.hpp">
@@ -195,6 +198,9 @@
       <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="Jukebox.hpp">
+      <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="MobLib.hpp">
       <Filter>Header Files\Helpers</Filter>
     </ClInclude>
   </ItemGroup>

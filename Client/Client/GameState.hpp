@@ -10,6 +10,7 @@
 # include "Entity.hpp"
 # include "PlayerController.hpp"
 # include "Button.hpp"
+# include "MobLib.hpp"
 
 class GameState : public AState
 {
@@ -25,6 +26,7 @@ class GameState : public AState
 
 	// Game
 	std::map<int, Entity *> entities;
+	MobLib  Moblib;
 
 	PlayerController player;
 	int myId;
