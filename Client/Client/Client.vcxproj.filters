@@ -43,6 +43,36 @@
     <Filter Include="Source Files\Game">
       <UniqueIdentifier>{5ad3c763-d7f2-4ff2-80e4-573b900b53d7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Network">
+      <UniqueIdentifier>{942cba9b-bf0a-4a5d-9c62-de4eec746021}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network\Socket">
+      <UniqueIdentifier>{4f97e39f-c48f-4bca-9b46-1b6ec08c2abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Network">
+      <UniqueIdentifier>{035014f1-0dfd-47b6-bcf4-8c47250d90a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Network\Socket">
+      <UniqueIdentifier>{b389bf29-256a-405e-96d8-d2dfc1d0f3a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Network\Raw">
+      <UniqueIdentifier>{661d8bf4-b72c-43a6-8f8a-5670b89f588a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network\Raw">
+      <UniqueIdentifier>{81961c84-0248-474e-aced-ff9633abe8ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IONetwork">
+      <UniqueIdentifier>{eace1e80-e18c-46ee-8ebc-43b318be2673}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\IONetwork">
+      <UniqueIdentifier>{4d15157b-bb3b-4df1-95ea-8f9164466448}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Protocol">
+      <UniqueIdentifier>{616f8a5b-2c41-4c35-9040-e0bb84703ba4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Protocol">
+      <UniqueIdentifier>{d6dce486-592b-458b-9653-f06fe5d3c2b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -52,9 +82,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="mainWindows.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sfWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp">
@@ -120,15 +147,27 @@
     <ClCompile Include="MobLib.cpp">
       <Filter>Source Files\Helpers</Filter>
     </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Source Files\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Source Files\Network\Socket</Filter>
+    </ClCompile>
+    <ClCompile Include="ARawClient.cpp">
+      <Filter>Source Files\Network\Raw</Filter>
+    </ClCompile>
+    <ClCompile Include="ARawServer.cpp">
+      <Filter>Source Files\Network\Raw</Filter>
+    </ClCompile>
+    <ClCompile Include="TcpEvent.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
+    <ClCompile Include="UdpEvent.cpp">
+      <Filter>Source Files\Protocol</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWindow.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sfWindow.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="App.hpp">
@@ -202,6 +241,57 @@
     </ClInclude>
     <ClInclude Include="MobLib.hpp">
       <Filter>Header Files\Helpers</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.hpp">
+      <Filter>Header Files\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.hpp">
+      <Filter>Header Files\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="SocketErrors.hpp">
+      <Filter>Header Files\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="Sockets.hpp">
+      <Filter>Header Files\Network\Socket</Filter>
+    </ClInclude>
+    <ClInclude Include="ARawClient.hpp">
+      <Filter>Header Files\Network\Raw</Filter>
+    </ClInclude>
+    <ClInclude Include="ARawServer.hpp">
+      <Filter>Header Files\Network\Raw</Filter>
+    </ClInclude>
+    <ClInclude Include="IRawClient.hpp">
+      <Filter>Header Files\Network\Raw</Filter>
+    </ClInclude>
+    <ClInclude Include="IRawServer.hpp">
+      <Filter>Header Files\Network\Raw</Filter>
+    </ClInclude>
+    <ClInclude Include="IONetworkManager.hpp">
+      <Filter>Header Files\IONetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="IPacketReader.hpp">
+      <Filter>Header Files\IONetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="ISerializer.hpp">
+      <Filter>Header Files\IONetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="RtypePacketReader.hpp">
+      <Filter>Header Files\IONetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="RtypeSerializer.hpp">
+      <Filter>Header Files\IONetwork</Filter>
+    </ClInclude>
+    <ClInclude Include="IEvent.hpp">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="TcpEvent.hpp">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="UdpEvent.hpp">
+      <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Header Files\Protocol</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
