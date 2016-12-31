@@ -58,7 +58,7 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 		rtype::ClientTcp con(port, hostInput.getText());
 
 		con.start();
-
+		
 		// Connected:
 		if (con.isActive())
 		{

@@ -128,26 +128,25 @@ namespace rtype
 	{
 		ActiveMutex.lock();
 		active = true;
+		ActiveMutex.unlock();
 		try {
 			_client.start(_adresse, _port, _protocol.c_str());
 		}
 		catch (const std::exception e) {
+			ActiveMutex.lock();
 			active = false;
+			ActiveMutex.unlock();
 			std::cout << "server not connected" << std::endl;
 		}
-		ActiveMutex.unlock();
 	}
 
 	void ClientTcp::stop()
 	{
-		ActiveMutex.lock();
-		active = false;
 		try {
 			_client.stop();
 		}
 		catch (const std::exception error) {
 			std::cout << "client already close" << std::endl;
 		}
-		ActiveMutex.unlock();
 	}
 }
