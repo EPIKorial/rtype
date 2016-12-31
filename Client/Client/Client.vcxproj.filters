@@ -165,6 +165,9 @@
     <ClCompile Include="UdpEvent.cpp">
       <Filter>Source Files\Protocol</Filter>
     </ClCompile>
+    <ClCompile Include="ClientTcp.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IWindow.hpp">
@@ -292,6 +295,12 @@
     </ClInclude>
     <ClInclude Include="Protocol.h">
       <Filter>Header Files\Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientTcp.hpp">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientErrors.hpp">
+      <Filter>Header Files\Network</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

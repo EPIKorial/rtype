@@ -6,8 +6,12 @@ include_directories("${CMAKE_CURRENT_LIST_DIR}/lib/include")
 
 set(SOURCE_FILES 
 ${CMAKE_CURRENT_LIST_DIR}/Client/App.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/ARawClient.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/ARawServer.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/AState.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/Button.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/Client.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/ClientTcp.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/CreationState.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/EmptyState.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/Entity.cpp
@@ -28,12 +32,15 @@ ${CMAKE_CURRENT_LIST_DIR}/Client/ReadyState.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/ScreenHelper.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/ScrollingBack.cpp
 ${CMAKE_CURRENT_LIST_DIR}/Client/SelectionState.cpp
-${CMAKE_CURRENT_LIST_DIR}/Client/sfWindow.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/Server.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/TcpEvent.cpp
+${CMAKE_CURRENT_LIST_DIR}/Client/UdpEvent.cpp
 )
 
 link_directories("${CMAKE_CURRENT_LIST_DIR}/lib/bin")
 
 set(LIBS
+"-lpthread"
 "-lsfml-system"
 "-lsfml-window"
 "-lsfml-graphics"
