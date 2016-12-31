@@ -70,6 +70,7 @@ namespace rtype
   {
     _name = name;
     std::strncpy((char *)(&_ID), _name.c_str() + (_name.size() - 6), 4);
+	return (true); // labrez_f : To compile on Windows
   }
 
   void GameObject::setScript(AScript *script)

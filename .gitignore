@@ -30,8 +30,12 @@
 
 
 # Visual Studio build files
+## Client
 /Client/Debug
 /Client/Client/Debug
+##Server
+/Debug
+
 
 rtype_server
 Rtype_server
@@ -43,6 +47,7 @@ build-android
 Build
 Android
 RtypeSRC/build
+RtypeSRC/buildWindows
 RtypeSRC/Build
 
 .DS_Store
