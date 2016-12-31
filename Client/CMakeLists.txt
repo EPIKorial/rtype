@@ -40,6 +40,7 @@ ${CMAKE_CURRENT_LIST_DIR}/Client/UdpEvent.cpp
 link_directories("${CMAKE_CURRENT_LIST_DIR}/lib/bin")
 
 set(LIBS
+"-lpthread"
 "-lsfml-system"
 "-lsfml-window"
 "-lsfml-graphics"
