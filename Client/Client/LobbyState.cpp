@@ -1,9 +1,11 @@
 #include <iostream>
+#include <sstream>
 #include "LobbyState.hpp"
 #include "Jukebox.hpp"
 #include "MenuState.hpp"
 #include "SelectionState.hpp"
 #include "UITools.hpp"
+#include "ClientTcp.hpp"
 
 LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &up) : AState(ap),
 	background(back), upper(up)
@@ -17,8 +19,12 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 	InputField &nick = *field;
 	uiComponents.push_back(field);
 
-	field = new InputField(app.win, "IP Adress", 5, 70, 50);
-	InputField &rf = *field;
+	field = new InputField(app.win, "Host", 5, 70, 50);
+	InputField &hostInput = *field;
+	uiComponents.push_back(field);
+
+	field = new InputField(app.win, "Port", 56, 70, 20);
+	InputField &portInput = *field;
 	uiComponents.push_back(field);
 
 
@@ -33,7 +39,28 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 			refLabel.setText("Nickname has to be at least one letter");
 			return;
 		}
-		if (rf.getText().compare("ninja") == 0)
+		std::stringstream stream(portInput.getText());
+		int port = 0;
+		stream >> port;
+		if (port == 0)
+		{
+			if (Jukebox::have("error"))
+				Jukebox::get("error").play();
+			refLabel.setText("Port is invalid");
+			return;
+		}
+
+		// Lets try to connect:
+		refLabel.setText("Connecting...");
+		std::cout << hostInput.getText() << ":" << port << std::endl;
+		
+		
+		rtype::ClientTcp con(port, hostInput.getText());
+
+		con.start();
+		
+		// Connected:
+		if (con.isActive())
 		{
 			app.setState(new SelectionState(app, background, upper));
 		}
@@ -43,6 +70,7 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 				Jukebox::get("error").play();
 			refLabel.setText("Could not connect");
 		}
+		con.stop();
 	}, 20, 10, 75, 85));
 	uiComponents.push_back(new Button(app.win, "Back", [&]() {
 		ap.setState(new MenuState(ap, background, upper));

@@ -121,6 +121,7 @@
     <ClCompile Include="AState.cpp" />
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="ClientTcp.cpp" />
     <ClCompile Include="CreationState.cpp" />
     <ClCompile Include="EmptyState.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -152,6 +153,8 @@
     <ClInclude Include="AState.hpp" />
     <ClInclude Include="Button.hpp" />
     <ClInclude Include="Client.hpp" />
+    <ClInclude Include="ClientErrors.hpp" />
+    <ClInclude Include="ClientTcp.hpp" />
     <ClInclude Include="CreationState.hpp" />
     <ClInclude Include="EmptyState.hpp" />
     <ClInclude Include="Entity.hpp" />
