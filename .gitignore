@@ -51,3 +51,4 @@ RtypeSRC/buildWindows
 RtypeSRC/Build
 
 .DS_Store
+/Client/Release
