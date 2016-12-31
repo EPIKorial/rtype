@@ -1,6 +1,7 @@
 #include <iostream>
 #include "ReadyState.hpp"
 #include "SelectionState.hpp"
+#include "GameState.hpp"
 #include "UITools.hpp"
 
 ReadyState::ReadyState(App &a, const ScrollingBack &bk, const ScrollingBack &up) :
@@ -17,7 +18,10 @@ ReadyState::ReadyState(App &a, const ScrollingBack &bk, const ScrollingBack &up)
 
 	uiComponents.push_back(new Button(app.win, "Ready", [&]() {
 		std::cout << "Ready" << std::endl;
+		if (players[0]->getText().compare("Ready") == 0)
+			app.setState(new GameState(app, back, upper));
 		players[0]->setColor(sf::Color(Palette::GREEN));
+		players[0]->setText("Ready");
 	}, 20, 10, 75, 85)); uiComponents.push_back(new Button(app.win, "Back", [&]() {
 		app.setState(new SelectionState(app, back, upper));
 		std::cout << "BACK TO THE MENUUU" << std::endl;
@@ -46,6 +50,13 @@ void ReadyState::update(float elapsed)
 
 void ReadyState::draw(float elapsed)
 {
+	if (back.getSpeed() > 3.f)
+	{
+		back.setSpeed(back.getSpeed() - 0.25);
+		if (back.getSpeed() < 3.f)
+			back.setSpeed(3.f);
+		upper.setSpeed(back.getSpeed() * 1.50);
+	}
 	back.draw(elapsed);
 	upper.draw(elapsed);
 	drawUI(elapsed);

@@ -1,6 +1,7 @@
-#include "App.hpp"
 #include <iostream>
+#include "App.hpp"
 #include "FontLib.hpp"
+#include "Jukebox.hpp"
 
 const int App::FPS = 16; // 1000 / 60
 
@@ -35,8 +36,22 @@ App::App() : win(sf::VideoMode(800, 600), "R-Type +6"), currentState(nullptr), a
 void App::run(void)
 {
 	active = true;
+	Jukebox::add("mood", "Assets/Audio/DST-Acceleron.ogg");
+	Jukebox::add("button", "Assets/Audio/button.wav");
+	Jukebox::add("keypress", "Assets/Audio/keypress.wav");
+	Jukebox::add("error", "Assets/Audio/error.wav");
+
+	if (Jukebox::have("mood"))
+	{
+		Jukebox::get("mood").setLoop(true);
+		Jukebox::get("mood").play();
+	}
 	while (active)
 		loop();
+	if (Jukebox::have("mood"))
+	{
+		Jukebox::get("mood").stop();
+	}
 	return;
 }
 

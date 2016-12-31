@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Dec 19 12:37:17 2016 Gandoulf
-// Last update Mon Dec 26 11:12:15 2016 Gandoulf
+// Last update Mon Dec 26 12:37:13 2016 Gandoulf
 //
 
 #include "Rtype/GameObjectManager.hpp"
@@ -58,17 +58,6 @@ namespace rtype
       if (!_staticObjects.erase(nameObject))
 	return false;
     return true;
-    /*if (_dynamicObjects[nameObject]) {
-      delete _dynamicObjects[nameObject];
-      _dynamicObjects.erase(nameObject);
-    }
-    else if (_staticObjects[nameObject]) {
-      delete _staticObjects[nameObject];
-      _staticObjects.erase(nameObject);
-    }
-    else
-      return (false);
-      return (true);*/
   }
 
   GameObject *GameObjectManager::getObject(std::string const& nameObject)

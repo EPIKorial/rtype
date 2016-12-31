@@ -5,13 +5,14 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue Nov 29 17:40:23 2016 Gandoulf
-// Last update Tue Dec  6 09:52:50 2016 Gandoulf
+// Last update Wed Dec 28 00:28:54 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
 #include <stdlib.h>
 #include <iostream>
 
+#ifndef ARM_ANDROID
 int main(int ac, char **av)
 {
   if (ac != 2) {
@@ -25,3 +26,4 @@ int main(int ac, char **av)
   server.run();
   return (0);
 }
+#endif

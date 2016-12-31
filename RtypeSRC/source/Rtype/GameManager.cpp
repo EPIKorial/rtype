@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Sat Dec 17 11:53:40 2016 Gandoulf
-// Last update Mon Dec 26 11:37:42 2016 Gandoulf
+// Last update Thu Dec 29 11:15:16 2016 Gandoulf
 //
 
 #include "Rtype/GameManager.hpp"
@@ -43,6 +43,7 @@ namespace rtype
   {
     if (_closing)
       return ;
+    _chrono.update();
     if (!_deleteList.empty())
       {
 	while (_deleteList.size() > 0)
@@ -101,6 +102,11 @@ namespace rtype
     if (_gameObjects.getObject(gameObject->getName()) != NULL &&
 	checkDeleteList(gameObject->getName()) == false)
       _deleteList.push_back(gameObject);
+  }
+
+  long double       GameManager::deltaTime()
+  {
+    return (_chrono.getDeltaTime() / 1000);
   }
 
   /* ----------------------------------private---------------------------------- */

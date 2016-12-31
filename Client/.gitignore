@@ -57,3 +57,8 @@ Temporary Items
 *.log
 *.old
 .suo
+
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+Makefile

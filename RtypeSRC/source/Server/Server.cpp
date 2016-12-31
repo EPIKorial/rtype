@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Mon Nov 28 16:58:59 2016 Gandoulf
-// Last update Fri Dec 23 12:21:31 2016 Gandoulf
+// Last update Thu Dec 29 11:23:58 2016 Gandoulf
 //
 
 #include "Server/Server.hpp"
@@ -151,6 +151,7 @@ namespace rtype
     : ARawServer(port, proto), _script(script), _maxClient(maxClient)
   {
     _gameServerPort.setContener(7180);
+    _server.setTimeout(100);
   }
 
   Server::~Server()
@@ -163,7 +164,9 @@ namespace rtype
   void Server::run()
   {
     start();
-
+#ifdef ARM_android
+    exit(42);
+#endif
     char line[100];
     while (std::cin.getline(line, 100)) {
       std::string stringLine(line);

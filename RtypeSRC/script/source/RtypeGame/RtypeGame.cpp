@@ -5,7 +5,7 @@
 // Login   <gandoulf@epitech.net>
 //
 // Started on  Tue May 24 17:53:57 2016 Gandoulf
-// Last update Fri Dec 23 16:02:28 2016 Gandoulf
+// Last update Thu Dec 29 11:29:45 2016 Gandoulf
 //
 
 #include "RtypeGame/RtypeGame.hpp"
@@ -13,7 +13,6 @@
 RtypeGame::RtypeGame(rtype::GameObject *&_gameObject)
   : AScript(_gameObject)
 {
-
 }
 
 RtypeGame::~RtypeGame()
@@ -24,12 +23,14 @@ RtypeGame::~RtypeGame()
 void RtypeGame::Start()
 {
   std::cout << "game start" << std::endl;
+  duration = gameObject->getGameManager()->deltaTime();
+  std::cout << "server take " << duration << " to launch" << std::endl;
+  rtype::GameObject *go = gameObject->getGameManager()->instantiate("Enemy.prefab");
+  gameObject->getGameManager()->synchronise().instantiation(go, 2000);
 }
 
 void RtypeGame::Update()
 {
-  rtype::GameObject *go = gameObject->getGameManager()->instantiate("Enemy.prefab");
-  gameObject->getGameManager()->synchronise().instantiation(go, 2000);
 }
 
 void RtypeGame::OnCollisionEnter(rtype::GameObject *coll)

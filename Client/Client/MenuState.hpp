@@ -19,7 +19,7 @@ class MenuState : public AState
 
 public:
 	MenuState(App &);
-	MenuState(App &, const ScrollingBack &, const ScrollingBack &);
+	MenuState(App &, const ScrollingBack &, const ScrollingBack &, const std::string &s = "");
 
 	virtual ~MenuState();
 

@@ -2,6 +2,7 @@
 #include "LobbyState.hpp"
 #include "MenuState.hpp"
 #include "UITools.hpp"
+#include "Jukebox.hpp"
 
 void MenuState::start()
 {
@@ -24,10 +25,17 @@ MenuState::MenuState(App &ap) : AState(ap), loaded(false),
 	start();
 }
 
-MenuState::MenuState(App &ap, const ScrollingBack &bk, const ScrollingBack &up) : AState(ap), loaded(false),
+MenuState::MenuState(App &ap, const ScrollingBack &bk, const ScrollingBack &up, const std::string &error) : AState(ap), loaded(false),
 	background(bk), upper(up)
 {
 	start();
+	if (error.size() > 1)
+	{
+		uiComponents.push_back(new Label(app.win, error, IUIComponent::CENTERED,
+			sf::Color(Palette::ORANGERED), "Nova", 50, 25));
+		if (Jukebox::have("error"))
+			Jukebox::get("error").play();
+	}
 }
 
 MenuState::~MenuState()
