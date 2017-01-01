@@ -46,6 +46,8 @@ set(LIBS
 "-lsfml-graphics"
 "-lsfml-audio")
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "../")
+
 add_executable(client_rtype ${SOURCE_FILES})
 
 set_target_properties(client_rtype PROPERTIES COMPILE_FLAGS "-std=c++14")
