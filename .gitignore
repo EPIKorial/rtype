@@ -52,3 +52,5 @@ RtypeSRC/Build
 
 .DS_Store
 /Client/Release
+/Client/Client/Release/Client.tlog
+/Client/Client/Release
