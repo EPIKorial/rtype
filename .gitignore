@@ -47,7 +47,6 @@ build-android
 Build
 Android
 RtypeSRC/build
-RtypeSRC/buildWindows
 RtypeSRC/Build
 
 .DS_Store

@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\Server.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\RoomManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\Room.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\RoomClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\GameServer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\TcpEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\UdpEvent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\GameManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\GameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\GameObjectManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\PrefabCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\LibraryLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\IndieParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\ScriptContener.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\Synchroniser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Utils\Chrono.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1BB1A522-F39A-31D0-8824-9596A3CAFC27}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
