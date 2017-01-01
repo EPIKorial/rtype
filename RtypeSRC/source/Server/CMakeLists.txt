@@ -37,18 +37,18 @@ target_link_libraries(${MODULE_NAME}
   )
 
 if (NOT ANDROID)
-  add_executable("Rtype_server" "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
+  add_executable("Rtype_server_exe" "${CMAKE_CURRENT_LIST_DIR}/Main.cpp")
 
 
-  add_dependencies("Rtype_server"
+  add_dependencies("Rtype_server_exe"
     ${MODULE_NAME}
     )
 
-  set_target_properties("Rtype_server" PROPERTIES
+  set_target_properties("Rtype_server_exe" PROPERTIES
     COMPILE_FLAGS ${MODULE_FLAGS}
     )
 
-  target_link_libraries("Rtype_server"
+  target_link_libraries("Rtype_server_exe"
     -lrtype_server
     )
 endif (NOT ANDROID)

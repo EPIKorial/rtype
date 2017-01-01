@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{4566AF47-5EE2-361E-9AC5-C3A069E781CF}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>Default</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+    <PropertyGroup>
+      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\Logiciels\wamp64\www\rtype\Debug\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default.dir\Debug\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Default</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\Logiciels\wamp64\www\rtype\Release\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Default.dir\Release\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Default</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\Logiciels\wamp64\www\rtype\MinSizeRel\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Default.dir\MinSizeRel\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Default</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\Logiciels\wamp64\www\rtype\RelWithDebInfo\</OutDir>
+      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Default.dir\RelWithDebInfo\</IntDir>
+      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Default</TargetName>
+      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+      <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+      <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -O3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR="Debug";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR=\"Debug\";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;-lrtype_server</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib;G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib/$(Configuration);G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries;G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/Debug/Default.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Logiciels/wamp64/www/rtype/Debug/Default.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -O3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR="Release";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR=\"Release\";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;-lrtype_server</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib;G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib/$(Configuration);G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries;G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/Release/Default.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Logiciels/wamp64/www/rtype/Release/Default.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -O3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR="MinSizeRel";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat></DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR=\"MinSizeRel\";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;-lrtype_server</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib;G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib/$(Configuration);G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries;G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>No</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/MinSizeRel/Default.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Logiciels/wamp64/www/rtype/MinSizeRel/Default.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions> -O3 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR="RelWithDebInfo";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;SCRIPT_DEFAULT;CMAKE_INTDIR=\"RelWithDebInfo\";Default_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\Logiciels\wamp64\www\rtype\RtypeSRC\include;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;-lrtype_server</AdditionalDependencies>
+      <AdditionalLibraryDirectories>G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib;G:/Logiciels/wamp64/www/rtype/RtypeSRC/lib/$(Configuration);G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries;G:/Logiciels/wamp64/www/rtype/RtypeSRC/script/binaries/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>Debug</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/RelWithDebInfo/Default.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/Logiciels/wamp64/www/rtype/RelWithDebInfo/Default.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version></Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+G:\Logiciels\CMake\bin\cmake.exe -HG:/Logiciels/wamp64/www/rtype/RtypeSRC -BG:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows --check-stamp-file G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInitialize.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCCompiler.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCXXCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeGenericSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\WindowsPaths.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-C.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeRCCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeRCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCXXInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Compiler\MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\cmake\system\SystemWindows.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Default\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\RtypeGame\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy2\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Player\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\Rtype.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Utils\Utils.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Client\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Network\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\IONetwork\IONetwork.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+G:\Logiciels\CMake\bin\cmake.exe -HG:/Logiciels/wamp64/www/rtype/RtypeSRC -BG:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows --check-stamp-file G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInitialize.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCCompiler.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCXXCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeGenericSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\WindowsPaths.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-C.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeRCCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeRCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCXXInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Compiler\MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\cmake\system\SystemWindows.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Default\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\RtypeGame\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy2\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Player\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\Rtype.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Utils\Utils.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Client\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Network\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\IONetwork\IONetwork.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+G:\Logiciels\CMake\bin\cmake.exe -HG:/Logiciels/wamp64/www/rtype/RtypeSRC -BG:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows --check-stamp-file G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInitialize.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCCompiler.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCXXCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeGenericSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\WindowsPaths.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-C.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeRCCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeRCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCXXInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Compiler\MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\cmake\system\SystemWindows.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Default\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\RtypeGame\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy2\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Player\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\Rtype.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Utils\Utils.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Client\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Network\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\IONetwork\IONetwork.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+G:\Logiciels\CMake\bin\cmake.exe -HG:/Logiciels/wamp64/www/rtype/RtypeSRC -BG:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows --check-stamp-file G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:/Logiciels/wamp64/www/rtype/RtypeSRC/CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInitialize.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCCompiler.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeCXXCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeSystemSpecificInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeGenericSystem.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\WindowsPaths.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-C.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\3.7.1\CMakeRCCompiler.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeRCInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCXXInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeLanguageInformation.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Compiler\MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC-CXX.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\Platform\Windows-MSVC.cmake;G:\Logiciels\CMake\share\cmake-3.7\Modules\CMakeCommonLanguageInclude.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\cmake\system\SystemWindows.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Default\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\RtypeGame\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Enemy2\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Player\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Server\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Rtype\Rtype.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Utils\Utils.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Client\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Protocol\Protocol.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\Network\CMakeLists.txt;G:\Logiciels\wamp64\www\rtype\RtypeSRC\source\IONetwork\IONetwork.cmake;G:\Logiciels\wamp64\www\rtype\RtypeSRC\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\Logiciels\wamp64\www\rtype\RtypeSRC\buildWindows\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="G:\Logiciels\wamp64\www\rtype\RtypeSRC\script\source\Default\Default.cpp"  />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/ZERO_CHECK.vcxproj">
+      <Project>4144662F-9976-33AF-A777-3DBD286B1E2E</Project>
+    </ProjectReference>
+    <ProjectReference Include="G:/Logiciels/wamp64/www/rtype/RtypeSRC/buildWindows/rtype_server.vcxproj">
+      <Project>7BB8FB68-5815-30FE-AB5F-E39B9C77DA1F</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
