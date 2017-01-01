@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 2.8)
 
-set(MODULE_NAME "rtype_client")
+set(MODULE_NAME "rtype_client_network_tester")
 set(MODULE_SRC  "${CMAKE_CURRENT_LIST_DIR}/main.cpp"
 "${CMAKE_CURRENT_LIST_DIR}/ClientTcp.cpp"
   )

@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
 
-#ifdef __Win32__
+#ifdef _WIN32
 # ifndef WIN_INC
 #  define WIN_INC
 #  include <Windows.h>
