@@ -50,6 +50,13 @@ LobbyState::LobbyState(App &ap, const ScrollingBack &back, const ScrollingBack &
 			return;
 		}
 
+		// Bypass to show
+		if (hostInput.getText().compare("ninja") == 0)
+		{
+			app.setState(new SelectionState(app, background, upper));
+			return;
+		}
+
 		// Lets try to connect:
 		refLabel.setText("Connecting...");
 		std::cout << hostInput.getText() << ":" << port << std::endl;
